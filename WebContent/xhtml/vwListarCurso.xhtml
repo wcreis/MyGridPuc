@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	<head>
+		<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>  
+		<link rel="StyleSheet" type="text/css" href="../../css/bootstrap.min.css"></link>
+		<link rel="StyleSheet" type="text/css" href="../../css/bootstrap-theme.min.css"></link>
+        <link rel="StyleSheet" type="text/css" href="../../css/main.css"></link>
+        
+        <script language="javascript" src="../../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"  charset="ISO-8859-1"/>
+		<script language="javascript" src="../../js/listarCurso.js" charset="ISO-8859-1"/>
+	</head>
+	<body>
+		<f:view>
+			 <div class="navbar navbar-default navbar-static-top navbar-inverse">
+			    <div class="container">
+			      <div class="navbar-header">
+			        <a class="navbar-brand" href="#">Listagem de Curso</a>
+			      </div>
+			      <div class="collapse navbar-collapse navbar-ex1-collapse">
+			        <ul class="nav navbar-nav navbar-right"><li class="active"><a href="#">Inicio</a></li><li><a href="#">Contatos</a> </li></ul>
+			      </div>
+			    </div>
+			  </div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h:form id="formulario">
+							<h:inputHidden id="idCurso" value="#{cursoController.cursoBean.idCurso}" />
+							<br />
+							<h:dataTable border="1" styleClass="sample" id="cursos" value="#{cursoController.listCursoBean}" var="curso">
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="Codigo" />
+									</f:facet>
+									<h:inputHidden value="#{curso.idCurso}" />
+									<h:outputLabel value="#{curso.codigoCurso}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="Nome" />
+									</f:facet>
+									<h:outputLabel value="#{curso.nomeCurso}" />
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										<h:outputLabel value="" />
+									</f:facet>
+									<h:selectOneRadio id="selecionado" value="#{cursoController.cursoBean.idCurso}" onclick="selecionarItem('formulario:idCurso',this);">
+										<f:selectItem itemValue="#{curso.idCurso}"/>
+									</h:selectOneRadio>
+								</h:column>
+							</h:dataTable>
+							<br />
+							<h:commandButton styleClass="button" value="Novo" action="#{cursoController.criar}" />
+							<h:commandButton styleClass="button" value="Excluir" action="#{cursoController.excluir}" />
+							<h:commandButton styleClass="button" value="Editar" action="#{cursoController.consultar}" onclick="return validarSelecionado()" />
+							<h:messages />
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</f:view>
+	</body>
+</html>
