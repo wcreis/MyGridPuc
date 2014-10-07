@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<server port="8080">
-  <module context="MyGridPuc" name="MyGridPuc" path="C:/Users/Charles/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/MyGridPuc" type="j2ee"/>
-</server>
