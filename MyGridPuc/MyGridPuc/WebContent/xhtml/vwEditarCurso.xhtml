@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	<head>
+		<link rel="StyleSheet" type="text/css" href="../../css/estilo.css"></link>  
+		<link rel="StyleSheet" type="text/css" href="../../css/bootstrap.min.css"></link>
+		<link rel="StyleSheet" type="text/css" href="../../css/bootstrap-theme.min.css"></link>
+        <link rel="StyleSheet" type="text/css" href="../../css/main.css"></link>
+        
+        <script language="javascript" src="../../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"  charset="ISO-8859-1"/>
+		<script language="javascript" src="../../js/editarProduto.js" charset="ISO-8859-1"/>
+	</head>
+	<body>
+		<f:view>
+			 <div class="navbar navbar-default navbar-static-top navbar-inverse">
+			    <div class="container">
+			      <div class="navbar-header">
+			        <a class="navbar-brand" href="#">Edição de Curso</a>
+			      </div>
+			      <div class="collapse navbar-collapse navbar-ex1-collapse">
+			        <ul class="nav navbar-nav navbar-right"><li class="active"><a href="#">Inicio</a></li><li><a href="#">Contatos</a> </li></ul>
+			      </div>
+			    </div>
+			  </div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h:form id="formulario" class="form-horizontal" role="form">
+							<h:inputHidden id="idProduto" value="#{produtoController.produtoBean.idProduto}" />
+							<div class="form-group">
+								<h:outputLabel value="Codigo" class="col-sm-2 control-label"/>
+					            <div class="col-sm-10">
+					           		 <h:inputText id="codigo" styleClass="form-control" maxlength="100" value="#{cursoController.cursoBean.codigoCurso}">
+					           		 	<f:validateLength minimum="3" maximum="100"/>
+					           		 </h:inputText >
+					           		 <h:message for="codigo" style="color:red"/>
+					            </div>
+					        </div>
+							<div class="form-group">
+								<h:outputLabel value="Nome" class="col-sm-2 control-label"/>
+					            <div class="col-sm-10">
+					           		 <h:inputText id="nome" styleClass="form-control" maxlength="100" value="#{cursoController.cursoBean.nomeCurso}">
+					           		 	<f:validateLength minimum="3" maximum="100"/>
+					           		 </h:inputText>
+					           		 	<h:message for="nome" style="color:red"/>
+					            </div>
+					        </div>
+							<h:commandButton styleClass="button" value="Salvar" action="#{cursoController.alterar}" onclick="return validarFormulario();"/>
+							<h:commandButton styleClass="button" value="Excluir" action="#{cursoController.excluir}"/>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</f:view>
+	</body>
+</html>
