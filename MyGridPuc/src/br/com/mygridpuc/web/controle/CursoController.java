@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.component.html.HtmlInputHidden;
 import javax.faces.context.FacesContext;
@@ -24,7 +23,6 @@ import br.com.mygridpuc.web.util.MyGridPucException;
  * @author DavidRodrigues
  *
  */
-@ManagedBean(name="cursoController")
 @RequestScoped
 @Controller
 public class CursoController {
