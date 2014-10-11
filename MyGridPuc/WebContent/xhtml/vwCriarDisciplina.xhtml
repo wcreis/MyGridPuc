@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+<h:head>
+	<script type="text-javascript" rel="js/jquery/jquery-2.1.1.js"></script>
+	<link rel="stylesheet" type="text-css" href="../../css/bootstrap.css" ></link>
+</h:head>
+<h:body>
+	<div class="navbar navbar-default navbar-static-top navbar-inverse">
+	   <div class="container">
+	     <div class="navbar-header">
+	       <a class="navbar-brand" href="#">Cadastro de Disciplina</a>
+	     </div>
+	     <div class="collapse navbar-collapse navbar-ex1-collapse">
+	       <ul class="nav navbar-nav navbar-right"><li class="active"><a href="#">Home</a></li><li><a href="#">Contatos</a> </li></ul>
+	     </div>
+	   </div>
+	</div>
+	
+	<!-- Formulario de cadastro de  disciplina -->
+	<div class="container">		
+		<h:form id="formularioDisciplina" class="form-horizontal" role="form">
+			
+			<!-- Nome -->
+			<div class="row">
+				<div class="col-md-6">
+						<div class="form-group">
+							<h:outputLabel value="Nome" class="col-sm-2 control-label"/>
+							<div class="col-sm-10">
+								<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.nome}" />
+							</div>
+						</div>
+				</div>
+			</div>			
+			
+			<!-- Codigo -->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<h:outputLabel value="Codigo" class="col-sm-2 control-label"/>
+						<div class="col-sm-10">
+							<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.codigo}" />
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Credito -->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<h:outputLabel value="Credito" class="col-sm-2 control-label"/>
+						<div class="col-sm-10">
+							<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.credito}" />
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Turma -->
+			
+						
+			<!-- Submit -->
+			<h:commandButton value="Salvar" action="#{disciplinaController.incluir}" class="button" />
+		</h:form>
+	</div>
+</h:body>     
+
+</html>
