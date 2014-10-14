@@ -3676,7 +3676,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-collapse.collapse {
     display: block !important;
     height: auto !important;
-    padding-bottom: 0;
+    padding-bottom: 0;col-md-6
     overflow: visible !important;
   }
   .navbar-collapse.in {
@@ -3883,7 +3883,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 @media (max-width: 767px) {
-  .navbar-form .form-group {
+  .navbar-form .
+ {
     margin-bottom: 5px;
   }
 }

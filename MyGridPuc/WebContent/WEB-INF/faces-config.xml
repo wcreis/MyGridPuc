@@ -45,6 +45,12 @@
 			  <from-outcome>principal</from-outcome>
 			  <to-view-id>/xhtml/vwPrincipal.xhtml</to-view-id>
 		 </navigation-case>
+		 
+		 <!-- Navegacao para o cadastro de Disciplinas. -->
+		 <navigation-case>
+		 	<from-outcome>criar disciplina</from-outcome>
+		 	<to-view-id>/xhtml/vwCriarDisciplina.xhtml</to-view-id>
+		 </navigation-case>
  	</navigation-rule> 
     
     <!-- JSF and Spring are integrated -->
