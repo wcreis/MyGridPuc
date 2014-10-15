@@ -6,8 +6,11 @@ package br.com.mygridpuc.web.controle;
 import java.util.ArrayList;
 import java.util.List;
 
+import javassist.bytecode.analysis.Analyzer;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
+import javax.faces.component.html.HtmlDataTable;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +35,46 @@ public class CursoController {
 	private List<CursoBean> listCursoBean;
 	@Autowired
 	private CursoService cursoService;
+	@Autowired
+	private AnoSemestreBean anoSemestreBean;
 	
 	public CursoController(){
 		cursoBean = new CursoBean();
+	}
+	
+	public String addAnoSemestre(){
+		try{
+			AnoSemestreBean novo = new AnoSemestreBean();
+			novo.setAno(anoSemestreBean.getAno());
+			novo.setSemestre(anoSemestreBean.getSemestre());
+			
+			cursoBean.getListaAnoSemestre().add(novo);
+			anoSemestreBean = new AnoSemestreBean();
+			
+			this.setSession("anosemestres", cursoBean.getListaAnoSemestre());
+			
+			return "criar";
+			
+		}catch(Exception e ){
+			String msg = "Criação não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			return "falha";
+		}
+	}
+	
+	public String rmvAnoSemestre(){
+		try{
+			HtmlDataTable anosemestres = (HtmlDataTable) this.getFacesContext().getViewRoot().findComponent("formulario:anosemestres");
+			cursoBean.getListaAnoSemestre().remove(cursoBean.getListaAnoSemestre().indexOf(anosemestres.getRowData()));
+			
+			return null;
+		}catch(Exception e){
+			String msg = "Exclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			return "falha";
+		}
 	}
 	
 	/**
@@ -200,4 +240,19 @@ public class CursoController {
 		return FacesContext.getCurrentInstance();
 	}
 	
+	public AnoSemestreBean getAnoSemestreBean() {
+		return anoSemestreBean;
+	}
+
+	public void setAnoSemestreBean(AnoSemestreBean anoSemestreBean) {
+		this.anoSemestreBean = anoSemestreBean;
+	}
+	
+	private Object getSession(String variavel){
+		return this.getFacesContext().getExternalContext().getSessionMap().get(variavel);
+	}
+	
+	private void setSession(String variavel, Object objeto){
+		this.getFacesContext().getExternalContext().getSessionMap().put(variavel, objeto);
+	}
 }

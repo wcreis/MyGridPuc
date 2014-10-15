@@ -3,6 +3,8 @@
  */
 package br.com.mygridpuc.web.controle;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -20,6 +22,7 @@ public class CursoBean {
 	private Integer idCurso;
 	private Integer codigoCurso;
 	private String nomeCurso;
+	private List<AnoSemestreBean> listaAnoSemestre;
 	
 	public Integer getIdCurso() {
 		return idCurso;
@@ -38,6 +41,12 @@ public class CursoBean {
 	}
 	public void setNomeCurso(String nomeCurso) {
 		this.nomeCurso = nomeCurso;
+	}
+	public List<AnoSemestreBean> getListaAnoSemestre() {
+		return listaAnoSemestre;
+	}
+	public void setListaAnoSemestre(List<AnoSemestreBean> listaAnoSemestre) {
+		this.listaAnoSemestre = listaAnoSemestre;
 	}
 	
 }

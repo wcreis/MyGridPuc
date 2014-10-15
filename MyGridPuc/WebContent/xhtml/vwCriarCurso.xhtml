@@ -55,34 +55,34 @@
 							<div class="form-group">
 								<h:outputLabel value="Ano" class="col-sm-2 control-label"/> 
 								<div class="col-sm-10">
-									<h:inputText id="ano" value="#{pessoaController.telefoneBean.dsNumero}" size="4" maxlength="15"/>
-									<h:selectOneListbox size="1" value="#{pessoaController.telefoneBean.clTipo}">
+									<h:inputText id="ano" value="#{cursoController.anoSemestreBean.ano}" size="4" maxlength="15"/>
+									<h:selectOneListbox size="1" value="#{cursoController.anoSemestreBean.semestre}">
 										<f:selectItem itemLabel="1" itemValue="1" />
 										<f:selectItem itemLabel="2" itemValue="2" />
 									</h:selectOneListbox>
-									<h:commandButton styleClass="button2" value="Adicionar" action="#{pessoaController.adicionar}" onclick="return validarTelefone();"/>
+									<h:commandButton styleClass="button2" value="Adicionar" action="#{cursoController.addAnoSemestre}" onclick=""/>
 					            </div>
 					            
 					            <div class="col-sm-10">
-					            	<h:dataTable border="1" id="telefones" value="#{pessoaController.pessoaBean.listaTelefone}" var="fone" >
+					            	<h:dataTable border="1" id="anosemestres" value="#{cursoController.cursoBean.listaAnoSemestre}" var="anoSemestre" >
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Ano" />
 											</f:facet>
-											<h:inputHidden value="#{fone.idTelefone}" id="idTelefone" />
-											<h:outputLabel value="#{fone.dsNumero}"/>
+											<h:inputHidden value="#{anoSemestre.idAnoSemestre}" id="idAnoSemestre" />
+											<h:outputLabel value="#{anoSemestre.ano}"/>
 										</h:column>
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Semestre" />
 											</f:facet>
-											<h:outputLabel value="#{fone.clTipo}" />
+											<h:outputLabel value="#{anoSemestre.semestre}" />
 										</h:column>
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Operação" />
 											</f:facet>
-											<h:commandButton styleClass="button" value="Remover" action="#{pessoaController.remover}"/>
+											<h:commandButton styleClass="button" value="Remover" action="#{cursoController.rmvAnoSemestre}"/>
 										</h:column>
 									</h:dataTable>
 					            </div>
