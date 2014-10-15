@@ -26,7 +26,7 @@ function validarSelecionado(){
         	return true;
     	}
     }
-    alert('É necessário selecionar um item da lista.');
+    alert('ï¿½ necessï¿½rio selecionar um item da lista.');
     return false;
 }
 
@@ -41,4 +41,9 @@ function validarFormulario(){
 	}
 	
 	return true;
+}
+
+
+function retornaIdDisciplina(){
+	return document.getElementById('idDisciplina').value
 }

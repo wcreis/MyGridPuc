@@ -1,7 +1,5 @@
 package br.com.mygridpuc.web.controle;
 
-import java.util.ArrayList;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -22,24 +20,14 @@ public class DisciplinaBean {
 		codigo = 0;
 		credito = 0;
 		id = 0;
-		nome = ""; 
-		turma = new TurmaBean();
-		turmas = new ArrayList<TurmaBean>();
+		nome = "";	
 	}
 	
 	private int codigo;
 	private int credito;
 	private int id;
 	private String nome;
-	private TurmaBean turma;
-	private ArrayList<TurmaBean> turmas;
-		
-	public TurmaBean getTurma() {
-		return turma;
-	}
-	public void setTurma(TurmaBean turma) {
-		this.turma = turma;
-	}
+
 	public int getCodigo() {
 		return codigo;
 	}
@@ -64,14 +52,8 @@ public class DisciplinaBean {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public ArrayList<TurmaBean> getTurmas() {
-		return turmas;
-	}
-	public void setTurmas(ArrayList<TurmaBean> turmas) {
-		this.turmas = turmas;
-	}
-	
+
 	public String toString(){
-		return "Codigo: " + codigo + ", Credito: " + credito + ", id: " +id + ", nome: " + nome + ", turma: " + turma + "turmas: " + turmas;
+		return "Codigo: " + codigo + ", Credito: " + credito + ", id: " +id + ", nome: " + nome;
 	}
 }

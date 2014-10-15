@@ -8,30 +8,30 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 public interface DisciplinaService {
 
 	/**
-	 * Inclui um curso
+	 * Inclui uma disciplina
+	 * @param 
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public Disciplina incluir(Disciplina disciplina) throws MyGridPucException;
+	
+	/**
+	 * Altera uma disciplina
 	 * @param pessoa
 	 * @return
 	 * @throws MyGridPucException
 	 */
-	public Disciplina incluir(Disciplina curso) throws MyGridPucException;
+	public Disciplina alterar(Disciplina disciplina) throws MyGridPucException;
 	
 	/**
-	 * Altera um curso
-	 * @param pessoa
-	 * @return
-	 * @throws MyGridPucException
-	 */
-	public Disciplina alterar(Disciplina curso) throws MyGridPucException;
-	
-	/**
-	 * Exclui um curso
+	 * Exclui uma disciplina
 	 * @param id
 	 * @throws MyGridPucException
 	 */
 	public void excluir(Integer id) throws MyGridPucException;
 	
 	/**
-	 * Consulta um curso pelo identificador
+	 * Consulta uma disciplina pelo identificador
 	 * @param id
 	 * @return
 	 * @throws MyGridPucException
@@ -39,7 +39,7 @@ public interface DisciplinaService {
 	public Disciplina consultar(Integer id) throws MyGridPucException;
 	
 	/**
-	 * Lista todas os cursos cadastradas
+	 * Lista todas as disciplina cadastradas
 	 * @return
 	 * @throws MyGridPucException
 	 */

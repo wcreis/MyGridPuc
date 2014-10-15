@@ -2,6 +2,7 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 public class DisciplinaServiceImpl implements DisciplinaService {
 
 	private DisciplinaDao disciplinaDao;
-	
+
 	/**
 	 * Inclui uma disciplina no BD.
 	 * @param Objeto com os dados da disciplina.
@@ -27,28 +28,60 @@ public class DisciplinaServiceImpl implements DisciplinaService {
 		return disciplinaDao.incluir(disciplina);
 	}
 
-	@Override
+	/**
+	 * Altera uma Disciplina
+	 * @param Dados da Disciplina
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Disciplina alterar(Disciplina disciplina) throws MyGridPucException {
-		// TODO Auto-generated method stub
-		return null;
+		return getDisciplinaDao().alterar(disciplina);
 	}
 
-	@Override
+	/**
+	 * Exclui uma Disciplina
+	 * @param Dados da Disciplina
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public void excluir(Integer id) throws MyGridPucException {
-		// TODO Auto-generated method stub
+		getDisciplinaDao().excluir(id);
 		
 	}
 
-	@Override
+	/**
+	 * Consulta uma Disciplina
+	 * @param Dados da Disciplina
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public Disciplina consultar(Integer id) throws MyGridPucException {
-		// TODO Auto-generated method stub
-		return null;
+		Disciplina disciplina = getDisciplinaDao().consultar(id);
+		return disciplina;
 	}
 
-	@Override
+	/**
+	 * Lista uma Disciplina
+	 * @param Dados da Disciplina
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public List<Disciplina> listar() throws MyGridPucException {
-		// TODO Auto-generated method stub
-		return null;
+		return getDisciplinaDao().listar();
+	}
+	
+	
+	public DisciplinaDao getDisciplinaDao() {
+		return disciplinaDao;
+	}
+
+	@Autowired
+	public void setDisciplinaDao(DisciplinaDao disciplinaDao) {
+		this.disciplinaDao = disciplinaDao;
 	}
 	
 }

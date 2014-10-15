@@ -15,6 +15,7 @@ public class Disciplina {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idDisciplina")
 	private Integer id;
+	
 	@Column(name="codigoCurso")
 	private Integer codigo;
 	
