@@ -30,7 +30,8 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h:form id="formulario">
-							<h:inputHidden id="idCurso" value="#{cursoController.cursoBean.idCurso}" />
+<!-- 							<h:inputHidden id="idCurso" value="#{cursoController.cursoBean.idCurso}" /> -->
+							<input type="hidden" id="idCurso" name='idCurso'/>
 							<br />
 							<h:dataTable border="1" styleClass="sample" id="cursos" value="#{cursoController.listCursoBean}" var="curso">
 								<h:column>
@@ -50,7 +51,7 @@
 									<f:facet name="header">
 										<h:outputLabel value="" />
 									</f:facet>
-									<h:selectOneRadio id="selecionado" value="#{cursoController.cursoBean.idCurso}" onclick="selecionarItem('formulario:idCurso',this);">
+									<h:selectOneRadio id="selecionado" value="#{cursoController.cursoBean.idCurso}" onclick="selecionarItem('idCurso',this);">
 										<f:selectItem itemValue="#{curso.idCurso}"/>
 									</h:selectOneRadio>
 								</h:column>

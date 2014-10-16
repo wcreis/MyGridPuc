@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
-import javax.faces.component.html.HtmlInputHidden;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,8 +94,8 @@ public class CursoController {
 	
 	public String consultar(){
 		try{
-			HtmlInputHidden idCurso = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formulario:idCurso");
-			Curso curso = getCursoService().consultar((Integer)idCurso.getValue());
+			String idCurso = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idCurso");
+			Curso curso = getCursoService().consultar(Integer.parseInt(idCurso));
 			
 			if(curso == null || curso.getIdCurso() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
@@ -131,8 +130,8 @@ public class CursoController {
 	
 	public String excluir(){
 		try{
-			HtmlInputHidden idCurso = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formulario:idCurso");
-			Curso curso = getCursoService().consultar((Integer) idCurso.getValue());
+			String idCurso = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idCurso");
+			Curso curso = getCursoService().consultar(Integer.parseInt(idCurso));
 			
 			if(curso == null || curso.getIdCurso() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");

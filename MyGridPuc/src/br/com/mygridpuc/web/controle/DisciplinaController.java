@@ -107,12 +107,8 @@ public class DisciplinaController {
 	 */
 	public String consultar(){
 		try{
-			HtmlInputHidden html = (HtmlInputHidden)getFacesContext().getViewRoot().findComponent("idDisciplina");
-			Object dados = html.getValue();
-			List<UIComponent> dd = getFacesContext().getViewRoot().getChildren();
-			HtmlInputHidden idDisciplina = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formulario:idDisciplina");
-			Object id = idDisciplina.getValue();
-			Disciplina disciplina = getDisciplinaService().consultar(7);
+			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idDisciplina");
+			Disciplina disciplina = getDisciplinaService().consultar(Integer.parseInt(idDisciplina));
 			
 			if(disciplina == null || disciplina.getId() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
@@ -152,7 +148,8 @@ public class DisciplinaController {
 	public String excluir(){
 		try{
 			HtmlInputHidden idDisciplina = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formularioDisciplina:idDisciplina");
-			Disciplina disciplina = getDisciplinaService().consultar((Integer) idDisciplina.getValue());
+			String id = (String) (idDisciplina == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("idDisciplina") : idDisciplina);
+			Disciplina disciplina = getDisciplinaService().consultar(Integer.parseInt(id));
 			
 			if(disciplina == null || disciplina.getId() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
