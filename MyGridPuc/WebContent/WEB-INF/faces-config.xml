@@ -18,24 +18,12 @@
 			  <to-view-id>/xhtml/falha.xhtml</to-view-id>
 		 </navigation-case>
 		 <navigation-case>
-			  <from-outcome>listar</from-outcome>
-			  <to-view-id>/xhtml/vwListarProduto.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
 			  <from-outcome>listar curso</from-outcome>
 			  <to-view-id>/xhtml/vwListarCurso.xhtml</to-view-id>
 		 </navigation-case>
 		 <navigation-case>
-			  <from-outcome>editar</from-outcome>
-			  <to-view-id>/xhtml/vwEditarProduto.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
 			  <from-outcome>editar curso</from-outcome>
 			  <to-view-id>/xhtml/vwEditarCurso.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>criar</from-outcome>
-			  <to-view-id>/xhtml/vwCriarProduto.xhtml</to-view-id>
 		 </navigation-case>
 		 <navigation-case>
 			  <from-outcome>criar curso</from-outcome>

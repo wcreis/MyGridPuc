@@ -8,33 +8,39 @@
    <PROCESS-ITEM-OUTPUT ID="falha::#xhtml#falha.xhtml" NAME="output1"
     PATH="/xhtml/falha.xhtml" TARGET="rules:#xhtml#falha.xhtml"
     TITLE="falha" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="listar::#xhtml#vwListarProduto.xhtml"
-    NAME="output2" PATH="/xhtml/vwListarProduto.xhtml"
-    TARGET="rules:#xhtml#vwListarProduto.xhtml" TITLE="listar" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="listar curso::#xhtml#vwListarCurso.xhtml"
     NAME="output3" PATH="/xhtml/vwListarCurso.xhtml"
     TARGET="rules:#xhtml#vwListarCurso.xhtml" TITLE="listar curso" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="editar::#xhtml#vwEditarProduto.xhtml"
-    NAME="output4" PATH="/xhtml/vwEditarProduto.xhtml"
-    TARGET="rules:#xhtml#vwEditarProduto.xhtml" TITLE="editar" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editar curso::#xhtml#vwEditarCurso.xhtml"
     NAME="output5" PATH="/xhtml/vwEditarCurso.xhtml"
     TARGET="rules:#xhtml#vwEditarCurso.xhtml" TITLE="editar curso" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="criar curso::#xhtml#vwCriarCurso.xhtml"
+    NAME="output7" PATH="/xhtml/vwCriarCurso.xhtml"
+    TARGET="rules:#xhtml#vwCriarCurso.xhtml" TITLE="criar curso" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="principal::#xhtml#vwPrincipal.xhtml"
-    NAME="output6" PATH="/xhtml/vwPrincipal.xhtml"
+    NAME="output8" PATH="/xhtml/vwPrincipal.xhtml"
     TARGET="rules:#xhtml#vwPrincipal.xhtml" TITLE="principal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listar disciplina::#xhtml#vwListarDisciplina.xhtml"
+    NAME="output9" PATH="/xhtml/vwListarDisciplina.xhtml"
+    TARGET="rules:#xhtml#vwListarDisciplina.xhtml"
+    TITLE="listar disciplina" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editar disciplina::#xhtml#vwEditarDisciplina.xhtml"
+    NAME="output10" PATH="/xhtml/vwEditarDisciplina.xhtml"
+    TARGET="rules:#xhtml#vwEditarDisciplina.xhtml"
+    TITLE="editar disciplina" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="criar disciplina::#xhtml#vwCriarDisciplina.xhtml"
+    NAME="output11" PATH="/xhtml/vwCriarDisciplina.xhtml"
+    TARGET="rules:#xhtml#vwCriarDisciplina.xhtml"
+    TITLE="criar disciplina" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#xhtml#falha.xhtml" PATH="/xhtml/falha.xhtml"
   SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#xhtml#vwCriarProduto.xhtml"
-  PATH="/xhtml/vwCriarProduto.xhtml" SHAPE="304,609,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#xhtml#sucesso.xhtml"
   PATH="/xhtml/sucesso.xhtml" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#xhtml#vwListarProduto.xhtml"
-  PATH="/xhtml/vwListarProduto.xhtml" SHAPE="304,385,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#xhtml#vwEditarProduto.xhtml"
-  PATH="/xhtml/vwEditarProduto.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#xhtml#vwCriarCurso.xhtml"
   PATH="/xhtml/vwCriarCurso.xhtml" SHAPE="304,305,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#xhtml#vwPrincipal.xhtml"
@@ -43,4 +49,10 @@
   PATH="/xhtml/vwListarCurso.xhtml" SHAPE="304,337,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#xhtml#vwEditarCurso.xhtml"
   PATH="/xhtml/vwEditarCurso.xhtml" SHAPE="304,337,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#vwEditarDisciplina.xhtml"
+  PATH="/xhtml/vwEditarDisciplina.xhtml" SHAPE="304,1057,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#vwCriarDisciplina.xhtml"
+  PATH="/xhtml/vwCriarDisciplina.xhtml" SHAPE="304,1169,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#xhtml#vwListarDisciplina.xhtml"
+  PATH="/xhtml/vwListarDisciplina.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

@@ -12,7 +12,7 @@
         <link rel="StyleSheet" type="text/css" href="../../css/main.css"></link>
         
         <script language="javascript" src="../../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"  charset="ISO-8859-1"/>
-        
+        <script language="javascript" src="../../js/validacoesCurso.js" charset="ISO-8859-1"/>
 		<title>My Grid Puc - Curso</title>
 	</head>
 	<body>
@@ -36,7 +36,7 @@
 								<h:outputLabel value="Codigo" class="col-sm-2 control-label"/>
 					            <div class="col-sm-10">
 					           		 <h:inputText id="codigoCurso" styleClass="form-control"  value="#{cursoController.cursoBean.codigoCurso}">
-					           		 	<f:validateLength minimum="3" maximum="100"/>
+					           		 	<f:validateLength minimum="3" maximum="4"/>
 					           		 </h:inputText >
 					           		 <h:message for="codigoCurso" style="color:red"/>
 					            </div>
@@ -55,34 +55,44 @@
 							<div class="form-group">
 								<h:outputLabel value="Ano" class="col-sm-2 control-label"/> 
 								<div class="col-sm-10">
-									<h:inputText id="ano" value="#{pessoaController.telefoneBean.dsNumero}" size="4" maxlength="15"/>
-									<h:selectOneListbox size="1" value="#{pessoaController.telefoneBean.clTipo}">
+									<h:inputText id="anodig" value="#{cursoController.anoSemestreBean.ano}" size="4" maxlength="4"/>
+									<h:selectOneListbox size="1" value="#{cursoController.anoSemestreBean.semestre}">
 										<f:selectItem itemLabel="1" itemValue="1" />
 										<f:selectItem itemLabel="2" itemValue="2" />
 									</h:selectOneListbox>
-									<h:commandButton styleClass="button2" value="Adicionar" action="#{pessoaController.adicionar}" onclick="return validarTelefone();"/>
+									<h:commandButton styleClass="button2" value="Adicionar" action="#{cursoController.addAnoSemestre}" onclick=""/>
 					            </div>
 					            
 					            <div class="col-sm-10">
-					            	<h:dataTable border="1" id="telefones" value="#{pessoaController.pessoaBean.listaTelefone}" var="fone" >
+										<h:dataTable border="1" id="matriz" value="#{cursoController.cursoBean.listAnoSemestre}" var="semestres">
+										<!-- <div class="form-group">
+											<h:inputHidden value="#{semestres.idAnoSemestre}" id="idAnoSemestre" />
+											<h:outputLabel value="Ano" class="col-sm-2 control-label"/>
+								            <div class="col-sm-5">
+								           		 <h:inputText id="ano" styleClass="form-control"  value="#{semestres.ano}">
+								           		 	<f:validateLength minimum="3" maximum="4"/>
+								           		 </h:inputText >
+								           		 <h:message for="ano" style="color:red"/>
+								            </div>
+								        </div> -->
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Ano" />
 											</f:facet>
-											<h:inputHidden value="#{fone.idTelefone}" id="idTelefone" />
-											<h:outputLabel value="#{fone.dsNumero}"/>
+											<h:inputHidden value="#{semestres.idAnoSemestre}" id="idAnoSemestre" />
+											<h:outputLabel value="#{semestres.ano}"/>
 										</h:column>
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Semestre" />
 											</f:facet>
-											<h:outputLabel value="#{fone.clTipo}" />
+											<h:outputLabel value="#{semestres.semestre}" />
 										</h:column>
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Operação" />
 											</f:facet>
-											<h:commandButton styleClass="button" value="Remover" action="#{pessoaController.remover}"/>
+											<h:commandButton styleClass="button" value="Remover" action="#{cursoController.rmvAnoSemestre}"/>
 										</h:column>
 									</h:dataTable>
 					            </div>
