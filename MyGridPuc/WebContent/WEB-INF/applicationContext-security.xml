@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<!-- HTTP security configurations -->
+	<http>
+		<!-- Configure these elements to secure URIs in your application -->
+		<intercept-url pattern="/logado/**" access="ROLE_ADMINISTRADOR" />
+
+		<form-login login-page="/publico/login.xhtml"
+			always-use-default-target="true" 
+			default-target-url="/logado/vwPrincipal.xhtml"
+			authentication-failure-url="/publico/login.xhtml?login_error=1" 
+			/>
+		<!-- Habilitar um Botão para Deslogar do Sistema para Isso chamar a URL: 
+			/j_spring_security_logout -->
+		<logout />
+		<!-- Habilitar um cHECKbOX Lembrar do Usuario no Sistema Será armazenado 
+			por Duas semanas ou 1209600 segundos, que podem ser alterados chamando a 
+			propriedade "token-validity-seconds='xyz' ", onde xyz é o tempo em segundos 
+			para o Remember. para Isso chamar a URL: /_spring_security_remember_me -->
+		<remember-me />
+
+	</http>
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="MYGRIDPUC" password="20142" authorities="ROLE_ADMINISTRADOR" />
+			</user-service>
+		</authentication-provider>
+
+	</authentication-manager>
+
+
+</beans:beans>

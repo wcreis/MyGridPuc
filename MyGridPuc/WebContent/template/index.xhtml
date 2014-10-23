@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+ <title>MyGridPuc</title>
+ 	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.css" />
+	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/estilo.css" />   
+	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.min.css"></link>
+	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap-theme.min.css"></link>
+</h:head>
+<h:body>
+
+	<h:form id="formprincipal">
+		<table width="100%">
+			<!-- INICIO DA ÁREA DE CABEÇALHO  -->
+			<tr>
+				<td colspan="2" align="center">
+					<ui:insert name="cabecalho">
+
+					</ui:insert>
+				</td>
+			</tr>
+			<!-- FIM DA ÁREA DE CABEÇALHO  -->
+			<!-- INICIO DA ÁREA DE MENU  -->
+			<tr>
+				<td width="20%" valign="top"><ui:insert name="menu">
+						<h:panelGrid columns="1">
+
+						</h:panelGrid>
+					</ui:insert></td>
+				<!-- FIM DA ÁREA DE MENU  -->
+				<!-- INICIO DA ÁREA DE CONTEUDOS  -->
+				<td><ui:insert name="conteudo">
+
+					</ui:insert></td>
+			</tr>
+			<!-- FIM DA ÁREA DE CONTEUDOS  -->
+			<!-- INICIO DA ÁREA DE RODAPÉ  -->
+			<tr>
+				<td colspan="2"><ui:insert name="rodape">
+
+					</ui:insert></td>
+			</tr>
+			<!-- FIM DA ÁREA DE RODAPÉ  -->
+		</table>
+	</h:form>
+</h:body>
+
+</html>
