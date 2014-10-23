@@ -7,8 +7,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
       
 <h:head>
-	<script type="text-javascript" rel="js/jquery/jquery-2.1.1.js"></script>
-	<link rel="stylesheet" type="text-css" href="../../css/bootstrap.css" ></link>
+	<script type="text/javascript" src="../publico/js/jquery/jquery-2.1.1.js"></script>
+	<link rel="stylesheet" type="text-css" href="../publico/css/bootstrap.css" ></link>
 </h:head>
 <h:body>
 	<div class="navbar navbar-default navbar-static-top navbar-inverse">
@@ -61,12 +61,10 @@
 					</div>
 				</div>
 			</div>
-			
-			<!-- Turma -->
-			
-						
+					
 			<!-- Submit -->
 			<h:commandButton value="Salvar" action="#{disciplinaController.incluir}" class="button" />
+			<h:messages></h:messages>
 		</h:form>
 	</div>
 </h:body>     

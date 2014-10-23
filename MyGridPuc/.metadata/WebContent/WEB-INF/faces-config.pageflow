@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14126495319090" configfile="/MyGridPuc/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1714" id="pf14126495522041" outlinks="pf14126495522052 pf14126495522053 pf14126495522054 pf14126495522055 pf14126495522056 pf14126495522057 pf14127298983270 pf14127298983271 pf14127298983272 pf141273032639510 pf14132518597301" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/sucesso.xhtml" x="338" y="178" id="pf14126495522058" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14126495522052" path="/xhtml/sucesso.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/falha.xhtml" x="338" y="562" id="pf14126495522059" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14126495522053" path="/xhtml/falha.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwListarProduto.xhtml" x="338" y="946" id="pf141264955220510" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14126495522054" path="/xhtml/vwListarProduto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwEditarProduto.xhtml" x="338" y="1330" id="pf141264955220511" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14126495522055" path="/xhtml/vwEditarProduto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwCriarProduto.xhtml" x="338" y="1714" id="pf141264955220512" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf14126495522056" path="/xhtml/vwCriarProduto.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwCriarCurso.xhtml" x="338" y="2098" id="pf141264955220513" referenceLink="//@navigationRule.0/@navigationCase.7/@toViewId|" inlinks="pf14126495522057" path="/xhtml/vwCriarCurso.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwListarCurso.xhtml" x="338" y="2482" id="pf14127298983273" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14127298983270" path="/xhtml/vwListarCurso.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwEditarCurso.xhtml" x="338" y="2866" id="pf14127298983274" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14127298983271" path="/xhtml/vwEditarCurso.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwPrincipal.xhtml" x="338" y="3250" id="pf14127298983275" referenceLink="//@navigationRule.0/@navigationCase.8/@toViewId|" inlinks="pf14127298983272" path="/xhtml/vwPrincipal.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwCriarDisciplina.xhtml" id="pf141273032639511" referenceLink="//@navigationRule.0/@navigationCase.10/@toViewId|" inlinks="pf141273032639510" path="/xhtml/vwCriarDisciplina.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwListarDisciplina.xhtml" id="pf14132518597312" referenceLink="//@navigationRule.0/@navigationCase.9/@toViewId|" inlinks="pf14132518597301" path="/xhtml/vwListarDisciplina.xhtml"/>
-  <links id="pf14126495522052" target="pf14126495522058" source="pf14126495522041" outcome="sucesso"/>
-  <links id="pf14126495522053" target="pf14126495522059" source="pf14126495522041" outcome="falha"/>
-  <links id="pf14126495522054" target="pf141264955220510" source="pf14126495522041" outcome="listar"/>
-  <links id="pf14126495522055" target="pf141264955220511" source="pf14126495522041" outcome="editar"/>
-  <links id="pf14126495522056" target="pf141264955220512" source="pf14126495522041" outcome="criar"/>
-  <links id="pf14126495522057" target="pf141264955220513" source="pf14126495522041" outcome="criar curso"/>
-  <links id="pf14127298983270" target="pf14127298983273" source="pf14126495522041" outcome="listar curso"/>
-  <links id="pf14127298983271" target="pf14127298983274" source="pf14126495522041" outcome="editar curso"/>
-  <links id="pf14127298983272" target="pf14127298983275" source="pf14126495522041" outcome="principal"/>
-  <links id="pf141273032639510" target="pf141273032639511" source="pf14126495522041" outcome="criar disciplina"/>
-  <links id="pf14132518597301" target="pf14132518597312" source="pf14126495522041" outcome="listar disciplina"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="2098" id="pf14126495522041" outlinks="pf14140307341860 pf14140307341861 pf14140307341862 pf14140307341863 pf14140307341864 pf14140307341865 pf14140307341866 pf14140307341867 pf14140307341868 pf14140307341869 pf141403384534021 pf141403408329423" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwListarProduto.xhtml" x="122" y="2673" id="pf141264955220510" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" path="/xhtml/vwListarProduto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwEditarProduto.xhtml" x="122" y="3249" id="pf141264955220511" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" path="/xhtml/vwEditarProduto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/vwCriarProduto.xhtml" x="122" y="3825" id="pf141264955220512" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" path="/xhtml/vwCriarProduto.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/falha.xhtml" x="338" y="178" id="pf141403073418611" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14140307341860" path="/logado/admin/falha.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/sucesso.xhtml" x="338" y="562" id="pf141403073418612" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14140307341861" path="/logado/admin/sucesso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwListarCurso.xhtml" x="338" y="946" id="pf141403073418713" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14140307341862" path="/logado/admin/vwListarCurso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwEditarCurso.xhtml" x="338" y="1330" id="pf141403073418714" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14140307341863" path="/logado/admin/vwEditarCurso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwCriarCurso.xhtml" x="338" y="1714" id="pf141403073418715" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf14140307341864" path="/logado/admin/vwCriarCurso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/vwPrincipal.xhtml" x="338" y="2098" id="pf141403073418716" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14140307341865" path="/logado/vwPrincipal.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwListarDisciplina.xhtml" x="338" y="2482" id="pf141403073418717" referenceLink="//@navigationRule.0/@navigationCase.8/@toViewId|" inlinks="pf14140307341866" path="/logado/admin/vwListarDisciplina.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwEditarDisciplina.xhtml" x="338" y="2866" id="pf141403073418718" referenceLink="//@navigationRule.0/@navigationCase.9/@toViewId|" inlinks="pf14140307341867" path="/logado/admin/vwEditarDisciplina.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwCriarDisciplina.xhtml" x="338" y="3250" id="pf141403073418719" referenceLink="//@navigationRule.0/@navigationCase.10/@toViewId|" inlinks="pf14140307341868" path="/logado/admin/vwCriarDisciplina.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwDisciplina.xhtml" x="338" y="3634" id="pf141403073418720" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14140307341869" path="/logado/admin/vwDisciplina.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logado/admin/vwCurso.xhtml" x="338" y="4018" id="pf141403384534022" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf141403384534021 pf141403408329423" path="/logado/admin/vwCurso.xhtml"/>
+  <links id="pf14140307341860" target="pf141403073418611" source="pf14126495522041" outcome="falha"/>
+  <links id="pf14140307341861" target="pf141403073418612" source="pf14126495522041" outcome="sucesso"/>
+  <links id="pf14140307341862" target="pf141403073418713" source="pf14126495522041" outcome="listar curso"/>
+  <links id="pf14140307341863" target="pf141403073418714" source="pf14126495522041" outcome="editar curso"/>
+  <links id="pf14140307341864" target="pf141403073418715" source="pf14126495522041" outcome="criar curso"/>
+  <links id="pf14140307341865" target="pf141403073418716" source="pf14126495522041" outcome="principal"/>
+  <links id="pf14140307341866" target="pf141403073418717" source="pf14126495522041" outcome="listar disciplina"/>
+  <links id="pf14140307341867" target="pf141403073418718" source="pf14126495522041" outcome="editar disciplina"/>
+  <links id="pf14140307341868" target="pf141403073418719" source="pf14126495522041" outcome="criar disciplina"/>
+  <links id="pf14140307341869" target="pf141403073418720" source="pf14126495522041" outcome="vwDisciplina"/>
+  <links id="pf141403384534021" target="pf141403384534022" source="pf14126495522041" outcome="vwCurso"/>
+  <links id="pf141403408329423" target="pf141403384534022" source="pf14126495522041" outcome="vwCurso"/>
 </pageflow:Pageflow>

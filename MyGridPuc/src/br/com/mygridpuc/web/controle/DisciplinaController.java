@@ -5,14 +5,12 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
-import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlInputHidden;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import antlr.collections.impl.Vector;
 import br.com.mygridpuc.web.entidade.Disciplina;
 import br.com.mygridpuc.web.negocio.DisciplinaService;
 import br.com.mygridpuc.web.util.MyGridPucException;

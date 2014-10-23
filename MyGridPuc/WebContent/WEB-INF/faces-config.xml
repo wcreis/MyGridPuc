@@ -7,49 +7,63 @@
     version="2.1">
     
     
-	  <!-- Regras de navegação para a página de Pessoa -->
 	<navigation-rule>
+		<!-- Navegação comum a Todos os Cadastros -->
+		 <navigation-case>
+			  <from-outcome>principal</from-outcome>
+			  <to-view-id>/logado/vwPrincipal.xhtml</to-view-id>
+		 </navigation-case>	
 		 <navigation-case>
 			  <from-outcome>sucesso</from-outcome>
-			  <to-view-id>/xhtml/sucesso.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/sucesso.xhtml</to-view-id>
 		 </navigation-case>
 		 <navigation-case>
 			  <from-outcome>falha</from-outcome>
-			  <to-view-id>/xhtml/falha.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/falha.xhtml</to-view-id>
 		 </navigation-case>
+		 
+		<!-- Navegação de telas para o cadastro de Cursos  -->
+		 <navigation-case>
+			  <from-outcome>vwCurso</from-outcome>
+			  <to-view-id>/logado/admin/vwCurso.xhtml</to-view-id>
+		 </navigation-case>		
+		 <navigation-case>
+			  <from-outcome>vwCurso</from-outcome>
+			  <to-view-id>/logado/admin/vwCurso.xhtml</to-view-id>
+		 </navigation-case>
+
 		 <navigation-case>
 			  <from-outcome>listar curso</from-outcome>
-			  <to-view-id>/xhtml/vwListarCurso.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/vwListarCurso.xhtml</to-view-id>
 		 </navigation-case>
 		 <navigation-case>
 			  <from-outcome>editar curso</from-outcome>
-			  <to-view-id>/xhtml/vwEditarCurso.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/vwEditarCurso.xhtml</to-view-id>
 		 </navigation-case>
 		 <navigation-case>
 			  <from-outcome>criar curso</from-outcome>
-			  <to-view-id>/xhtml/vwCriarCurso.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/vwCriarCurso.xhtml</to-view-id>
 		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>principal</from-outcome>
-			  <to-view-id>/xhtml/vwPrincipal.xhtml</to-view-id>
-		 </navigation-case>
+
 		 
-		 <!-- Navegação de telas para o cadastro de disciplinas  -->
+		<!-- Navegação de telas para o cadastro de disciplinas  -->
+		 <navigation-case>
+			  <from-outcome>vwDisciplina</from-outcome>
+			  <to-view-id>/logado/admin/vwDisciplina.xhtml</to-view-id>
+		 </navigation-case>
 		 <navigation-case>
 			  <from-outcome>listar disciplina</from-outcome>
-			  <to-view-id>/xhtml/vwListarDisciplina.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/vwListarDisciplina.xhtml</to-view-id>
 		 </navigation-case>
 		 
 		 <navigation-case>
 			  <from-outcome>editar disciplina</from-outcome>
-			  <to-view-id>/xhtml/vwEditarDisciplina.xhtml</to-view-id>
+			  <to-view-id>/logado/admin/vwEditarDisciplina.xhtml</to-view-id>
 		 </navigation-case>
 		 
-		 
-		 <!-- Navegacao para o cadastro de Disciplinas. -->
 		 <navigation-case>
 		 	<from-outcome>criar disciplina</from-outcome>
-		 	<to-view-id>/xhtml/vwCriarDisciplina.xhtml</to-view-id>
+		 	<to-view-id>/logado/admin/vwCriarDisciplina.xhtml</to-view-id>
 		 </navigation-case>
  	</navigation-rule> 
     

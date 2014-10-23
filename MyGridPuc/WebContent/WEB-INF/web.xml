@@ -4,11 +4,11 @@
 			xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 			version="3.0">
 			
-  <display-name>MyGridPuc</display-name>
+  <display-name>MyGridPuc - Sistema de Controle Acadêmico</display-name>
  
  <!-- PAGINA INICIAL -->
   <welcome-file-list>
-     <welcome-file>faces/xhtml/vwPrincipal.xhtml</welcome-file>
+     <welcome-file>faces/publico/login.xhtml</welcome-file>
    </welcome-file-list>
 
  <!-- SERVLET DO JSF --> 
@@ -21,16 +21,32 @@
  <!-- VARIAVEIS DE CONTEXTO -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/applicationContext.xml</param-value>
+    <param-value>
+    	/WEB-INF/applicationContext.xml
+   		/WEB-INF/applicationContext-security.xml
+    </param-value>
   </context-param>
   <context-param>
     <param-name>javax.faces.CONFIG_FILES</param-name>
     <param-value>/WEB-INF/faces-config.xml</param-value>
+    
   </context-param>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
-  </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
   <context-param>
     <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
     <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
@@ -49,5 +65,16 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  
+  	<!-- FILTER DO SPRING-SECURITY -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
   
 </web-app>

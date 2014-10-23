@@ -22,7 +22,7 @@ import javax.persistence.Table;
 @Table(name="anosemestre")
 public class AnoSemestre implements Serializable{
 
-	private static final long serialVersionUID = 7039497814577319589L;
+	private static final long serialVersionUID = 8069893849165474970L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
