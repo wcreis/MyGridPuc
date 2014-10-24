@@ -6,7 +6,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
- <title>MyGridPuc</title>
+
+<title>
+		<!-- Este Título Deve Ser Alterado em Cada Pagina -->
+        <ui:insert name="title">
+            MyGridPuc
+        </ui:insert>
+ </title>
  	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.css" />
 	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/estilo.css" />   
 	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.min.css"></link>
