@@ -33,7 +33,7 @@ public class Curso implements Serializable{
 	@Column(name="idcurso")
 	private Integer idCurso;
 	
-	@Column(name="codigocurso")
+	@Column(name="codigocurso", unique=true)
 	private Integer codigoCurso;
 	
 	@Column(name="nomecurso")
@@ -42,6 +42,15 @@ public class Curso implements Serializable{
 	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<AnoSemestre> listAnoSemestre;
 	
+	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Matriz> listMatriz;
+	
+	public List<Matriz> getListMatriz() {
+		return listMatriz;
+	}
+	public void setListMatriz(List<Matriz> listMatriz) {
+		this.listMatriz = listMatriz;
+	}
 	public List<AnoSemestre> getListAnoSemestre() {
 		return listAnoSemestre;
 	}

@@ -86,6 +86,8 @@ public class CursoController {
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
 			return "falha";
+		}finally{
+			removeBean("formulario");
 		}
 	}
 	
@@ -179,6 +181,8 @@ public class CursoController {
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
 			return "falha";
+		}finally{
+			removeBean("formulario");
 		}
 	}
 	
@@ -248,6 +252,10 @@ public class CursoController {
 			return "falha";
 		}
 	}
+	
+	public void removeBean(String bean){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(bean);
+    }
 
 	public CursoBean getCursoBean() {
 		return cursoBean;

@@ -6,7 +6,6 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
     version="2.1">
     
-    
 	<navigation-rule>
 		<!-- Navegação comum a Todos os Cadastros -->
 		 <navigation-case>
@@ -31,7 +30,6 @@
 			  <from-outcome>vwCurso</from-outcome>
 			  <to-view-id>/logado/admin/vwCurso.xhtml</to-view-id>
 		 </navigation-case>
-
 		 <navigation-case>
 			  <from-outcome>listar curso</from-outcome>
 			  <to-view-id>/logado/admin/vwListarCurso.xhtml</to-view-id>
@@ -44,7 +42,6 @@
 			  <from-outcome>criar curso</from-outcome>
 			  <to-view-id>/logado/admin/vwCriarCurso.xhtml</to-view-id>
 		 </navigation-case>
-
 		 
 		<!-- Navegação de telas para o cadastro de disciplinas  -->
 		 <navigation-case>
@@ -55,15 +52,31 @@
 			  <from-outcome>listar disciplina</from-outcome>
 			  <to-view-id>/logado/admin/vwListarDisciplina.xhtml</to-view-id>
 		 </navigation-case>
-		 
 		 <navigation-case>
 			  <from-outcome>editar disciplina</from-outcome>
 			  <to-view-id>/logado/admin/vwEditarDisciplina.xhtml</to-view-id>
 		 </navigation-case>
-		 
 		 <navigation-case>
 		 	<from-outcome>criar disciplina</from-outcome>
 		 	<to-view-id>/logado/admin/vwCriarDisciplina.xhtml</to-view-id>
+		 </navigation-case>
+		 
+		<!-- Navegação de telas para o cadastro de matrizes  -->
+		 <navigation-case>
+			  <from-outcome>vwMatriz</from-outcome>
+			  <to-view-id>/logado/admin/vwMatriz.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+			  <from-outcome>listar matriz</from-outcome>
+			  <to-view-id>/logado/admin/vwListarMatriz.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+			  <from-outcome>editar matriz</from-outcome>
+			  <to-view-id>/logado/admin/vwEditarMatriz.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+		 	<from-outcome>criar matriz</from-outcome>
+		 	<to-view-id>/logado/admin/vwCriarMatriz.xhtml</to-view-id>
 		 </navigation-case>
  	</navigation-rule> 
     

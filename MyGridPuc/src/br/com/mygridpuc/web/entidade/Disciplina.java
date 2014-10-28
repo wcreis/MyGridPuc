@@ -1,5 +1,7 @@
 package br.com.mygridpuc.web.entidade;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -24,8 +26,18 @@ public class Disciplina {
 	
 	@Column(name="nomeDiciplina")
 	private String nome;
-
 	
+	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Matriz> listMatriz;
+
+	public List<Matriz> getListMatriz() {
+		return listMatriz;
+	}
+
+	public void setListMatriz(List<Matriz> listMatriz) {
+		this.listMatriz = listMatriz;
+	}
+
 	public Integer getId() {
 		return id;
 	}
