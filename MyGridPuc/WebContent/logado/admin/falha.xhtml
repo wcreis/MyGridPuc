@@ -1,22 +1,65 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:composite="http://java.sun.com/jsf/composite"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-	<head>  
-		<link rel="StyleSheet" type="text/css" href="../publico/css/estilo.css"></link>  
-	</head>
-	<body>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<sec:isAnonymous>
+	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
+	<meta http-equiv="refresh"	content="0;url=#{request.contextPath}/publico/login.xhtml" />
+</sec:isAnonymous>
+<sec:ifAnyGranted>
+<!-- Redireciona Para a Tela Principal. -->
+	<meta http-equiv="refresh"	content="3;url=#{request.contextPath}/logado/vwPrincipapl.xhtml" />
+</sec:ifAnyGranted>
+
+<ui:composition template="/template/index.xhtml">
+
+	<ui:define name="title">        
+            MyGridPuc - Cadastro de Disciplina        
+    </ui:define>
+
+	<ui:define name="cabecalho">
+									
+	Usuário Logado: #{request.remoteUser} <a href="#{request.contextPath}/j_spring_security_logout"> Logout</a>
+
+	</ui:define>
+	<ui:define name="menu">
+		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+			<!-- Menu será da Seguinte Forma:
+		Cadastros
+			-Curso
+			-Discilina
+			-Matriz
+			-Turma
+			-Usuário
+		Importação
+			-Matriz Curricular
+			-Programação Academica
+		 -->
+
+			<h:commandButton styleClass="button" action="principal" immediate="true" value="Voltar ao Menu Principal" />
+			<br />
+
+		</sec:ifAnyGranted>
+	</ui:define>
+
+	<ui:define name="conteudo">
+
 		<f:view>
-			<h:form>
-				<h:outputText value="Falhou!!!" />
-				<br/>
-				<h:messages />
-				<br/>
-				<h:commandButton styleClass="button" action="principal" value="Voltar menu principal"/>
-			</h:form>
+			<h:outputText value="Falhou!!!" />
+			<br />
 		</f:view>
-	</body>
+	</ui:define>
+
+
+	<ui:define name="rodape">
+
+	</ui:define>
+</ui:composition>
 </html>

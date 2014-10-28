@@ -16,22 +16,17 @@ import org.springframework.stereotype.Component;
 @SessionScoped
 public class DisciplinaBean {
 	
-	public DisciplinaBean(){
-		codigo = 0;
-		credito = 0;
-		id = 0;
-		nome = "";	
-	}
+	public DisciplinaBean(){}
 	
-	private int codigo;
+	private String codigo;
 	private int credito;
 	private int id;
 	private String nome;
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public int getCredito() {

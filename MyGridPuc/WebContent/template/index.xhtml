@@ -5,18 +5,27 @@
 	xmlns:sec="http://www.springframework.org/security/facelets/tags"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<!-- Tudo das Tags  <h:head>, <h:body> é herdado para as Demais páginas-->
 <h:head>
+<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
+<ui:insert name="head">
 
-<title>
-		<!-- Este Título Deve Ser Alterado em Cada Pagina -->
+	<!-- Este Título Deve Ser Alterado em Cada Pagina -->
+	<title>
         <ui:insert name="title">
             MyGridPuc
         </ui:insert>
- </title>
+ 	</title>
+ 	
+ 	
+</ui:insert>
  	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.css" />
 	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/estilo.css" />   
 	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.min.css"></link>
 	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap-theme.min.css"></link>
+	
+	<script language="javascript" src="#{request.contextPath}/publico/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"  charset="ISO-8859-1"/>
+
 </h:head>
 <h:body>
 

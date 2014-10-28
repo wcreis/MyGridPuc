@@ -36,7 +36,7 @@
 			-Programação Academica
 		 -->
 		 	<h:commandButton action="criar curso" immediate="true" value="Novo Curso" /><br/>
-		 	<h:commandButton action="listar curso" immediate="true" value="Listar Cursos" /><br/>
+		 	<h:commandButton action="#{cursoController.listar}" immediate="true" value="Listar Cursos" /><br/>
 			<h:commandButton action="principal" immediate="true" value="Voltar ao Menu Principal" /><br/>
 
 		</sec:ifAnyGranted>

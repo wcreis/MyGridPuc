@@ -1,5 +1,7 @@
 package br.com.mygridpuc.web.entidade;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 /**
@@ -9,15 +11,18 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="disciplina")
-public class Disciplina {
+public class Disciplina implements Serializable{
+
+	
+	private static final long serialVersionUID = -8422772729429194168L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idDisciplina")
-	private Integer id;
+	private Integer idDisciplina;
 	
-	@Column(name="codigoCurso")
-	private Integer codigo;
+	@Column(name="codigo", unique=true)
+	private String codigo;
 	
 	@Column(name="creditoDisciplina")
 	private Integer credito;
@@ -26,19 +31,19 @@ public class Disciplina {
 	private String nome;
 
 	
-	public Integer getId() {
-		return id;
+	public Integer getIdDisciplina() {
+		return idDisciplina;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdDisciplina(Integer idDisciplina) {
+		this.idDisciplina = idDisciplina;
 	}
 
-	public Integer getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
