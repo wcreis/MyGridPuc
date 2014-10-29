@@ -1,6 +1,6 @@
 //desmarca todos os radios deixando apenas o selecionado marcado
 function desmarcar(radio){
-	var formulario = document.getElementById('formulario');
+	var formulario = document.getElementById('formprincipal');
 	var campo;
 	for(var item=0; item<formulario.length; item++){
     	campo = formulario[item];
@@ -18,11 +18,12 @@ function selecionarItem(campoHidden,radioSelecionado){
 
 //verifica se algum item esta selecionado
 function validarSelecionado(){
-	var formulario = document.getElementById('formulario');
+	var formulario = document.getElementById('formprincipal');
 	var campo;
+	
 	for(var item=0; item<formulario.length; item++){
     	campo = formulario[item];
-        if(campo.type=='radio' && campo.checked){    
+        if(campo.type=='radio' && campo.checked){
         	return true;
     	}
     }
@@ -32,8 +33,8 @@ function validarSelecionado(){
 
 //valida o formulario
 function validarFormulario(){
-	alert('a');
-	var formulario = document.getElementById('formulario');
+	
+	var formulario = document.getElementById('formprincipal');
 	if(formulario.nome.value.lenght()<0){
 		alert('O campo nome deve ser preenchido').
 		formulario.nome.focus();
@@ -45,5 +46,5 @@ function validarFormulario(){
 
 
 function retornaIdDisciplina(){
-	return document.getElementById('idDisciplina').value
+	return document.getElementById('formprincipal:formulario:idDisciplina').value;
 }

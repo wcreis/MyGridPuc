@@ -30,9 +30,9 @@
 			-Matriz Curricular
 			-Programação Academica
 		 -->
-		 	<h:commandButton action="criar disciplina" immediate="true" value="Nova Disciplina" /><br/>
-		 	<h:commandButton action="listar disciplina" immediate="true" value="Listar Disciplinas" /><br/>
-			<h:commandButton action="principal" immediate="true" value="Voltar ao Menu Principal" /><br/>
+		 	<h:commandButton styleClass="button" action="#{disciplinaController.criar}" immediate="true" value="Nova Disciplina" /><br/>
+		 	<h:commandButton styleClass="button" action="#{disciplinaController.listar}" immediate="true" value="Listar Disciplinas" /><br/>
+			<h:commandButton styleClass="button" action="principal" immediate="true" value="Voltar ao Menu Principal" /><br/>
 
 		</sec:ifAnyGranted>
 	</ui:define>
@@ -40,7 +40,9 @@
 
 
 	<ui:define name="conteudo">
-		<!-- Neste Espaço pode colocar Imgaem e ETC, Esta regão Será preenchida pelas Paginas -->	
+		<h:form id="formulario" >
+			<h:messages />
+		</h:form>
 	</ui:define>
 	
 

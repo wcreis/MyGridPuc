@@ -17,11 +17,12 @@
     </ui:define>
 
 	<ui:define name="cabecalho">
-	
 		Usuário Logado: #{request.remoteUser}
 		<a href="#{request.contextPath}/j_spring_security_logout"> Logout</a>
+	
 	</ui:define>
 	<ui:define name="menu">
+<<<<<<< HEAD
 		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
 			<!-- Menu será da Seguinte Forma:
@@ -39,6 +40,24 @@
 				<h:commandButton action="vwDisciplina" immediate="true" value="Cadastro de Disciplina" /><br/>
 				<h:commandButton action="vwMatriz" immediate="true" value="Cadastro de Matriz" /><br/>
 	
+=======
+	<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
+	<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+		<!-- Menu será da Seguinte Forma:
+		Cadastros
+			-Curso
+			-Discilina
+			-Matriz
+			-Turma
+			-Usuário
+		Importação
+			-Matriz Curricular
+			-Programação Academica
+		 -->
+		 	<h:commandButton action="vwCurso" styleClass="button" immediate="true" value="Cadastro de Curso" /><br/>
+			<h:commandButton action="vwDisciplina" styleClass="button" immediate="true" value="Cadastro de Disciplina" /><br/>
+
+>>>>>>> origin/master
 		</sec:ifAnyGranted>
 	</ui:define>
 

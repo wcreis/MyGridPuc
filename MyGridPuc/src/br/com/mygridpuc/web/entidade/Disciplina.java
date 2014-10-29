@@ -1,6 +1,10 @@
 package br.com.mygridpuc.web.entidade;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+import java.io.Serializable;
+>>>>>>> origin/master
 
 import javax.persistence.*;
 
@@ -11,15 +15,18 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="disciplina")
-public class Disciplina {
+public class Disciplina implements Serializable{
+
+	
+	private static final long serialVersionUID = -8422772729429194168L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idDisciplina")
-	private Integer id;
+	private Integer idDisciplina;
 	
-	@Column(name="codigoCurso")
-	private Integer codigo;
+	@Column(name="codigo", unique=true)
+	private String codigo;
 	
 	@Column(name="creditoDisciplina")
 	private Integer credito;
@@ -27,6 +34,7 @@ public class Disciplina {
 	@Column(name="nomeDiciplina")
 	private String nome;
 	
+<<<<<<< HEAD
 	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Matriz> listMatriz;
 
@@ -40,17 +48,21 @@ public class Disciplina {
 
 	public Integer getId() {
 		return id;
+=======
+	public Integer getIdDisciplina() {
+		return idDisciplina;
+>>>>>>> origin/master
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdDisciplina(Integer idDisciplina) {
+		this.idDisciplina = idDisciplina;
 	}
 
-	public Integer getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
