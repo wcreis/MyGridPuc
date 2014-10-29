@@ -1,11 +1,8 @@
 package br.com.mygridpuc.web.entidade;
 
-<<<<<<< HEAD
 import java.util.List;
-=======
-import java.io.Serializable;
->>>>>>> origin/master
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -34,7 +31,6 @@ public class Disciplina implements Serializable{
 	@Column(name="nomeDiciplina")
 	private String nome;
 	
-<<<<<<< HEAD
 	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Matriz> listMatriz;
 
@@ -46,12 +42,8 @@ public class Disciplina implements Serializable{
 		this.listMatriz = listMatriz;
 	}
 
-	public Integer getId() {
-		return id;
-=======
 	public Integer getIdDisciplina() {
 		return idDisciplina;
->>>>>>> origin/master
 	}
 
 	public void setIdDisciplina(Integer idDisciplina) {
