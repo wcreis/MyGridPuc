@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition>
+	
+
+		<!-- Logo Container -->
+		<div id="mws-logo-container">
+			<div id="mws-logo-wrap">
+				<img src="#{request.contextPath}/publico/images/mws-logo.png"
+					alt="mws admin"></img>
+			</div>
+		</div>
+
+		<!-- User Tools (notifications, logout, profile, change password) -->
+		<div id="mws-user-tools" class="clearfix">
+
+			<!-- Messages -->
+			<div id="mws-user-message" class="mws-dropdown-menu">
+				<a href="#" data-toggle="dropdown" class="mws-dropdown-trigger"><i
+					class="icon-envelope"></i></a>
+
+				<!-- Unred messages count -->
+				<span class="mws-dropdown-notif">35</span>
+
+				<!-- Messages dropdown -->
+				<div class="mws-dropdown-box">
+					<div class="mws-dropdown-content">
+						<ul class="mws-messages">
+							<li class="read"><a href="#"> <span class="sender">Titulo</span>
+									<span class="message"> texto texto texto </span>
+							</a></li>
+						</ul>
+						<div class="mws-dropdown-viewall">
+							<a href="#">** Todas as menssagens **</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- User Information and functions section -->
+			<div id="mws-user-info" class="mws-inset">
+
+				<!-- User Photo -->
+				<div id="mws-user-photo">
+					<img src="#{request.contextPath}/publico/example/student128.png"
+						alt="User Photo"></img>
+				</div>
+
+				<!-- Username and Functions -->
+				<div id="mws-user-functions">
+					<div id="mws-username">Olá, #{request.remoteUser}</div>
+					<ul>
+						<li><a href="#{request.contextPath}/j_spring_security_logout">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+</ui:composition>
+</html>

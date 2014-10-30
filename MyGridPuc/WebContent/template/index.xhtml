@@ -7,62 +7,64 @@
 
 <!-- Tudo das Tags  <h:head>, <h:body> é herdado para as Demais páginas-->
 <h:head>
-<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
-<ui:insert name="head">
+	<!-- INICIO DA ÁREA DE HEAD  -->
+	<ui:insert name="head">
+			<!-- INICIO DA ÁREA DE TÍTULOS  -->
+			<ui:insert name="title">
+				
+			</ui:insert>
+			<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
 
-	<!-- Este Título Deve Ser Alterado em Cada Pagina -->
-	<title>
-        <ui:insert name="title">
-            MyGridPuc
-        </ui:insert>
- 	</title>
- 	
- 	
-</ui:insert>
- 	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.css" />
-	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/estilo.css" />   
-	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.min.css"></link>
-	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap-theme.min.css"></link>
-	
-	<script language="javascript" src="#{request.contextPath}/publico/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"  charset="ISO-8859-1"/>
+	</ui:insert>
 
 </h:head>
+
 <h:body>
+<!-- INICIO DA ÁREA DE TEMA -->
+<!-- <ui:include src="/template/themer.xhtml"></ui:include>  -->
+<!-- FIM DA ÁREA DE TEMA -->
+<!-- INICIO DA ÁREA DE CABEÇALHO  -->
+<div id="mws-header" class="clearfix">
+	<ui:insert name="cabecalho">
+	
+	</ui:insert>
+</div>
+<!-- FIM DA ÁREA DE CABEÇALHO  -->
+<div id="mws-wrapper">
+	<!-- MARCAÇÃO NECESSÁRIA, NÃO REMOVA -->
+	<div id="mws-sidebar-stitch"></div>
+	<div id="mws-sidebar-bg"></div>
+	
+	<!-- INICIO DA ÁREA DE MENU  -->
+	<div id="mws-sidebar">
+		<ui:insert name="menu">
+		
+		</ui:insert>
+	</div>
+	<!-- FIM DA ÁREA DE MENU  -->
+	<div id="mws-container" class="clearfix">
+		
+		<!-- INICIO DA ÁREA DE CONTEUDOS  -->
+		<div class="container">
+			<div class="mws-stat-container clearfix">
+			<ui:insert name="conteudo">
+	
+			</ui:insert>
+			</div>
+		</div>
+		<!-- FIM DA ÁREA DE CONTEUDOS  -->
+		
+		<!-- INICIO DA ÁREA DE RODAPE  -->
+		<div id="mws-footer">
+			<ui:insert name="rodape">
+				<ui:include src="/template/footer.xhtml"></ui:include>
+			</ui:insert>
+		</div>
+		<!-- FIM DA ÁREA DE RODAPE  -->
 
-	<h:form id="formprincipal">
-		<table width="100%">
-			<!-- INICIO DA ÁREA DE CABEÇALHO  -->
-			<tr>
-				<td colspan="2" align="center">
-					<ui:insert name="cabecalho">
-
-					</ui:insert>
-				</td>
-			</tr>
-			<!-- FIM DA ÁREA DE CABEÇALHO  -->
-			<!-- INICIO DA ÁREA DE MENU  -->
-			<tr>
-				<td width="20%" valign="top"><ui:insert name="menu">
-						<h:panelGrid columns="1">
-
-						</h:panelGrid>
-					</ui:insert></td>
-				<!-- FIM DA ÁREA DE MENU  -->
-				<!-- INICIO DA ÁREA DE CONTEUDOS  -->
-				<td><ui:insert name="conteudo">
-
-					</ui:insert></td>
-			</tr>
-			<!-- FIM DA ÁREA DE CONTEUDOS  -->
-			<!-- INICIO DA ÁREA DE RODAPÉ  -->
-			<tr>
-				<td colspan="2"><ui:insert name="rodape">
-
-					</ui:insert></td>
-			</tr>
-			<!-- FIM DA ÁREA DE RODAPÉ  -->
-		</table>
-	</h:form>
+	</div>
+</div>
 </h:body>
-
+	<ui:include src="/template/js.xhtml"></ui:include>
+	
 </html>
