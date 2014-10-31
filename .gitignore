@@ -1,3 +1,5 @@
-/.metadata/
-/build/
-/RemoteSystemsTempFiles/
+/.metadata
+
+/build
+/RemoteSystemsTempFiles
+/Servers2
