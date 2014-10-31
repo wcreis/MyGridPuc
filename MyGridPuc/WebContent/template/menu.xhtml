@@ -1,40 +1,53 @@
-<!-- Main Navigation -->
-<div id="mws-navigation">
-	<ul>
-	    <li><a href="/"><i class="icon-home"></i> Home</a></li>     
-	    <li>
-	        <a href="#"><i class="icon-graph"></i> Curso</a>
-	        <ul class="closed">
-	            <li><a href="#{request.contextPath}/logado/admin/vwCriarCurso.xhtml">Cadastar Curso</a></li>
-	            <li><a href="#{request.contextPath}/logado/admin/vwListarCurso.xhtml">Listar Cursos</a></li>
-	        </ul>
-	    </li>
-	    <li>
-	        <a href="#"><i class="icon-list"></i> Disciplina</a>
-	        <ul class="closed">
-	            <li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Cadastar Disciplina</a></li>
-	            <li><a href="#{request.contextPath}/logado/admin/vwListarDisciplina.xhtml">Listar Disciplinas</a></li>
-	        </ul>
-	    </li> 
-	    <li>
-	        <a href="#"><i class="icon-table"></i> Matriz Curricular</a>
-	        <ul class="closed">
-	        	<li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Cadastar Matriz</a></li>
-	            <li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Listar Matriz</a></li>
-	        </ul>
-	    </li>
-	    <li>
-	        <a href="#"><i class="icon-folder-closed"></i>Importar Arquivos</a>
-	    </li>
-	    <li>
-	    <a href="#"><i class="icon-pictures"></i>Gallery</a>
-	    </li>
-	    <li>
-	    <a href="#"><i class="icon-font"></i>Usuario</a>
-	     <ul class="closed">
-	            <li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Cadastar Usuario</a></li>
-	            <li><a href="#{request.contextPath}/logado/admin/vwListarDisciplina.xhtml">Listar Usuario</a></li>
-	     </ul>
-	    </li> 
-	</ul>        
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition>
+	<h:form>
+	<!-- Main Navigation -->
+	<div id="mws-navigation">
+		<ul>
+		    <li><a href="#{request.contextPath}/logado/vwPrincipal.xhtml"><i class="icon-home"></i> Home</a></li>     
+		    <li>
+		        <a href="#"><i class="icon-graph"></i> Curso</a>
+		        <ul class="closed">
+		            <li><a href="#{request.contextPath}/logado/admin/vwCriarCurso.xhtml">Cadastar Curso</a></li>
+		            <li><a href="#{request.contextPath}/logado/admin/vwListarCurso.xhtml">Listar Cursos</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		    	
+		        <a href="#"><i class="icon-list"></i> Disciplina</a>
+		        <ul class="closed">
+		            <li><h:commandLink value="Cadastar Disciplina" action="criar disciplina"/></li>
+		            <li><h:commandLink value="Listar Disciplina" action="#{disciplinaController.listar}"/></li>
+		        </ul>
+		    </li> 
+		    <li>
+		        <a href="#"><i class="icon-table"></i> Matriz Curricular</a>
+		        <ul class="closed">
+		        	<li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Cadastar Matriz</a></li>
+		            <li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Listar Matriz</a></li>
+		        </ul>
+		    </li>
+		    <li>
+		        <a href="#"><i class="icon-folder-closed"></i>Importar Arquivos</a>
+		    </li>
+		    <li>
+		    <a href="#"><i class="icon-pictures"></i>Gallery</a>
+		    </li>
+		    <li>
+		    <a href="#"><i class="icon-font"></i>Usuario</a>
+		     <ul class="closed">
+		            <li><a href="#{request.contextPath}/logado/admin/vwCriarUsuario.xhtml">Cadastar Usuario</a></li>
+		            <li><a href="#{request.contextPath}/logado/admin/vwListarUsuario.xhtml">Listar Usuario</a></li>
+		     </ul>
+		    </li> 
+		</ul>        
+	</div>
+	</h:form>
+</ui:composition>
+</html>

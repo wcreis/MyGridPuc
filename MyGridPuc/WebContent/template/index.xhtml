@@ -9,13 +9,15 @@
 <h:head>
 	<!-- INICIO DA ÁREA DE HEAD  -->
 	<ui:insert name="head">
-			<!-- INICIO DA ÁREA DE TÍTULOS  -->
-			<ui:insert name="title">
-				
-			</ui:insert>
-			<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
 
+			<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
+	<!-- INICIO DA ÁREA DE TÍTULOS  -->
+	<ui:insert name="title">
+		  
 	</ui:insert>
+	</ui:insert>
+	
+
 
 </h:head>
 
@@ -54,15 +56,16 @@
 		</div>
 		<!-- FIM DA ÁREA DE CONTEUDOS  -->
 		
-		<!-- INICIO DA ÁREA DE RODAPE  -->
-		<div id="mws-footer">
-			<ui:insert name="rodape">
-				<ui:include src="/template/footer.xhtml"></ui:include>
-			</ui:insert>
-		</div>
-		<!-- FIM DA ÁREA DE RODAPE  -->
+
 
 	</div>
+	<!-- INICIO DA ÁREA DE RODAPE  -->
+	<div id="mws-footer">
+		<ui:insert name="rodape">
+			<ui:include src="/template/footer.xhtml"></ui:include>
+		</ui:insert>
+	</div>
+	<!-- FIM DA ÁREA DE RODAPE  -->
 </div>
 </h:body>
 	<ui:include src="/template/js.xhtml"></ui:include>
