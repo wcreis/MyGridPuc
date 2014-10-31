@@ -28,46 +28,46 @@ public class UsuarioBean {
 	 * 
 	 * @return idUsuario
 	 */
-	public Integer getIdCurso() {
+	public Integer getIdUsuario() {
 		return idUsuario;
 	}
 	/**
 	 * 
-	 * @param idCurso
+	 * @param idUsuario
 	 */
-	public void setIdCurso(Integer idCurso) {
-		this.idUsuario = idCurso;
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	/**
 	 * 
 	 * @return tipoUsuario
 	 */
-	public Integer getCodigoCurso() {
+	public Integer getTipoUsuario() {
 		return tipoUsuario;
 	}
 	
 	/**
 	 * 
-	 * @param codigoCurso
+	 * @param tipoUsuario
 	 */
-	public void setCodigoCurso(Integer codigoCurso) {
-		this.tipoUsuario = codigoCurso;
+	public void setTipoUsuario(Integer tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 	
 	/**
 	 * 
 	 * @return emailUsuario
 	 */
-	public String getNomeCurso() {
+	public String getEmailUsuario() {
 		return emailUsuario;
 	}
 	
 	/**
 	 * 
-	 * @param nomeCurso
+	 * @param emailUsuario
 	 */
-	public void setNomeCurso(String nomeCurso) {
-		this.emailUsuario = nomeCurso;
+	public void setEmailUsuario(String emailUsuario) {
+		this.emailUsuario = emailUsuario;
 	}
 	
 	/**

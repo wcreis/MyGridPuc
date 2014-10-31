@@ -9,44 +9,62 @@
 <h:head>
 	<!-- INICIO DA ÁREA DE HEAD  -->
 	<ui:insert name="head">
-		<!-- INICIO DA ÁREA DE TÍTULOS  -->
-		<ui:insert name="title">
+			<!-- INICIO DA ÁREA DE TÍTULOS  -->
+			<ui:insert name="title">
 				
 			</ui:insert>
-		<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
+			<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
 
 	</ui:insert>
 
 </h:head>
 
 <h:body>
-	<h:form id="formprincipal">
-		<!-- INICIO DA ÁREA DE CABEÇALHO  -->
-		<ui:insert name="cabecalho">
-
-		</ui:insert>
-
-		<!-- INICIO DA ÁREA DE MENU  -->
+<!-- INICIO DA ÁREA DE TEMA -->
+<!-- <ui:include src="/template/themer.xhtml"></ui:include>  -->
+<!-- FIM DA ÁREA DE TEMA -->
+<!-- INICIO DA ÁREA DE CABEÇALHO  -->
+<div id="mws-header" class="clearfix">
+	<ui:insert name="cabecalho">
+	
+	</ui:insert>
+</div>
+<!-- FIM DA ÁREA DE CABEÇALHO  -->
+<div id="mws-wrapper">
+	<!-- MARCAÇÃO NECESSÁRIA, NÃO REMOVA -->
+	<div id="mws-sidebar-stitch"></div>
+	<div id="mws-sidebar-bg"></div>
+	
+	<!-- INICIO DA ÁREA DE MENU  -->
+	<div id="mws-sidebar">
 		<ui:insert name="menu">
-
+		
 		</ui:insert>
-		<!-- FIM DA ÁREA DE MENU  -->
-
+	</div>
+	<!-- FIM DA ÁREA DE MENU  -->
+	<div id="mws-container" class="clearfix">
+		
 		<!-- INICIO DA ÁREA DE CONTEUDOS  -->
-		<ui:insert name="conteudo">
-
-		</ui:insert>
+		<div class="container">
+			<div class="mws-stat-container clearfix">
+			<ui:insert name="conteudo">
+	
+			</ui:insert>
+			</div>
+		</div>
 		<!-- FIM DA ÁREA DE CONTEUDOS  -->
+		
 		<!-- INICIO DA ÁREA DE RODAPE  -->
-		<ui:insert name="rodape">
-
-		</ui:insert>
+		<div id="mws-footer">
+			<ui:insert name="rodape">
+				<ui:include src="/template/footer.xhtml"></ui:include>
+			</ui:insert>
+		</div>
 		<!-- FIM DA ÁREA DE RODAPE  -->
 
-	</h:form>
-	
+	</div>
+</div>
 </h:body>
-	<ui:include src="/template/footer.xhtml"></ui:include>
 	<ui:include src="/template/js.xhtml"></ui:include>
 	
 </html>
