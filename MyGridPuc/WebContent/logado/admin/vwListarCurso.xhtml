@@ -11,6 +11,10 @@
 	</sec:isAnonymous>
 
 	<ui:composition template="/template/index.xhtml">
+	<ui:define name="head"> 
+	   	<script language="javascript" src="#{request.contextPath}/publico/js/validacoesCurso.js" charset="ISO-8859-1"/>
+    </ui:define>
+	
 
 	 <ui:define name="title">        
 	        MyGridPuc - Cadastro de Curso        

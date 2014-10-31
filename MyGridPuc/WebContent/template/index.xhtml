@@ -7,62 +7,46 @@
 
 <!-- Tudo das Tags  <h:head>, <h:body> é herdado para as Demais páginas-->
 <h:head>
-<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
-<ui:insert name="head">
+	<!-- INICIO DA ÁREA DE HEAD  -->
+	<ui:insert name="head">
+		<!-- INICIO DA ÁREA DE TÍTULOS  -->
+		<ui:insert name="title">
+				
+			</ui:insert>
+		<!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
 
-	<!-- Este Título Deve Ser Alterado em Cada Pagina -->
-	<title>
-        <ui:insert name="title">
-            MyGridPuc
-        </ui:insert>
- 	</title>
- 	
- 	
-</ui:insert>
- 	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.css" />
-	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/estilo.css" />   
-	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap.min.css"></link>
-	<link rel="StyleSheet" type="text/css" href="#{request.contextPath}/publico/css/bootstrap-theme.min.css"></link>
-	<script language="javascript" src="../../publico/js/validacoesCurso.js" charset="ISO-8859-1"/>
-	<script language="javascript" src="#{request.contextPath}/publico/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"  charset="ISO-8859-1"/>
+	</ui:insert>
 
 </h:head>
+
 <h:body>
-
 	<h:form id="formprincipal">
-		<table width="100%">
-			<!-- INICIO DA ÁREA DE CABEÇALHO  -->
-			<tr>
-				<td colspan="2" align="center">
-					<ui:insert name="cabecalho">
+		<!-- INICIO DA ÁREA DE CABEÇALHO  -->
+		<ui:insert name="cabecalho">
 
-					</ui:insert>
-				</td>
-			</tr>
-			<!-- FIM DA ÁREA DE CABEÇALHO  -->
-			<!-- INICIO DA ÁREA DE MENU  -->
-			<tr>
-				<td width="20%" valign="top"><ui:insert name="menu">
-						<h:panelGrid columns="1">
+		</ui:insert>
 
-						</h:panelGrid>
-					</ui:insert></td>
-				<!-- FIM DA ÁREA DE MENU  -->
-				<!-- INICIO DA ÁREA DE CONTEUDOS  -->
-				<td><ui:insert name="conteudo">
+		<!-- INICIO DA ÁREA DE MENU  -->
+		<ui:insert name="menu">
 
-					</ui:insert></td>
-			</tr>
-			<!-- FIM DA ÁREA DE CONTEUDOS  -->
-			<!-- INICIO DA ÁREA DE RODAPÉ  -->
-			<tr>
-				<td colspan="2"><ui:insert name="rodape">
+		</ui:insert>
+		<!-- FIM DA ÁREA DE MENU  -->
 
-					</ui:insert></td>
-			</tr>
-			<!-- FIM DA ÁREA DE RODAPÉ  -->
-		</table>
+		<!-- INICIO DA ÁREA DE CONTEUDOS  -->
+		<ui:insert name="conteudo">
+
+		</ui:insert>
+		<!-- FIM DA ÁREA DE CONTEUDOS  -->
+		<!-- INICIO DA ÁREA DE RODAPE  -->
+		<ui:insert name="rodape">
+
+		</ui:insert>
+		<!-- FIM DA ÁREA DE RODAPE  -->
+
 	</h:form>
+	
 </h:body>
-
+	<ui:include src="/template/footer.xhtml"></ui:include>
+	<ui:include src="/template/js.xhtml"></ui:include>
+	
 </html>

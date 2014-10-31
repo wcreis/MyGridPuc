@@ -15,7 +15,8 @@
 
 <ui:composition template="/template/index.xhtml">
 
-	 <ui:define name="head"> 
+	<ui:define name="head">
+		<ui:include src="../../template/css.xhtml"></ui:include>
 	   	<script language="javascript" src="#{request.contextPath}/publico/js/validacoesDisciplina.js" charset="ISO-8859-1"/>
     </ui:define>
 
@@ -57,8 +58,7 @@
 		<f:view>
 			<!-- Formulario de cadastro de  disciplina -->
 			<div class="container">
-				<h:form id="formularioDisciplina" class="form-horizontal"
-					role="form">
+				<h:form id="formularioDisciplina" class="form-horizontal" role="form">
 
 					<!-- Nome -->
 					<div class="row">
@@ -66,8 +66,7 @@
 							<div class="form-group">
 								<h:outputLabel value="Nome" class="col-sm-2 control-label" required="true"/>
 								<div class="col-sm-10">
-									<h:inputText styleClass="form-control"
-										value="#{disciplinaController.disciplina.nome}" />
+									<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.nome}" required="true" />
 								</div>
 							</div>
 						</div>
@@ -79,8 +78,7 @@
 							<div class="form-group">
 								<h:outputLabel value="Codigo" class="col-sm-2 control-label" />
 								<div class="col-sm-10">
-									<h:inputText styleClass="form-control"
-										value="#{disciplinaController.disciplina.codigo}" maxlength="7" required="true"/>
+								<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.codigo}" maxlength="7" required="true"/>
 								</div>
 							</div>
 						</div>
@@ -92,8 +90,7 @@
 							<div class="form-group">
 								<h:outputLabel value="Credito" class="col-sm-2 control-label" />
 								<div class="col-sm-10">
-									<h:inputText styleClass="form-control"
-										value="#{disciplinaController.disciplina.credito}" required="true" />
+									<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.credito}" required="true" />
 								</div>
 							</div>
 						</div>

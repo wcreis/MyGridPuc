@@ -14,7 +14,9 @@
 </sec:isAnonymous>
 
 <ui:composition template="/template/index.xhtml">
-	 <ui:define name="head"> 
+    
+	<ui:define name="head">
+	<ui:include src="../../template/css.xhtml"></ui:include>
 	   	<script language="javascript" src="#{request.contextPath}/publico/js/validacoesDisciplina.js" charset="ISO-8859-1"/>
     </ui:define>
 
