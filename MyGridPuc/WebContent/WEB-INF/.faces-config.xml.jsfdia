@@ -65,6 +65,23 @@
     PATH="/logado/admin/vwCriarMatriz.xhtml"
     TARGET="rules:#logado#admin#vwCriarMatriz.xhtml"
     TITLE="criar matriz" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="vwLocal::#logado#admin#vwLocal.xhtml"
+    NAME="output15" PATH="/logado/admin/vwLocal.xhtml"
+    TARGET="rules:#logado#admin#vwLocal.xhtml" TITLE="vwLocal" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="listar local::#logado#admin#vwListarLocal.xhtml" NAME="output16"
+    PATH="/logado/admin/vwListarLocal.xhtml"
+    TARGET="rules:#logado#admin#vwListarLocal.xhtml"
+    TITLE="listar local" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editar local::#logado#admin#vwEditarLocal.xhtml" NAME="output17"
+    PATH="/logado/admin/vwEditarLocal.xhtml"
+    TARGET="rules:#logado#admin#vwEditarLocal.xhtml"
+    TITLE="editar local" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="criar local::#logado#admin#vwCriarLocal.xhtml" NAME="output18"
+    PATH="/logado/admin/vwCriarLocal.xhtml"
+    TARGET="rules:#logado#admin#vwCriarLocal.xhtml" TITLE="criar local" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#logado#admin#vwCurso.xhtml"
@@ -97,4 +114,12 @@
   PATH="/logado/admin/vwCriarMatriz.xhtml" SHAPE="304,2049,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#logado#admin#vwListarMatriz.xhtml"
   PATH="/logado/admin/vwListarMatriz.xhtml" SHAPE="304,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#logado#admin#vwCriarLocal.xhtml"
+  PATH="/logado/admin/vwCriarLocal.xhtml" SHAPE="304,2177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#logado#admin#vwEditarLocal.xhtml"
+  PATH="/logado/admin/vwEditarLocal.xhtml" SHAPE="304,945,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#logado#admin#vwListarLocal.xhtml"
+  PATH="/logado/admin/vwListarLocal.xhtml" SHAPE="304,833,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#logado#admin#vwLocal.xhtml"
+  PATH="/logado/admin/vwLocal.xhtml" SHAPE="304,721,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

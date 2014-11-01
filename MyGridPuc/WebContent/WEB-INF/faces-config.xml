@@ -78,6 +78,24 @@
 		 	<from-outcome>criar matriz</from-outcome>
 		 	<to-view-id>/logado/admin/vwCriarMatriz.xhtml</to-view-id>
 		 </navigation-case>
+		 
+		<!-- Navegação de telas para o cadastro de local  -->
+		 <navigation-case>
+			  <from-outcome>vwLocal</from-outcome>
+			  <to-view-id>/logado/admin/vwLocal.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+			  <from-outcome>listar local</from-outcome>
+			  <to-view-id>/logado/admin/vwListarLocal.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+			  <from-outcome>editar local</from-outcome>
+			  <to-view-id>/logado/admin/vwEditarLocal.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+		 	<from-outcome>criar local</from-outcome>
+		 	<to-view-id>/logado/admin/vwCriarLocal.xhtml</to-view-id>
+		 </navigation-case>
  	</navigation-rule> 
     
     <!-- JSF and Spring are integrated -->
