@@ -20,7 +20,7 @@
 	   	<script language="javascript" src="#{request.contextPath}/publico/js/validacoesDisciplina.js" charset="ISO-8859-1"/>
 		<!-- TITULO -->
 		<ui:define name="title">        
-		          <TITLE>MyGridPuc - Disciplina</TITLE>         
+		          MyGridPuc - Disciplina    
 		</ui:define>
     </ui:define>
 
@@ -39,10 +39,7 @@
 		</sec:ifAnyGranted>
 	</ui:define>
 
-	<!-- RODAPÉ -->
-	<ui:define name="rodape">
-		
-	</ui:define>
+
 	
 	<!-- CONTEÚDO -->
 	<ui:define name="conteudo">
@@ -93,12 +90,20 @@
 						<div class="mws-button-row">
 							<h:commandButton value="Voltar Tela Principal"	action="principal" immediate="true" class="btn" />
 						</div>
+						<div>
 						<h:messages></h:messages>
+						</div>
 						</h:form>					
 					</div>
 				</div>
 			</div>			
 		</f:view>
+		
+		
+		<!-- RODAPÉ -->
+		<ui:define name="rodape">
+			
+		</ui:define>
 	</ui:define>
 
 </ui:composition>
