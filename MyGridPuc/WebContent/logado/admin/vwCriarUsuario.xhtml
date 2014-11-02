@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<sec:isAnonymous>
+	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
+	<meta http-equiv="refresh"
+		content="0;url=#{request.contextPath}/publico/login.xhtml" />
+</sec:isAnonymous>
+
+<ui:composition template="/template/index.xhtml">
+	<ui:define name="head">
+		<ui:include src="../../template/css.xhtml"></ui:include>
+	</ui:define>
+
+	<ui:define name="title">        
+            MyGridPuc - Principal        
+    </ui:define>
+	<!-- CABEÇALHO -->
+	<ui:define name="cabecalho">
+		<ui:include src="../../template/cabecalho.xhtml"></ui:include>
+	</ui:define>
+
+	<!-- MENU -->
+	<ui:define name="menu">
+		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+			<ui:include src="../../template/menu.xhtml"></ui:include>
+		</sec:ifAnyGranted>
+	</ui:define>
+
+	<!-- RODAPÉ -->
+	<ui:define name="rodape">
+		
+	</ui:define>
+	
+	<!-- CONTEÚDO -->
+	<ui:define name="conteudo">
+		<f:view>
+			<!-- Formulario de cadastro de Usuario -->
+			<div class="mws-panel grid_8">
+				<div class="mws-panel-header">
+					<div class="mws-panel-body no-padding">
+						<h:form id="formularioUsuario" class="mws-form">
+							<div class="mws-form-row">
+								<!-- E-mail -->
+								<label class="mws-form-label">E-mail:</label>
+								<div class="mws-form-item">
+									<h:inputText value="#{usuarioController.usuario.emailUsuario}" required="true" />
+								</div>
+							</div>
+							<div class="mws-form-row">
+								<label class="mws-form-label">Senha:</label>
+								<div class="mws-form-item">
+									<h:inputSecret value="#{usuarioController.usuario.senhaUsuario}" required="true"/>
+									<input type="text"></input>
+								</div>
+							</div>
+							<div class="mws-form-row">
+								<div class="mws-form-cols">
+									<div class="mws-form-col-3-8">
+										<label class="mws-form-label">Ano:</label>
+										<div class="mws-form-item">
+											<input type="text"></input>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="mws-form-row">
+								<label class="mws-form-label">Semestre:</label>
+								<div class="mws-form-item">
+									<select class="error large">
+										<option>1</option>
+										<option>2</option>
+									</select>
+								</div>
+							</div>
+							<div class="mws-button-row">
+								<input type="submit" value="Confimar" class="btn btn-danger"></input>
+								<input type="reset" value="Limpar" class="btn "></input>
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+	
+
+					<!-- E-mail -->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<h:outputLabel value="Nome" class="col-sm-2 control-label" required="true"/>
+								<div class="col-sm-10">
+									<h:inputText styleClass="form-control" value="#{UsuarioController.Usuario.nome}" required="true" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Codigo -->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<h:outputLabel value="Codigo" class="col-sm-2 control-label" />
+								<div class="col-sm-10">
+								<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.codigo}" maxlength="7" required="true"/>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Credito -->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<h:outputLabel value="Credito" class="col-sm-2 control-label" />
+								<div class="col-sm-10">
+									<h:inputText styleClass="form-control" value="#{disciplinaController.disciplina.credito}" required="true" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Submit -->
+					<h:commandButton value="Salvar"
+						action="#{disciplinaController.incluir}" class="button" />
+					<h:messages></h:messages>
+				</h:form>
+			</div>
+		</f:view>
+	</ui:define>
+
+</ui:composition>
+</html>

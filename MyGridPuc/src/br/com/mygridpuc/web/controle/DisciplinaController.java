@@ -35,6 +35,7 @@ public class DisciplinaController {
 	@Autowired
 	private List<DisciplinaBean> listaDisciplinaBean;
 
+	
 	/**
 	 * Inclui a disciplina no banco de dados.
 	 * @return
@@ -55,7 +56,7 @@ public class DisciplinaController {
 		}catch(Exception ex){
 			String msg = "Inclusão não realizada. Movito: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
+			getFacesContext().addMessage("formulario", message);
 			return "falha";
 		}
 	}
@@ -65,13 +66,14 @@ public class DisciplinaController {
 	 * @return
 	 */
 	public String listar(){
+		
 		try{
 			List<Disciplina> listDisciplina = new ArrayList<>();
 			listDisciplina = getDisciplinaService().listar();
 			if(listDisciplina == null || listDisciplina.size() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
 				System.out.println(getFacesContext());
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplinas";
 			}
 			
@@ -92,7 +94,7 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Inclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
+			getFacesContext().addMessage("formulario", message);
 			return "falha";
 		}
 	}
@@ -105,13 +107,13 @@ public class DisciplinaController {
 	public String consultar(){
 		try{
 			
-			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formprincipal:formulario:idDisciplina");
+			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idDisciplina");
 			
 			Disciplina disciplina = getDisciplinaService().consultar(Integer.parseInt(idDisciplina));
 			
 			if(disciplina == null || disciplina.getIdDisciplina() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplinas";
 			}
 			
@@ -124,7 +126,7 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Consulta não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
+			getFacesContext().addMessage("formulario", message);
 			return "falha";
 		}
 	}
@@ -142,7 +144,7 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Criação não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
+			getFacesContext().addMessage("formulario", message);
 			return "falha";
 		}
 	}
@@ -150,15 +152,15 @@ public class DisciplinaController {
 	public String excluir(){
 		try{
 			
-			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formprincipal:formulario:idDisciplina");
-			//HtmlInputHidden idDisciplina = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formprincipal:formulario:idDisciplina");
+			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idDisciplina");
+			//HtmlInputHidden idDisciplina = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formulario:idDisciplina");
 			
-			String id = (String) (idDisciplina == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formprincipal:formulario:idDisciplina") : idDisciplina);
+			String id = (String) (idDisciplina == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idDisciplina") : idDisciplina);
 			Disciplina disciplina = getDisciplinaService().consultar(Integer.parseInt(id));
 			
 			if(disciplina == null || disciplina.getIdDisciplina() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplina";
 			}
 			
@@ -168,7 +170,7 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Exclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
+			getFacesContext().addMessage("formulario", message);
 			return "falha";
 		}
 	}
@@ -180,7 +182,7 @@ public class DisciplinaController {
 			
 			if(disciplina == null || disciplina.getIdDisciplina() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplina";
 			}
 			
@@ -193,7 +195,7 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Alteração não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
+			getFacesContext().addMessage("formulario", message);
 			return "falha";
 		}
 	}
