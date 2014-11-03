@@ -18,10 +18,11 @@ html, body {
 }
 
 body {
-    color: #333;
+    color: #ffffff;
     background-color: #f0f0f0;
     font-family: 'PT Sans', Arial, Helvetica, sans-serif;
     min-width: 320px;
+    text-align: center;
 }
 
 /* Login Wrapper

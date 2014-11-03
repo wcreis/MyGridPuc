@@ -43,7 +43,7 @@ body,
 .ui-state-hover a, 
 .ui-state-focus a
 {
-	color:#ffffff;
+	color:#ffff00;
 	text-shadow:0 0 6px rgba(152, 152, 186, 0.5);
 }
 

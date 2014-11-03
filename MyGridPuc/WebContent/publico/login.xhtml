@@ -28,7 +28,7 @@
 <div id="mws-login-wrapper">
         <div id="mws-l">
         <img src="/MyGridPuc/publico/example/student128.png" alt="User Photo" />
-        <h2>MyGridPuc</h2>
+        <h2 id="mws-l">MyGridPuc</h2>
 			<div id="mws-login-form">
 				<form class="mws-form"  id="login" method="post" action="#{request.contextPath}/j_spring_security_check">
 
@@ -42,16 +42,14 @@
 							<input type="password" name="j_password" class="mws-login-password required" placeholder="Senha"></input>
 						</div>
 					</div>
-					<div id="mws-login-remember" class="mws-form-row mws-inset">
-						<ul class="mws-form-list inline">
-							<li>
-								<input id="remember" name="_spring_security_remember_me" type="checkbox"></input> 
-								<label for="remember">Lembrar?</label>
-							</li>
-						</ul>
-					</div>
+
+					<ul class="mws-form-list inline">
+						<li><input id="remember" name="_spring_security_remember_me"
+							type="checkbox"></input> <label for="remember">Lembrar?</label></li>
+					</ul>
+
 					<div class="mws-form-row">
-						<input type="submit" value="Entrar"	class="btn btn-success mws-login-button"></input>
+						<input type="submit" value="    Entrar    "	class="btn btn-success mws-login-button"></input>
 					</div>
 					<!-- 
 					<script>
