@@ -96,6 +96,23 @@
 		 	<from-outcome>criar local</from-outcome>
 		 	<to-view-id>/logado/admin/vwCriarLocal.xhtml</to-view-id>
 		 </navigation-case>
+		<!-- Navegação de telas para o cadastro de Usuarios  -->
+		 <navigation-case>
+			  <from-outcome>vwUsuario</from-outcome>
+			  <to-view-id>/logado/admin/vwUsuario.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+			  <from-outcome>listar usuario</from-outcome>
+			  <to-view-id>/logado/admin/vwListarUsuario.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+			  <from-outcome>editar usuario</from-outcome>
+			  <to-view-id>/logado/admin/vwEditarUsuario.xhtml</to-view-id>
+		 </navigation-case>
+		 <navigation-case>
+		 	<from-outcome>criar usuario</from-outcome>
+		 	<to-view-id>/logado/admin/vwCriarUsuario.xhtml</to-view-id>
+		 </navigation-case>
  	</navigation-rule> 
     
     <!-- JSF and Spring are integrated -->

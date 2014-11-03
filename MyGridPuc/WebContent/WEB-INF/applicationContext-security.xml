@@ -27,14 +27,14 @@
 		<remember-me />
 
 	</http>
+
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
 				<user name="MYGRIDPUC" password="20142" authorities="ROLE_ADMINISTRADOR" />
 			</user-service>
 		</authentication-provider>
-
+		
 	</authentication-manager>
-
-
+    
 </beans:beans>
