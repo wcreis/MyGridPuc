@@ -41,7 +41,7 @@
 	<!-- CONTEUDO -->
 	<ui:define name="conteudo">
 		<f:view>
-			<div class="mws-panel grid_4">
+			<div class="mws-panel grid_10">
 				<div class="mws-panel-header">
                 	<span><i class="icon-archive"></i>Lista de Disciplina</span>
                 </div>
@@ -49,13 +49,12 @@
 					<div class="mws-panel-body no-padding">
 						<h:form id="formulario" class="mws-table">
 							<h:inputHidden name="idDisciplina" id="idDisciplina" value="#{disciplinaController.disciplinaBean.id}" />
-							<br />
 							
 							<h:dataTable class="dataTables_wrapper" id="disciplina" value="#{disciplinaController.listaDisciplinaBean}" var="disciplina">
 								<!-- Coluna codigo -->
 								<h:column>
 									<f:facet name="header">
-										<h:outputLabel value="Codigo" />
+										<h:outputLabel value="Codigo da Disciplina" />
 									</f:facet>
 									<h:inputHidden value="#{disciplina.id}" />
 									<h:outputLabel value="#{disciplina.codigo}" />
@@ -63,14 +62,14 @@
 								<!-- Coluna nome -->
 								<h:column>
 									<f:facet name="header">
-										<h:outputLabel value="Nome" />
+										<h:outputLabel value="Nome da Disciplina" />
 									</f:facet>
 									<h:outputLabel value="#{disciplina.nome}" />
 								</h:column>
 								<!-- Coluna credito -->
 								<h:column>
 									<f:facet name="header">
-										<h:outputLabel value="Credito" />
+										<h:outputLabel value="Quantidade de Creditos da Disciplina" />
 									</f:facet>
 									<h:outputLabel value="#{disciplina.credito}" />
 								</h:column>

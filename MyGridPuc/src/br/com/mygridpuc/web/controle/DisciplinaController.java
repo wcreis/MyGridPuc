@@ -42,7 +42,6 @@ public class DisciplinaController {
 	 */
 	public String incluir(){
 		try{
-			//System.out.print("Antes de incluir: " + disciplinaBean);
 			Disciplina disciplina = new Disciplina();
 			
 			disciplina.setCodigo(this.disciplinaBean.getCodigo().toUpperCase());
@@ -50,14 +49,16 @@ public class DisciplinaController {
 			disciplina.setCredito(this.disciplinaBean.getCredito());
 			
 			getDisciplinaService().incluir(disciplina);
+			String msg = "Cadastro Realizado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
 			
-			//System.out.print("Depois de incluir: " + disciplina);
 			return "sucesso";
 		}catch(Exception ex){
 			String msg = "Inclusão não realizada. Movito: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
-			return "falha";
+			return null;
 		}
 	}
 	
@@ -95,7 +96,7 @@ public class DisciplinaController {
 			String msg = "Inclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
-			return "falha";
+			return null;
 		}
 	}
 	
@@ -127,11 +128,9 @@ public class DisciplinaController {
 			String msg = "Consulta não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
-			return "falha";
+			return null;
 		}
 	}
-	
-	
 	
 	/**
 	 * Cria um novo objeto Disciplina e redireciona para a tela de criar disciplina.
@@ -145,7 +144,7 @@ public class DisciplinaController {
 			String msg = "Criação não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
-			return "falha";
+			return null;
 		}
 	}
 	
@@ -165,13 +164,18 @@ public class DisciplinaController {
 			}
 			
 			getDisciplinaService().excluir(disciplina.getIdDisciplina());
+			
+			String msg = "Cadastro Excluido com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			
 			return "sucesso";
 			
 		}catch(Exception e){
 			String msg = "Exclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
-			return "falha";
+			return null;
 		}
 	}
 	
@@ -191,12 +195,17 @@ public class DisciplinaController {
 			disciplina.setCredito(this.disciplinaBean.getCredito());
 			
 			getDisciplinaService().alterar(disciplina);
+			
+			String msg = "Cadastro Alterado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			
 			return "sucesso";
 		}catch(Exception e){
 			String msg = "Alteração não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
-			return "falha";
+			return null;
 		}
 	}
 

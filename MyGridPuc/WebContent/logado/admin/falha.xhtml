@@ -7,57 +7,55 @@
 	xmlns:sec="http://www.springframework.org/security/facelets/tags"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-
-<sec:isAnonymous>
-	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
-	<meta http-equiv="refresh"	content="0;url=#{request.contextPath}/publico/login.xhtml" />
-</sec:isAnonymous>
-<sec:ifAnyGranted>
-<!-- Redireciona Para a Tela Principal. -->
-	<meta http-equiv="refresh"	content="3;url=#{request.contextPath}/logado/vwPrincipapl.xhtml" />
-</sec:ifAnyGranted>
-
 <ui:composition template="/template/index.xhtml">
 
-	<ui:define name="title">        
-            MyGridPuc - Cadastro de Disciplina        
-    </ui:define>
+	<ui:define name="head">
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+			<h:head>
+				<meta http-equiv="refresh" content="5;url=../vwPrincipal.xhtml" />
+			</h:head>
 
-	<ui:define name="cabecalho">
-									
-	Usuário Logado: #{request.remoteUser} <a href="#{request.contextPath}/j_spring_security_logout"> Logout</a>
-
+		</sec:ifAnyGranted>
+		<ui:include src="../../template/css.xhtml"></ui:include>
 	</ui:define>
+
+	<ui:define name="title">        
+            MyGridPuc - Principal        
+    </ui:define>
+	<!-- CABEÇALHO -->
+	<ui:define name="cabecalho">
+		<ui:include src="../../template/cabecalho.xhtml"></ui:include>
+	</ui:define>
+
+	<!-- MENU -->
 	<ui:define name="menu">
 		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
-			<!-- Menu será da Seguinte Forma:
-		Cadastros
-			-Curso
-			-Discilina
-			-Matriz
-			-Turma
-			-Usuário
-		Importação
-			-Matriz Curricular
-			-Programação Academica
-		 -->
-
-			<h:commandButton styleClass="button" action="principal" immediate="true" value="Voltar ao Menu Principal" />
-			<br />
-
+			<ui:include src="../../template/menu.xhtml"></ui:include>
 		</sec:ifAnyGranted>
 	</ui:define>
 
+	<!-- CONTEÚDO -->
 	<ui:define name="conteudo">
-
 		<f:view>
-			<h:outputText value="Falhou!!!" />
-			<br />
+			<div class="mws-panel grid_4">
+				<div class="mws-panel-header">
+					<span><i class="icon-archive"></i>Falha</span>
+				</div>
+				<div class="mws-panel-header">
+					<div class="mws-panel-body no-padding">
+						<h:form id="formulario" class="mws-form">
+							<div class="mws-form-message" align="left">
+								<h:messages></h:messages>
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
 		</f:view>
+
 	</ui:define>
-
-
+	<!-- RODAPÉ -->
 	<ui:define name="rodape">
 
 	</ui:define>
