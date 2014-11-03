@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
+
 /**
  * Classe que representa os dados persistentes do Usuario
  * @author Wesley Reis
@@ -28,7 +30,8 @@ public class Usuario implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idUsuario")
 	private Integer idUsuario;
-		
+	
+	@NaturalId
 	@Column(name="emailUsuario", unique=true)
 	private String emailUsuario;
 	

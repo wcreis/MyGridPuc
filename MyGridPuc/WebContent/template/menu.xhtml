@@ -42,8 +42,8 @@
 		    <li>
 		    <a href="#"><i class="icon-font"></i>Usuario</a>
 		     <ul class="closed">
-		            <li><a href="#{request.contextPath}/logado/admin/vwCriarUsuario.xhtml">Cadastar Usuario</a></li>
-		            <li><a href="#{request.contextPath}/logado/admin/vwListarUsuario.xhtml">Listar Usuario</a></li>
+				<li><h:commandLink value="Cadastar Usuario" action="criar usuario"/></li>
+				<li><h:commandLink value="Listar Usuarios" action="#{usuarioController.listar}"/></li>
 		     </ul>
 		    </li> 
 		</ul>        
