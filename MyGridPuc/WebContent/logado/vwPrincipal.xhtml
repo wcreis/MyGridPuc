@@ -12,11 +12,10 @@
 
 <ui:composition template="/template/index.xhtml">
 	<ui:define name="head">
-
-		<ui:include src="../template/css.xhtml"></ui:include>
+		<ui:include src="../template/css.xhtml">
 	</ui:define>
-
-	<ui:define name="title">        
+	 <ui:define name="title">        
+	</ui:define>
             MyGridPuc - Principal        
     </ui:define>
 	<!-- CABEÇALHO -->
@@ -26,6 +25,7 @@
 
 	<!-- MENU -->
 	<ui:define name="menu">
+<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
 			<ui:include src="../template/menu.xhtml"></ui:include>

@@ -1,7 +1,8 @@
 package br.com.mygridpuc.web.entidade;
 
-import java.io.Serializable;
+import java.util.List;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -29,8 +30,18 @@ public class Disciplina implements Serializable{
 	
 	@Column(name="nomeDiciplina")
 	private String nome;
-
 	
+	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Matriz> listMatriz;
+
+	public List<Matriz> getListMatriz() {
+		return listMatriz;
+	}
+
+	public void setListMatriz(List<Matriz> listMatriz) {
+		this.listMatriz = listMatriz;
+	}
+
 	public Integer getIdDisciplina() {
 		return idDisciplina;
 	}

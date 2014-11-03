@@ -35,13 +35,13 @@ public class DisciplinaController {
 	@Autowired
 	private List<DisciplinaBean> listaDisciplinaBean;
 
+	
 	/**
 	 * Inclui a disciplina no banco de dados.
 	 * @return
 	 */
 	public String incluir(){
 		try{
-			//System.out.print("Antes de incluir: " + disciplinaBean);
 			Disciplina disciplina = new Disciplina();
 			
 			disciplina.setCodigo(this.disciplinaBean.getCodigo().toUpperCase());
@@ -49,14 +49,16 @@ public class DisciplinaController {
 			disciplina.setCredito(this.disciplinaBean.getCredito());
 			
 			getDisciplinaService().incluir(disciplina);
+			String msg = "Cadastro Realizado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
 			
-			//System.out.print("Depois de incluir: " + disciplina);
 			return "sucesso";
 		}catch(Exception ex){
 			String msg = "Inclusão não realizada. Movito: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
-			return "falha";
+			getFacesContext().addMessage("formulario", message);
+			return null;
 		}
 	}
 	
@@ -65,13 +67,14 @@ public class DisciplinaController {
 	 * @return
 	 */
 	public String listar(){
+		
 		try{
 			List<Disciplina> listDisciplina = new ArrayList<>();
 			listDisciplina = getDisciplinaService().listar();
 			if(listDisciplina == null || listDisciplina.size() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
 				System.out.println(getFacesContext());
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplinas";
 			}
 			
@@ -92,8 +95,8 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Inclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
-			return "falha";
+			getFacesContext().addMessage("formulario", message);
+			return null;
 		}
 	}
 	
@@ -105,13 +108,13 @@ public class DisciplinaController {
 	public String consultar(){
 		try{
 			
-			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formprincipal:formulario:idDisciplina");
+			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idDisciplina");
 			
 			Disciplina disciplina = getDisciplinaService().consultar(Integer.parseInt(idDisciplina));
 			
 			if(disciplina == null || disciplina.getIdDisciplina() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplinas";
 			}
 			
@@ -124,12 +127,10 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Consulta não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
-			return "falha";
+			getFacesContext().addMessage("formulario", message);
+			return null;
 		}
 	}
-	
-	
 	
 	/**
 	 * Cria um novo objeto Disciplina e redireciona para a tela de criar disciplina.
@@ -142,34 +143,39 @@ public class DisciplinaController {
 		}catch(Exception e){
 			String msg = "Criação não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
-			return "falha";
+			getFacesContext().addMessage("formulario", message);
+			return null;
 		}
 	}
 	
 	public String excluir(){
 		try{
 			
-			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formprincipal:formulario:idDisciplina");
-			//HtmlInputHidden idDisciplina = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formprincipal:formulario:idDisciplina");
+			String idDisciplina = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idDisciplina");
+			//HtmlInputHidden idDisciplina = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formulario:idDisciplina");
 			
-			String id = (String) (idDisciplina == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formprincipal:formulario:idDisciplina") : idDisciplina);
+			String id = (String) (idDisciplina == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idDisciplina") : idDisciplina);
 			Disciplina disciplina = getDisciplinaService().consultar(Integer.parseInt(id));
 			
 			if(disciplina == null || disciplina.getIdDisciplina() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplina";
 			}
 			
 			getDisciplinaService().excluir(disciplina.getIdDisciplina());
+			
+			String msg = "Cadastro Excluido com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			
 			return "sucesso";
 			
 		}catch(Exception e){
 			String msg = "Exclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
-			return "falha";
+			getFacesContext().addMessage("formulario", message);
+			return null;
 		}
 	}
 	
@@ -180,7 +186,7 @@ public class DisciplinaController {
 			
 			if(disciplina == null || disciplina.getIdDisciplina() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formprincipal:formulario", facesMessage);
+				getFacesContext().addMessage("formulario", facesMessage);
 				return "listar disciplina";
 			}
 			
@@ -189,12 +195,17 @@ public class DisciplinaController {
 			disciplina.setCredito(this.disciplinaBean.getCredito());
 			
 			getDisciplinaService().alterar(disciplina);
+			
+			String msg = "Cadastro Alterado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			
 			return "sucesso";
 		}catch(Exception e){
 			String msg = "Alteração não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formprincipal:formulario", message);
-			return "falha";
+			getFacesContext().addMessage("formulario", message);
+			return null;
 		}
 	}
 

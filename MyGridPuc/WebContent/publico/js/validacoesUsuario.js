@@ -43,7 +43,7 @@ function validarSelecionado(){
         	return true;
     	}
     }
-    alert('ï¿½ necessï¿½rio selecionar um item da lista.');
+    alert('É necessário selecionar um item da lista.');
     return false;
 }
 
@@ -51,8 +51,8 @@ function validarSelecionado(){
 function validarFormulario(){
 	
 	var formulario = document.getElementById('formulario');
-	if(formulario.nome.value.lenght()<0){
-		alert('O campo nome deve ser preenchido').
+	if(formulario.email.value.lenght()<0){
+		alert('O campo E-mail deve ser preenchido').
 		formulario.nome.focus();
 		return false;
 	}
@@ -61,6 +61,6 @@ function validarFormulario(){
 }
 
 
-function retornaIdDisciplina(){
-	return document.getElementById('formulario:idDisciplina').value;
+function retornaIdUsuario(){
+	return document.getElementById('formulario:idUsuario').value;
 }

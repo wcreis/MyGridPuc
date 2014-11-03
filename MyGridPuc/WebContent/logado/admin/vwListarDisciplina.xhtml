@@ -14,57 +14,47 @@
 </sec:isAnonymous>
 
 <ui:composition template="/template/index.xhtml">
-	 <ui:define name="head"> 
+	<!-- HEAD DA PAGINA -->
+	<ui:define name="head">
+		<ui:include src="../../template/css.xhtml"></ui:include>
 	   	<script language="javascript" src="#{request.contextPath}/publico/js/validacoesDisciplina.js" charset="ISO-8859-1"/>
     </ui:define>
-
+	<!-- TITULO -->
 	<ui:define name="title">        
-            MyGridPuc - Cadastro de Disciplina        
+            MyGridPuc - Disciplina        
     </ui:define>
 
+	<!-- CABEÇALHO -->
 	<ui:define name="cabecalho">
-									
-	Usuário Logado: #{request.remoteUser}
-	<a href="#{request.contextPath}/j_spring_security_logout"> Logout</a>
-
+		<ui:include src="../../template/cabecalho.xhtml"></ui:include>
 	</ui:define>
+
+	<!-- MENU -->
 	<ui:define name="menu">
 		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
-			<!-- Menu será da Seguinte Forma:
-		Cadastros
-			-Curso
-			-Discilina
-			-Matriz
-			-Turma
-			-Usuário
-		Importação
-			-Matriz Curricular
-			-Programação Academica
-		 -->
-		 	<h:commandButton styleClass="button" value="Nova Disciplina" action="#{disciplinaController.criar}" />
-			<br />
-			<h:commandButton styleClass="button" action="principal" immediate="true" value="Voltar ao Menu Principal" />
-			<br />
-
+			<ui:include src="../../template/menu.xhtml"></ui:include>
 		</sec:ifAnyGranted>
 	</ui:define>
 
+	
+	<!-- CONTEUDO -->
 	<ui:define name="conteudo">
-
 		<f:view>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<h:form id="formulario" >
+			<div class="mws-panel grid_10">
+				<div class="mws-panel-header">
+                	<span><i class="icon-archive"></i>Lista de Disciplina</span>
+                </div>
+				<div class="mws-panel-header">
+					<div class="mws-panel-body no-padding">
+						<h:form id="formulario" class="mws-table">
 							<h:inputHidden name="idDisciplina" id="idDisciplina" value="#{disciplinaController.disciplinaBean.id}" />
-							<!-- <input type="hidden" id="idDisciplina" name='idDisciplina'/> -->
-							<br />
-							<h:dataTable border="1" id="disciplina" value="#{disciplinaController.listaDisciplinaBean}" var="disciplina">
+							
+							<h:dataTable class="dataTables_wrapper" id="disciplina" value="#{disciplinaController.listaDisciplinaBean}" var="disciplina">
 								<!-- Coluna codigo -->
 								<h:column>
 									<f:facet name="header">
-										<h:outputLabel value="Codigo" />
+										<h:outputLabel value="Codigo da Disciplina" />
 									</f:facet>
 									<h:inputHidden value="#{disciplina.id}" />
 									<h:outputLabel value="#{disciplina.codigo}" />
@@ -72,14 +62,14 @@
 								<!-- Coluna nome -->
 								<h:column>
 									<f:facet name="header">
-										<h:outputLabel value="Nome" />
+										<h:outputLabel value="Nome da Disciplina" />
 									</f:facet>
 									<h:outputLabel value="#{disciplina.nome}" />
 								</h:column>
 								<!-- Coluna credito -->
 								<h:column>
 									<f:facet name="header">
-										<h:outputLabel value="Credito" />
+										<h:outputLabel value="Quantidade de Creditos da Disciplina" />
 									</f:facet>
 									<h:outputLabel value="#{disciplina.credito}" />
 								</h:column>
@@ -88,27 +78,27 @@
 									<f:facet name="header">
 										<h:outputLabel value="" />
 									</f:facet>
-									<h:selectOneRadio id="selecionado" value="#{disciplinaController.disciplinaBean.id}" onclick="selecionarItem('formprincipal:formulario:idDisciplina',this);">
+									<h:selectOneRadio id="selecionado" value="#{disciplinaController.disciplinaBean.id}" onclick="selecionarItem('formulario:idDisciplina',this);">
 										<f:param name="id" value="#{disciplina}" />
 										<f:selectItem itemValue="#{disciplina.id}" />
 									</h:selectOneRadio>
 								</h:column>
 							</h:dataTable>
 							<br />
-							<h:commandButton styleClass="button" value="Novo" action="#{disciplinaController.criar}" />
-							<h:commandButton styleClass="button" value="Excluir" action="#{disciplinaController.excluir}"   onclick="return validarSelecionado()" />
-							<h:commandButton styleClass="button" value="Editar" action="#{disciplinaController.consultar }" onclick="return validarSelecionado()" />
+							<div class="mws-button-row">
+								<h:commandButton styleClass="btn btn-primary" value="Novo"    action="#{disciplinaController.criar}" />
+								<h:commandButton styleClass="btn btn-danger"  value="Excluir" action="#{disciplinaController.excluir}"   onclick="return validarSelecionado()" />
+								<h:commandButton styleClass="btn btn-warning" value="Editar"  action="#{disciplinaController.consultar}" onclick="return validarSelecionado()" />
+							</div>
 							<h:messages />
 						</h:form>
 					</div>
 				</div>
 			</div>
 		</f:view>
-	</ui:define>
-
-
-	<ui:define name="rodape">
 
 	</ui:define>
+
+
 </ui:composition>
 </html>

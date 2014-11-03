@@ -11,6 +11,9 @@
 </sec:isAnonymous>
 
 <ui:composition template="/template/index.xhtml">
+	<ui:define name="head"> 
+	   	<script language="javascript" src="#{request.contextPath}/publico/js/validacoesCurso.js" charset="ISO-8859-1"/>
+    </ui:define>
 
 	 <ui:define name="title">        
             MyGridPuc - Cadastro de Curso        
@@ -45,17 +48,14 @@
 
 	<ui:define name="conteudo">
 
-				<f:view>
-					 			<div class="navbar navbar-default navbar-static-top navbar-inverse">
-				    <div class="container">
-			     		<div class="navbar-header">
-			        		<a class="navbar-brand" href="#">Cadastro de Curso</a>
-			      		</div>
-			      		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			       			 <ul class="nav navbar-nav navbar-right"><li class="active"><a href="#">Home</a></li><li><a href="#">Contatos</a> </li></ul>
-			      		</div>
-			    	</div>
-			  	</div>		
+		<f:view>
+ 			<div class="navbar navbar-default navbar-static-top navbar-inverse">
+			    <div class="container">
+		     		<div class="navbar-header">
+		        		<a class="navbar-brand" href="#">Cadastro de Curso</a>
+		      		</div>
+		    	</div>
+		  	</div>		
 
 			<div class="container">
 				<div class="row">
@@ -65,7 +65,7 @@
 							<div class="form-group">
 								<h:outputLabel value="Codigo" class="col-sm-2 control-label"/>
 					            <div class="col-sm-10">
-					           		 <h:inputText id="codigoCurso" styleClass="form-control"  value="#{cursoController.cursoBean.codigoCurso}">
+					           		 <h:inputText id="codigoCurso" styleClass="form-control" size="4" maxlength="4" value="#{cursoController.cursoBean.codigoCurso}">
 					           		 	<f:validateLength minimum="3" maximum="4"/>
 					           		 </h:inputText >
 					           		 <h:message for="codigoCurso" style="color:red"/>
@@ -85,26 +85,16 @@
 							<div class="form-group">
 								<h:outputLabel value="Ano" class="col-sm-2 control-label"/> 
 								<div class="col-sm-10">
-									<h:inputText id="anodig" value="#{cursoController.anoSemestreBean.ano}" size="4" maxlength="4"/>
+									<h:inputText id="anodig" value="#{cursoController.anoSemestreBean.ano}" size="4" maxlength="4" onkeypress="return onlyNumber(event);"/>
 									<h:selectOneListbox size="1" value="#{cursoController.anoSemestreBean.semestre}">
 										<f:selectItem itemLabel="1" itemValue="1" />
 										<f:selectItem itemLabel="2" itemValue="2" />
 									</h:selectOneListbox>
-									<h:commandButton styleClass="button2" value="Adicionar" action="#{cursoController.addAnoSemestre}" onclick=""/>
+									<h:commandButton styleClass="button2" value="Adicionar" action="#{cursoController.addAnoSemestre}" />
 					            </div>
 					            
 					            <div class="col-sm-10">
 										<h:dataTable border="1" id="matriz" value="#{cursoController.cursoBean.listAnoSemestre}" var="semestres">
-										<!-- <div class="form-group">
-											<h:inputHidden value="#{semestres.idAnoSemestre}" id="idAnoSemestre" />
-											<h:outputLabel value="Ano" class="col-sm-2 control-label"/>
-								            <div class="col-sm-5">
-								           		 <h:inputText id="ano" styleClass="form-control"  value="#{semestres.ano}">
-								           		 	<f:validateLength minimum="3" maximum="4"/>
-								           		 </h:inputText >
-								           		 <h:message for="ano" style="color:red"/>
-								            </div>
-								        </div> -->
 										<h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Ano" />
@@ -129,7 +119,7 @@
 								
 					        </div>
 					        
-							<h:commandButton styleClass="button" value="Salvar" action="#{cursoController.incluir}" onclick=""/>
+							<h:commandButton styleClass="button" value="Salvar" action="#{cursoController.incluir}" onclick="return tableIsEmpty();"/>
 							
 						</h:form>
 					</div>
@@ -137,10 +127,8 @@
 			</div>
 		</f:view>	
 	</ui:define>
-	
-
 	<ui:define name="rodape">
-			
+	
 	</ui:define>
 </ui:composition>
 </html>
