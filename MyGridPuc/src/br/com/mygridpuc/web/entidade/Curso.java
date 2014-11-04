@@ -26,7 +26,7 @@ import javax.persistence.Table;
 @Table(name="curso")
 public class Curso implements Serializable{
 	
-	private static final long serialVersionUID = -8385150311284945963L;
+	private static final long serialVersionUID = 2757727363377720051L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,9 +40,6 @@ public class Curso implements Serializable{
 	private String nomeCurso;
 	
 	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<AnoSemestre> listAnoSemestre;
-	
-	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Matriz> listMatriz;
 	
 	public List<Matriz> getListMatriz() {
@@ -51,12 +48,7 @@ public class Curso implements Serializable{
 	public void setListMatriz(List<Matriz> listMatriz) {
 		this.listMatriz = listMatriz;
 	}
-	public List<AnoSemestre> getListAnoSemestre() {
-		return listAnoSemestre;
-	}
-	public void setListAnoSemestre(List<AnoSemestre> listAnoSemestre) {
-		this.listAnoSemestre = listAnoSemestre;
-	}
+
 	public Integer getIdCurso() {
 		return idCurso;
 	}
@@ -75,11 +67,18 @@ public class Curso implements Serializable{
 	public void setNomeCurso(String nomeCurso) {
 		this.nomeCurso = nomeCurso;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result
+				+ ((codigoCurso == null) ? 0 : codigoCurso.hashCode());
 		result = prime * result + ((idCurso == null) ? 0 : idCurso.hashCode());
+		result = prime * result
+				+ ((listMatriz == null) ? 0 : listMatriz.hashCode());
+		result = prime * result
+				+ ((nomeCurso == null) ? 0 : nomeCurso.hashCode());
 		return result;
 	}
 	@Override
@@ -91,12 +90,28 @@ public class Curso implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
+		if (codigoCurso == null) {
+			if (other.codigoCurso != null)
+				return false;
+		} else if (!codigoCurso.equals(other.codigoCurso))
+			return false;
 		if (idCurso == null) {
 			if (other.idCurso != null)
 				return false;
 		} else if (!idCurso.equals(other.idCurso))
 			return false;
+		if (listMatriz == null) {
+			if (other.listMatriz != null)
+				return false;
+		} else if (!listMatriz.equals(other.listMatriz))
+			return false;
+		if (nomeCurso == null) {
+			if (other.nomeCurso != null)
+				return false;
+		} else if (!nomeCurso.equals(other.nomeCurso))
+			return false;
 		return true;
 	}
+
 	
 }

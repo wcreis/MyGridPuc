@@ -15,20 +15,20 @@ import org.springframework.stereotype.Component;
  * @author DavidRodrigues
  *
  */
-@Component
 @ManagedBean
+@Component
 @SessionScoped
 public class CursoBean {
 	private Integer idCurso;
 	private Integer codigoCurso;
 	private String nomeCurso;
-	private List<AnoSemestreBean> listAnoSemestre;
+	private List<MatrizBean> listMatriz;
 	
-	public List<AnoSemestreBean> getListAnoSemestre() {
-		return listAnoSemestre;
+	public List<MatrizBean> getListMatriz() {
+		return listMatriz;
 	}
-	public void setListAnoSemestre(List<AnoSemestreBean> listAnoSemestre) {
-		this.listAnoSemestre = listAnoSemestre;
+	public void setListMatriz(List<MatrizBean> listMatriz) {
+		this.listMatriz = listMatriz;
 	}
 	public Integer getIdCurso() {
 		return idCurso;
