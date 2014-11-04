@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Classe que representa o formulario web de Matriz
- * @author DavidRodrigues
+ * @author DavidRodrigues / Wesley Reis
  *
  */
 @Component
@@ -20,9 +20,8 @@ import org.springframework.stereotype.Component;
 @SessionScoped
 public class MatrizBean {
 	private Integer idMatriz;
-	private String descricao;
-	private List<CursoBean> listCurso;
-	private List<DisciplinaBean> listDisciplina;
+	private String anoSemestreMatriz;
+	private List<PeriodoBean> listPeriodos;
 	
 	public Integer getIdMatriz() {
 		return idMatriz;
@@ -30,23 +29,17 @@ public class MatrizBean {
 	public void setIdMatriz(Integer idMatriz) {
 		this.idMatriz = idMatriz;
 	}
-	public String getDescricao() {
-		return descricao;
+	public String getAnoSemestreMatriz() {
+		return anoSemestreMatriz;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setAnoSemestreMatriz(String anoSemestreMatriz) {
+		this.anoSemestreMatriz = anoSemestreMatriz;
 	}
-	public List<CursoBean> getListCurso() {
-		return listCurso;
+	public List<PeriodoBean> getListPeriodos() {
+		return listPeriodos;
 	}
-	public void setListCurso(List<CursoBean> listCurso) {
-		this.listCurso = listCurso;
-	}
-	public List<DisciplinaBean> getListDisciplina() {
-		return listDisciplina;
-	}
-	public void setListDisciplina(List<DisciplinaBean> listDisciplina) {
-		this.listDisciplina = listDisciplina;
+	public void setListPeriodos(List<PeriodoBean> listPeriodos) {
+		this.listPeriodos = listPeriodos;
 	}
 		
 }
