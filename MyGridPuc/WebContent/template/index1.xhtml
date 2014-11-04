@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/facelets/tags"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <!-- Tudo das Tags  <h:head>, <h:body> é herdado para as Demais páginas-->
+    <h:head>
+        <!-- Deve ser acrescentado os Estilos e JS unicos para Cada Pagina -->
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/plugins/colorpicker/colorpicker.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/bootstrap/css/bootstrap.min.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/fonts/ptsans/stylesheet.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/fonts/icomoon/style.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/mws-style.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/icons/icol16.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/icons/icol32.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/demo.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/jui/css/jquery.ui.all.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/jui/jquery-ui.custom.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/mws-theme.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/publico/css/themer.css" media="screen" />
+    </h:head>
+
+    <h:body>
+        <h:form id="formprincipal">
+            <table width="100%">
+               
+                <!-- INICIO DA ÁREA DE CABEÇALHO  -->
+                <div id="mws-header" class="clearfix">
+
+                    <!-- Logo Container -->
+                    <div id="mws-logo-container">
+                        <div id="mws-logo-wrap">
+                            <img src="#{request.contextPath}/publico/images/mws-logo.png"
+                                 alt="mws admin"></img>
+                        </div>
+                    </div>
+
+                    <!-- User Tools (notifications, logout, profile, change password) -->
+                    <div id="mws-user-tools" class="clearfix">
+                        <!-- User Information and functions section -->
+                        <div id="mws-user-info" class="mws-inset">
+
+                            <!-- User Photo -->
+                            <div id="mws-user-photo">
+                                <img src="#{request.contextPath}/publico/example/student128.png"
+                                     alt="User Photo"></img>
+                            </div>
+
+                            <!-- Username and Functions -->
+                            <div id="mws-user-functions">
+                                <div id="mws-username">Olá, #{request.remoteUser}</div>
+                                <ul>
+                                    <li><a href="#{request.contextPath}/j_spring_security_logout">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>              
+                <!-- INICIO DA ÁREA DE MENU  -->
+                <tr>
+                    <td width="20%" valign="top">
+                    	<ui:insert name="menu">
+                            <h:panelGrid columns="1">
+                            </h:panelGrid>
+                        </ui:insert>
+                     </td>
+                    <!-- FIM DA ÁREA DE MENU  -->
+
+                    <!-- INICIO DA ÁREA DE CONTEUDOS  -->
+                    <td><ui:insert name="conteudo">
+						
+                        </ui:insert></td>
+                </tr>
+                <!-- FIM DA ÁREA DE CONTEUDOS  -->
+            </table>
+
+        </h:form>
+    </h:body>
+
+
+   <ui:include src="/template/footer.xhtml" />
+   <ui:include src="/template/js.xhtml" />  
+
+</html>
