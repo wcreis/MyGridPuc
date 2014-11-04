@@ -15,8 +15,8 @@ import javax.faces.context.FacesContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import br.com.mygridpuc.web.entidade.AnoSemestre;
 import br.com.mygridpuc.web.entidade.Curso;
+import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.negocio.CursoService;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
@@ -35,20 +35,22 @@ public class CursoController {
 	@Autowired
 	private List<CursoBean> listCursoBean;
 	@Autowired
-	private CursoService cursoService;
+	private CursoService cursoService;	
 	@Autowired
-	private AnoSemestreBean anoSemestreBean;
+	private MatrizBean matrizBean;	
+
+
 	
 	@SuppressWarnings("unchecked")
 	public CursoController(){
 		cursoBean = new CursoBean();
 		if(this.getFacesContext().getExternalContext().getSessionMap().get("matriz") != null){
-			cursoBean.setListAnoSemestre((List<AnoSemestreBean>) getSession("matriz"));
+			cursoBean.setListMatriz((List<MatrizBean>) getSession("matriz"));
 		}else{
-			cursoBean.setListAnoSemestre(new ArrayList<AnoSemestreBean>());
+			cursoBean.setListMatriz(new ArrayList<MatrizBean>());
 		}
 		
-		anoSemestreBean = new AnoSemestreBean();
+		matrizBean = new MatrizBean();
 	}
 	
 	/**
@@ -64,21 +66,21 @@ public class CursoController {
 			curso.setCodigoCurso(cursoBean.getCodigoCurso());
 			curso.setNomeCurso(cursoBean.getNomeCurso());
 			
-			curso.setListAnoSemestre(new ArrayList<AnoSemestre>());
+			curso.setListMatriz(new ArrayList<Matriz>());
 			
-			if(cursoBean.getListAnoSemestre() == null || cursoBean.getListAnoSemestre().equals(null)){
-				cursoBean.setListAnoSemestre(new ArrayList<AnoSemestreBean>());
+			if(cursoBean.getListMatriz() == null || cursoBean.getListMatriz().equals(null)){
+				cursoBean.setListMatriz(new ArrayList<MatrizBean>());
 			}
 			
-			for(AnoSemestreBean bean : cursoBean.getListAnoSemestre()){
-				AnoSemestre anoSemestre = new AnoSemestre();
-				anoSemestre.setAno(bean.getAno());
-				anoSemestre.setSemestre(bean.getSemestre());
-				anoSemestre.setCurso(curso);
-				curso.getListAnoSemestre().add(anoSemestre);
+			for(MatrizBean bean : cursoBean.getListMatriz()){
+				Matriz matriz = new Matriz();
+				matriz.setAnoSemestreMatriz(bean.getAnoSemestreMatriz());
+				matriz.setCurso(curso);
+				curso.getListMatriz().add(matriz);
 			}
 			
 			getCursoService().incluir(curso);
+			
 			return "sucesso";
 		}catch(Exception e){
 			String msg = "Inclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
@@ -210,22 +212,26 @@ public class CursoController {
 		}
 	}
 	
+	
+	
+	
 	public String addAnoSemestre(){
 		
 		try{
 			
-			if(cursoBean.getListAnoSemestre() == null || cursoBean.getListAnoSemestre().equals(null)){
-				cursoBean.setListAnoSemestre(new ArrayList<AnoSemestreBean>());
+			if(cursoBean.getListMatriz() == null || cursoBean.getListMatriz().equals(null)){
+				cursoBean.setListMatriz(new ArrayList<MatrizBean>());
 			}
 			
-			AnoSemestreBean novo = new AnoSemestreBean();
-			novo.setAno(anoSemestreBean.getAno());
-			novo.setSemestre(anoSemestreBean.getSemestre());
 			
-			cursoBean.getListAnoSemestre().add(novo);
-			anoSemestreBean = new AnoSemestreBean();
+			MatrizBean novo = new MatrizBean();
+			novo.setAnoSemestreMatriz(matrizBean.getAnoSemestreMatriz());
 			
-			this.setSession("anoSemestres", cursoBean.getListAnoSemestre());
+			cursoBean.getListMatriz().add(novo);
+			
+			matrizBean = new MatrizBean();
+			
+			this.setSession("anoSemestres", cursoBean.getListMatriz());
 			
 			return "criar curso";
 			
@@ -241,7 +247,7 @@ public class CursoController {
 	public String rmvAnoSemestre(){
 		try{
 			HtmlDataTable anosemestres = (HtmlDataTable) this.getFacesContext().getViewRoot().findComponent("formulario:matriz");
-			cursoBean.getListAnoSemestre().remove(cursoBean.getListAnoSemestre().indexOf(anosemestres.getRowData()));
+			cursoBean.getListMatriz().remove(cursoBean.getListMatriz().indexOf(anosemestres.getRowData()));
 			
 			return null;
 		}catch(Exception e){
@@ -273,6 +279,14 @@ public class CursoController {
 		this.listCursoBean = listCursoBean;
 	}
 
+	public MatrizBean getMatrizBean() {
+		return matrizBean;
+	}
+
+	public void setMatrizBean(MatrizBean matrizBean) {
+		this.matrizBean = matrizBean;
+	}
+	
 	public CursoService getCursoService() {
 		return cursoService;
 	}
@@ -283,14 +297,6 @@ public class CursoController {
 	
 	private FacesContext getFacesContext(){
 		return FacesContext.getCurrentInstance();
-	}
-	
-	public AnoSemestreBean getAnoSemestreBean() {
-		return anoSemestreBean;
-	}
-
-	public void setAnoSemestreBean(AnoSemestreBean anoSemestreBean) {
-		this.anoSemestreBean = anoSemestreBean;
 	}
 	
 	private Object getSession(String variavel){

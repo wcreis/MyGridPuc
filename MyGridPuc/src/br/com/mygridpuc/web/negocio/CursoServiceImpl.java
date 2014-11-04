@@ -5,13 +5,16 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.mygridpuc.web.entidade.Curso;
+import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.persistencia.CursoDAO;
+import br.com.mygridpuc.web.persistencia.MatrizDAO;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
@@ -23,7 +26,9 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 @Service
 @Transactional
 public class CursoServiceImpl implements CursoService{
+	
 	private CursoDAO cursoDAO;
+	private MatrizDAO matrizDAO;
 
 	public CursoDAO getCursoDAO() {
 		return cursoDAO;
@@ -32,6 +37,15 @@ public class CursoServiceImpl implements CursoService{
 	@Autowired
 	public void setCursoDAO(CursoDAO cursoDAO) {
 		this.cursoDAO = cursoDAO;
+	}
+	
+	public MatrizDAO getMatrizDAO() {
+		return matrizDAO;
+	}
+	
+	@Autowired
+	public void setMatrizDAO(MatrizDAO matrizDAO) {
+		this.matrizDAO = matrizDAO;
 	}
 
 	/**
@@ -53,6 +67,15 @@ public class CursoServiceImpl implements CursoService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Curso alterar(Curso curso) throws MyGridPucException {
+		
+		//exclui os itens da base que foram removidos da tela
+		Curso cursoExistente = this.consultar(curso.getIdCurso());
+		for (Matriz matriz : cursoExistente.getListMatriz()) {
+			if(!cursoExistente.getListMatriz().contains(matriz)){
+				getMatrizDAO().excluir(matriz.getIdMatriz());
+			}
+		}
+		
 		return getCursoDAO().alterar(curso);
 	}
 
@@ -64,6 +87,13 @@ public class CursoServiceImpl implements CursoService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public void excluir(Integer id) throws MyGridPucException {
+		
+		//exclui todos os itens da base antes de Excluir o Curso
+		Curso cursoExistente = this.consultar(id);
+		for (Matriz matriz : cursoExistente.getListMatriz()) {
+				getMatrizDAO().excluir(matriz.getIdMatriz());
+		}
+		
 		getCursoDAO().excluir(id);
 		
 	}
@@ -77,6 +107,9 @@ public class CursoServiceImpl implements CursoService{
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public Curso consultar(Integer id) throws MyGridPucException {
 		Curso curso = getCursoDAO().consultar(id);
+		
+		Hibernate.initialize(curso.getListMatriz());
+		
 		return curso;
 	}
 
