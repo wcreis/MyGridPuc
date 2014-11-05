@@ -17,7 +17,8 @@
 }
 
 .mws-form .mws-form-row {
-    padding: 12px 18px;
+    padding: 18px 24px;
+    text-align: center;
 }
 
 .mws-form .mws-form-row.bordered {
@@ -312,6 +313,7 @@ input[type="color"] {
 
 .mws-form .mws-form-list.inline {
     margin-top: 4px;
+    text-align: center;
 }
 
 .mws-form .mws-form-list.inline li {

@@ -12,7 +12,7 @@
 		<ul>
 		    <li><a href="#{request.contextPath}/logado/vwPrincipal.xhtml"><i class="icon-home"></i> Home</a></li>     
 		    <li>
-		        <a href="#"><i class="icon-graph"></i> Curso</a>
+		        <a href="#"><i class="icon-graph"></i>Curso</a>
 		        <ul class="closed">
 		            <li><a href="#{request.contextPath}/logado/admin/vwCriarCurso.xhtml">Cadastar Curso</a></li>
 		            <li><a href="#{request.contextPath}/logado/admin/vwListarCurso.xhtml">Listar Cursos</a></li>
@@ -20,21 +20,21 @@
 		    </li>
 		    <li>
 		    	
-		        <a href="#"><i class="icon-list"></i> Disciplina</a>
+		        <a href="#"><i class="icon-list"></i>Disciplina</a>
 		        <ul class="closed">
 		            <li><h:commandLink value="Cadastar Disciplina" action="criar disciplina"/></li>
 		            <li><h:commandLink value="Listar Disciplina" action="#{disciplinaController.listar}"/></li>
 		        </ul>
 		    </li> 
 		    <li>
-		        <a href="#"><i class="icon-table"></i> Matriz Curricular</a>
+		        <a href="#"><i class="icon-table"></i>Matriz Curricular</a>
 		        <ul class="closed">
 		        	<li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Cadastar Matriz</a></li>
 		            <li><a href="#{request.contextPath}/logado/admin/vwCriarDisciplina.xhtml">Listar Matriz</a></li>
 		        </ul>
 		    </li>
 		    <li>
-		        <a href="#"><i class="icon-folder-closed"></i>Importar Arquivos</a>
+		        <a  href="#{request.contextPath}/logado/admin/vwImportarArquivo.xhtml"><i class="icon-folder-closed"></i>Importar Arquivos</a>
 		    </li>
 		    <li>
 		    <a href="#"><i class="icon-pictures"></i>Gallery</a>
@@ -46,6 +46,14 @@
 				<li><h:commandLink value="Listar Usuarios" action="#{usuarioController.listar}"/></li>
 		     </ul>
 		    </li> 
+		    <li>
+		    <a href="#"><i class="icon-th"></i>Ex Formulario</a>
+		   	  <ul class="closed">
+				<li><a href="#{request.contextPath}/logado/admin/vwLayouts.xhtml">Layouts</a></li>
+		        <li><a href="#{request.contextPath}/logado/admin/vwElements.xhtml">Elements</a></li>
+		        <li><a href="#{request.contextPath}/logado/admin/vwWizard.xhtml">Wizard</a></li>
+		     </ul> 
+		    </li>
 		</ul>        
 	</div>
 	</h:form>

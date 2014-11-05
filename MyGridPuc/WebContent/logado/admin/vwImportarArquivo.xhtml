@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<sec:isAnonymous>
+	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
+	<meta http-equiv="refresh"
+		content="0;url=#{request.contextPath}/publico/login.xhtml" />
+</sec:isAnonymous>
+
+<ui:composition template="/template/index.xhtml">
+	<!-- HEAD DA PAGINA -->
+	<ui:define name="head">
+		<ui:include src="../../template/css.xhtml"></ui:include>
+		<script language="javascript"
+			src="#{request.contextPath}/publico/js/validacoesDisciplina.js"
+			charset="ISO-8859-1" />
+		<!-- TITULO -->
+		<ui:define name="title">        
+		          MyGridPuc - Disciplina    
+		</ui:define>
+	</ui:define>
+
+
+
+	<!-- CABEÇALHO -->
+	<ui:define name="cabecalho">
+		<ui:include src="../../template/cabecalho.xhtml"></ui:include>
+	</ui:define>
+
+	<!-- MENU -->
+	<ui:define name="menu">
+		<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+			<ui:include src="../../template/menu.xhtml"></ui:include>
+		</sec:ifAnyGranted>
+	</ui:define>
+
+
+
+	<!-- CONTEÚDO -->
+	<ui:define name="conteudo">
+		<div class="mws-panel grid_8">
+			<div class="mws-panel-header">
+				<span><i class="icon-archive"></i>Gerenciar Arquivos</span>
+			</div>
+			<div class="mws-panel-body no-padding no-border">
+				<div id="elfinder"></div>
+			</div>
+		</div>
+
+		<div class="mws-panel grid_8">
+			<div class="mws-panel-header">
+				<span><i class="icon-upload"></i> Importar Arquivos</span>
+			</div>
+			<div class="mws-panel-body no-padding">
+				<div id="uploader" style="position: relative;">
+					<div class="plupload_wrapper plupload_scroll">
+						<div id="uploader_container" class="plupload_container"
+							title="Using runtime: html5">
+							<div class="plupload">
+								<div class="plupload_header">
+									<div class="plupload_header_content">
+										<div class="plupload_header_title">Select files</div>
+										<div class="plupload_header_text">Add files to the
+											upload queue and click the start button.</div>
+									</div>
+								</div>
+								<div class="plupload_content">
+									<div class="plupload_filelist_header">
+										<div class="plupload_file_name">Filename</div>
+										<div class="plupload_file_action">&nbsp;</div>
+										<div class="plupload_file_status">
+											<span>Status</span>
+										</div>
+										<div class="plupload_file_size">Size</div>
+										<div class="plupload_clearer">&nbsp;</div>
+									</div>
+									<ul id="uploader_filelist" class="plupload_filelist">
+										<li class="plupload_droptext">Drag files here.</li>
+									</ul>
+									<div class="plupload_filelist_footer">
+										<div class="plupload_file_name">
+											<div class="plupload_buttons">
+												<a href="#" class="plupload_button plupload_add"
+													id="uploader_browse"
+													style="position: relative; z-index: 0;">Add files</a><a
+													href="#"
+													class="plupload_button plupload_start plupload_disabled">Start
+													upload</a>
+											</div>
+											<span class="plupload_upload_status"></span>
+										</div>
+										<div class="plupload_file_action"></div>
+										<div class="plupload_file_status">
+											<span class="plupload_total_status">0%</span>
+										</div>
+										<div class="plupload_file_size">
+											<span class="plupload_total_file_size">0 b</span>
+										</div>
+										<div class="plupload_progress">
+											<div class="plupload_progress_container">
+												<div class="plupload_progress_bar"></div>
+											</div>
+										</div>
+										<div class="plupload_clearer">&nbsp;</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" id="uploader_count" name="uploader_count" value="0"></input>
+					</div>
+					<div id="p195roa65t1qje1d1di6a5181jrj0_html5_container"
+						class="plupload html5"
+						style="position: absolute; width: 87px; height: 24px; overflow: hidden; z-index: -1; opacity: 0; top: 290px; left: 8px; background: transparent;">
+						<input id="p195roa65t1qje1d1di6a5181jrj0_html5"
+							style="font-size: 999px; position: absolute; width: 100%; height: 100%;"
+							type="file"
+							accept="image/jpeg,image/gif,image/png,application/zip,video/avi"  multiple="multiple"></input>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- RODAPÉ -->
+		<ui:define name="rodape">
+
+		</ui:define>
+	</ui:define>
+
+</ui:composition>
+</html>

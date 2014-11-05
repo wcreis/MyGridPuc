@@ -2,7 +2,6 @@ body,
 #mws-container
 {
 	background-color: #00039f;
-	/* background-image:url('../images/core/bg/paper.png'); */
 }
 
 #mws-sidebar, 
@@ -27,7 +26,6 @@ body,
 {
 	border-color:#c5d52b;
 }
-
 
 .mws-panel .mws-panel-header span, 
 #mws-navigation ul li.active a, 
