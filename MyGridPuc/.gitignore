@@ -1,1 +1,5 @@
-/resources/
+/resources
+/build
+/.metadata
+/.settings
+/RemoteSystemsTempFiles
