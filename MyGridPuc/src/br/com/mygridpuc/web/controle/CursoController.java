@@ -51,6 +51,7 @@ public class CursoController {
 		}
 		
 		matrizBean = new MatrizBean();
+		removeBean("formulario");
 	}
 	
 	/**
@@ -83,7 +84,7 @@ public class CursoController {
 			
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Inclus„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -118,7 +119,7 @@ public class CursoController {
 			}
 			return "listar curso";
 		}catch(Exception e){
-			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Inclus„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -143,7 +144,7 @@ public class CursoController {
 			
 			return "editar curso";
 		}catch(Exception e){
-			String msg = "Consulta n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Consulta n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -156,7 +157,7 @@ public class CursoController {
 			cursoBean = new CursoBean();
 			return "criar curso";
 		}catch(Exception e){
-			String msg = "Cria√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "CriaÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -178,7 +179,7 @@ public class CursoController {
 			getCursoService().excluir(curso.getIdCurso());
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Exclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Exclus„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -204,7 +205,7 @@ public class CursoController {
 			getCursoService().alterar(curso);
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Altera√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "AlteraÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -236,7 +237,7 @@ public class CursoController {
 			return "criar curso";
 			
 		}catch(Exception e ){
-			String msg = "Cria√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "CriaÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -251,7 +252,7 @@ public class CursoController {
 			
 			return null;
 		}catch(Exception e){
-			String msg = "Exclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Exclus„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -260,7 +261,7 @@ public class CursoController {
 	}
 	
 	public void removeBean(String bean){
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(bean);
+		getFacesContext().getExternalContext().getSessionMap().remove(bean);
     }
 
 	public CursoBean getCursoBean() {
