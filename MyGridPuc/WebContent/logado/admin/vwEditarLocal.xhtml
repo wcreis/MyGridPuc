@@ -13,7 +13,7 @@
 <ui:composition template="/template/index.xhtml">
 
 	 <ui:define name="title">        
-            MyGridPuc - Cadastro de Local        
+            MyGridPuc - Edição de Local        
     </ui:define>
 	
 	<ui:define name="cabecalho">
@@ -45,7 +45,7 @@
  			<div class="navbar navbar-default navbar-static-top navbar-inverse">
 			    <div class="container">
 		     		<div class="navbar-header">
-		        		<a class="navbar-brand" href="#">Cadastro de Local</a>
+		        		<a class="navbar-brand" href="#">Edição de local</a>
 		      		</div>
 		    	</div>
 		  	</div>		
@@ -54,6 +54,8 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h:form id="formulario" class="form-horizontal" role="form">
+							<!-- ID da local -->
+							<h:inputHidden id="idLocal" value="#{localController.localBean.idLocal}" />
 							<!-- Instituição de Ensino -->
 							<div class="form-group">
 								<h:outputLabel value="Instituição de Ensino" class="col-sm-2 control-label"/>
@@ -122,7 +124,10 @@
 			</div>
 		</f:view>	
 	</ui:define>
+	
 
-	<ui:define name="rodape" />
-	</ui:composition>
+	<ui:define name="rodape">
+			
+	</ui:define>
+</ui:composition>
 </html>
