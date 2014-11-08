@@ -84,7 +84,7 @@ public class CursoController {
 			
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Inclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Inclusão não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -119,7 +119,7 @@ public class CursoController {
 			}
 			return "listar curso";
 		}catch(Exception e){
-			String msg = "Inclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Inclusão não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -144,7 +144,7 @@ public class CursoController {
 			
 			return "editar curso";
 		}catch(Exception e){
-			String msg = "Consulta não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Consulta não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -157,7 +157,7 @@ public class CursoController {
 			cursoBean = new CursoBean();
 			return "criar curso";
 		}catch(Exception e){
-			String msg = "Criação não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Criação não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -179,7 +179,7 @@ public class CursoController {
 			getCursoService().excluir(curso.getIdCurso());
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Exclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Exclusão não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -205,7 +205,7 @@ public class CursoController {
 			getCursoService().alterar(curso);
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Alteração não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Alteração não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -237,7 +237,7 @@ public class CursoController {
 			return "criar curso";
 			
 		}catch(Exception e ){
-			String msg = "Criação não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Criação não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
@@ -252,7 +252,7 @@ public class CursoController {
 			
 			return null;
 		}catch(Exception e){
-			String msg = "Exclusão não realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Exclusão não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
