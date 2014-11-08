@@ -53,13 +53,25 @@
 	width: 98%;
 }
 
-.plupload_header {background: #2A2C2E url('../img/backgrounds.gif') repeat-x;}
+/* .plupload_header {background: #2A2C2E url('../img/backgrounds.gif') repeat-x;}
 .plupload_header_content {
 	background: url('../img/backgrounds.gif') no-repeat 0 -317px;
 	min-height: 56px;
 	padding-left: 60px;
 	color: #FFF;
+} */
+
+
+.plupload_header { border-bottom:1px solid #d5d5d5; }
+.plupload_header_content {
+	background:url(images/upload.png) no-repeat 14px center;
+	min-height: 56px;
+	padding-left: 60px;
+	line-height: 1.5;
 }
+
+
+
 .plupload_header_title {
 	font: normal 18px sans-serif;
 	padding: 6px 0 3px;
