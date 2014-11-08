@@ -49,13 +49,13 @@ public class UsuarioController {
 			
 			getUsuarioService().incluir(usuario);
 			
-			String msg = "Usu·rio IncluÌdo com Sucesso!!!";
+			String msg = "Usu√°rio Inclu√≠do com Sucesso!!!";
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			
 			return "sucesso";
 		}catch(Exception ex){
-			String msg = "Inclus„o n„o realizada. Movito: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
+			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -92,7 +92,7 @@ public class UsuarioController {
 			}
 			return "listar usuario";
 		}catch(Exception e){
-			String msg = "Inclus„o n„o realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -101,7 +101,7 @@ public class UsuarioController {
 	
 	
 	/**
-	 * Consulta uma usuario de acordo com o ID da usuario que est· sendo alterado.
+	 * Consulta uma usuario de acordo com o ID da usuario que est√° sendo alterado.
 	 * @return
 	 */
 	public String consultar(){
@@ -124,7 +124,7 @@ public class UsuarioController {
 			
 			return "editar usuario";
 		}catch(Exception e){
-			String msg = "Consulta n„o realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Consulta n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -142,7 +142,7 @@ public class UsuarioController {
 			usuarioBean = new UsuarioBean();
 			return "criar usuario";
 		}catch(Exception e){
-			String msg = "CriaÁ„o n„o realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Cria√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -166,13 +166,13 @@ public class UsuarioController {
 			
 			getUsuarioService().excluir(usuario.getIdUsuario());
 			
-			String msg = "Usu·rio Excluido com Sucesso!!!";
+			String msg = "Usu√°rio Excluido com Sucesso!!!";
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return "sucesso";
 			
 		}catch(Exception e){
-			String msg = "Exclus„o n„o realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Exclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -202,7 +202,7 @@ public class UsuarioController {
 			
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "AlteraÁ„o n„o realizada. Movito: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Altera√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
