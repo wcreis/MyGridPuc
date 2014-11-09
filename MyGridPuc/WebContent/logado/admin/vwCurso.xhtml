@@ -9,10 +9,11 @@
 	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
 	<meta http-equiv="refresh"
 		content="0;url=#{request.contextPath}/publico/login.xhtml" />
+	
 </sec:isAnonymous>
 
 <ui:composition template="/template/index.xhtml">
-	
+	<link rel="shortcut icon" href="#{request.contextPath}/publico/images/student.ico" ></link>
 	 <ui:define name="title">        
             MyGridPuc - Cadastro de Curso        
     </ui:define>
