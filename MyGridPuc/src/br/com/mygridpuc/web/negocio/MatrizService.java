@@ -2,6 +2,7 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
+import br.com.mygridpuc.web.entidade.Curso;
 import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
@@ -49,4 +50,11 @@ public interface MatrizService {
 	 * @throws MyGridPucException
 	 */
 	public List<Matriz> listar() throws MyGridPucException;
+	
+	/**
+	 * Lista todas as matriz cadastradas que pertencem a um curso
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public List<Matriz> listar(Integer idCurso) throws MyGridPucException;
 }

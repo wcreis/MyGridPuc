@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.mygridpuc.web.entidade.Curso;
 import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.entidade.Periodo;
 import br.com.mygridpuc.web.persistencia.MatrizDAO;
@@ -59,7 +60,7 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Matriz incluir(Matriz matriz) throws MyGridPucException {
-		return matrizDAO.incluir(matriz);
+		return null;
 	}
 
 	/**
@@ -79,7 +80,7 @@ public class MatrizServiceImpl implements MatrizService{
 			}
 		}
 		
-		return getMatrizDAO().alterar(matriz);
+		return null;
 	}
 
 	/**
@@ -109,9 +110,9 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public Matriz consultar(Integer id) throws MyGridPucException {
-		Matriz matriz = getMatrizDAO().consultar(id);
+		Matriz matriz = null;
 		
-		Hibernate.initialize(matriz.getListaPeriodos());
+		//Hibernate.initialize(matriz.getListaPeriodos());
 		
 		return matriz;
 	}
@@ -124,7 +125,13 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public List<Matriz> listar() throws MyGridPucException {
-		return getMatrizDAO().listar();
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Matriz> listar(Integer idCurso) throws MyGridPucException {
+		return getMatrizDAO().listar(idCurso);
 	}
 	
 }

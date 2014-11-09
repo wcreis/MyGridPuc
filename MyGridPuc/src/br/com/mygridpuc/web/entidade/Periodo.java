@@ -27,8 +27,6 @@ import javax.persistence.Table;
 @Table(name="periodo")
 public class Periodo implements Serializable {
 
-
-
 	/**
 	 * 
 	 */
@@ -39,8 +37,11 @@ public class Periodo implements Serializable {
 	@Column(name="idPeriodo")
 	private Integer idPeriodo;
 	
+	@Column(name="periodo")
+	private Integer periodo;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idMatriz", unique=true, referencedColumnName="idMatriz", nullable=false)
+	@JoinColumn(name="idMatriz", referencedColumnName="idMatriz", nullable=false)
 	private Matriz matriz;
 	
 	
@@ -54,6 +55,14 @@ public class Periodo implements Serializable {
 
 	public void setIdPeriodo(Integer idPeriodo) {
 		this.idPeriodo = idPeriodo;
+	}
+
+	public Integer getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(Integer periodo) {
+		this.periodo = periodo;
 	}
 
 	public Matriz getMatriz() {

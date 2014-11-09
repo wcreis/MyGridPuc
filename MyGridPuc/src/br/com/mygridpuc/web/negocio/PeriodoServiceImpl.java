@@ -27,18 +27,17 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 @Transactional
 public class PeriodoServiceImpl implements PeriodoService{
 	
-	private PeriodoDAO periodoDAO;
+
+
+	private PeriodoDAO<Periodo> periodoDAO;
 	
 	private DisciplinaDao disciplinaDAO;
 
-
-
-	public PeriodoDAO getPeriodoDAO() {
+	public PeriodoDAO<Periodo> getPeriodoDAO() {
 		return periodoDAO;
 	}
-
 	@Autowired
-	public void setPeriodoDAO(PeriodoDAO periodoDAO) {
+	public void setPeriodoDAO(PeriodoDAO<Periodo> periodoDAO) {
 		this.periodoDAO = periodoDAO;
 	}
 	
@@ -125,6 +124,11 @@ public class PeriodoServiceImpl implements PeriodoService{
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public List<Periodo> listar() throws MyGridPucException {
 		return getPeriodoDAO().listar();
+	}
+
+	@Override
+	public List<Periodo> listar(Integer idMatriz) throws MyGridPucException {
+		return null;
 	}
 	
 }

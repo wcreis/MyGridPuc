@@ -44,9 +44,16 @@ public interface PeriodoService {
 	public Periodo consultar(Integer id) throws MyGridPucException;
 	
 	/**
-	 * Lista todas os periodo cadastradas
+	 * Lista todos os periodo cadastrados
 	 * @return
 	 * @throws MyGridPucException
 	 */
 	public List<Periodo> listar() throws MyGridPucException;
+	
+	/**
+	 * Lista todos os periodos cadastrados de uma Matriz
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public List<Periodo> listar(Integer idMatriz) throws MyGridPucException;
 }

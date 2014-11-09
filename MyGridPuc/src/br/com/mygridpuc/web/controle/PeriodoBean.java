@@ -18,8 +18,13 @@ import org.springframework.stereotype.Component;
 @Component
 @ManagedBean
 @SessionScoped
-public class PeriodoBean {
+public class PeriodoBean extends AbstractBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4698859573076589608L;
 	private Integer idPeriodo;
+	private Integer periodo;
 	private List<DisciplinaBean> listDisciplinaBean;
 	
 	public Integer getIdPeriodo() {
@@ -27,6 +32,12 @@ public class PeriodoBean {
 	}
 	public void setIdPeriodo(Integer idPeriodo) {
 		this.idPeriodo = idPeriodo;
+	}
+	public Integer getPeriodo() {
+		return periodo;
+	}
+	public void setPeriodo(Integer periodo) {
+		this.periodo = periodo;
 	}
 	public List<DisciplinaBean> getListDisciplinaBean() {
 		return listDisciplinaBean;
