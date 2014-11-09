@@ -53,9 +53,9 @@ public class DisciplinaController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			
-			return "sucesso";
+			return null;
 		}catch(Exception ex){
-			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
+			String msg = "Inclus„o n„o realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -67,7 +67,7 @@ public class DisciplinaController {
 	 * @return
 	 */
 	public String listar(){
-		
+		disciplinaBean = new DisciplinaBean();
 		try{
 			List<Disciplina> listDisciplina = new ArrayList<>();
 			listDisciplina = getDisciplinaService().listar();
@@ -202,7 +202,7 @@ public class DisciplinaController {
 			
 			return "sucesso";
 		}catch(Exception e){
-			String msg = "Altera√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "AlteraÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			return null;
@@ -245,6 +245,11 @@ public class DisciplinaController {
 
 	public void setListaDisciplinaBean(List<DisciplinaBean> listaDisciplinaBean) {
 		this.listaDisciplinaBean = listaDisciplinaBean;
+	}
+	
+	public String limparFormulario(){
+		this.disciplinaBean = new DisciplinaBean();
+		return null;
 	}
 	
 }

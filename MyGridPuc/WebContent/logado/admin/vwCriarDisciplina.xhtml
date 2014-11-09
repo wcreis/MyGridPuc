@@ -5,6 +5,7 @@
 	xmlns:composite="http://java.sun.com/jsf/composite"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
@@ -26,8 +27,6 @@
 		          MyGridPuc - Disciplina    
 		</ui:define>
 	</ui:define>
-
-
 
 	<!-- CABEÇALHO -->
 	<ui:define name="cabecalho">
@@ -95,11 +94,15 @@
 
 							<!-- Submit -->
 							<div class="mws-button-row">
-								<h:commandButton value="Salvar"
-									action="#{disciplinaController.incluir}" class="btn btn-danger" />
+								<h:commandButton value="Salvar" action="#{disciplinaController.incluir}"	class="btn btn-danger" >
+								</h:commandButton>
 
-								<h:commandButton value="Limpar Formulario"
-									action="criar disciplina" onclick="limpaForm()" class="btn" />
+								<h:commandButton value="Novo"	onclick="limpaForm()" class="btn" >
+									<p:ajax listener="#{disciplinaController.limparFormulario}" update="formulario" />
+								</h:commandButton>
+								<h:commandButton value="Listar Disciplinas"	action="listar disciplina" immediate="true" class="btn" >
+								</h:commandButton>
+								
 							</div>
 							<div class="mws-button-row">
 								<h:commandButton value="Voltar Tela Principal"

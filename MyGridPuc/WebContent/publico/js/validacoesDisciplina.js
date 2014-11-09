@@ -43,7 +43,7 @@ function validarSelecionado(){
         	return true;
     	}
     }
-    alert('� necess�rio selecionar um item da lista.');
+    alert('É necessario selecionar um item da lista!!!');
     return false;
 }
 
