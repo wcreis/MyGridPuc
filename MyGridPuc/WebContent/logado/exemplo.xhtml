@@ -4,10 +4,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:sec="http://www.springframework.org/security/facelets/tags"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	
 <sec:isAnonymous>
 	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
 	<meta http-equiv="refresh"
 		content="0;url=#{request.contextPath}/publico/login.xhtml" />
+	<link rel="shortcut icon" href="#{request.contextPath}/publico/images/student.ico" ></link>
 </sec:isAnonymous>
 
 <ui:composition template="/template/index.xhtml">
