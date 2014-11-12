@@ -2,7 +2,6 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
-import br.com.mygridpuc.web.entidade.Curso;
 import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.util.MyGridPucException;
 

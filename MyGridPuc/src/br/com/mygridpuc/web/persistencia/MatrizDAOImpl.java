@@ -21,6 +21,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 public class MatrizDAOImpl implements MatrizDAO<Matriz>{
 
 	private EntityManager entityManager;
+	
 	private Class<Matriz> matrizClass;
 	
 	@Override

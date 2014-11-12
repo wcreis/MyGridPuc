@@ -28,13 +28,13 @@ public class CursoBeanDropDown extends AbstractBean{
 	private String nomeCurso;
 	private List<MatrizBean> listMatriz;
 	
+	
 	public List<MatrizBean> getListMatriz() {
 		return listMatriz;
 	}
 	public void setListMatriz(List<MatrizBean> listMatriz) {
 		this.listMatriz = listMatriz;
 	}
-
 	public Integer getCodigoCurso() {
 		return codigoCurso;
 	}

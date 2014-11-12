@@ -51,7 +51,7 @@ public class CursoController {
 		}
 		
 		matrizBean = new MatrizBean();
-		removeBean("formulario");
+		//removeBean("formulario");
 	}
 	
 	/**
@@ -115,6 +115,7 @@ public class CursoController {
 				cursoBean.setIdCurso(curso.getIdCurso());
 				cursoBean.setCodigoCurso(curso.getCodigoCurso());
 				cursoBean.setNomeCurso(curso.getNomeCurso());
+				System.out.println(curso.getNomeCurso());
 				listCursoBean.add(cursoBean);
 			}
 			return "listar curso";

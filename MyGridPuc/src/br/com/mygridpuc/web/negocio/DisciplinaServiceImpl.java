@@ -25,7 +25,11 @@ public class DisciplinaServiceImpl implements DisciplinaService {
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Disciplina incluir(Disciplina disciplina) throws MyGridPucException {
-		return disciplinaDao.incluir(disciplina);
+		getDisciplinaDao().incluir(disciplina);
+		
+		Disciplina disciplinaSalva = disciplinaDao.consultarPorCodigo(disciplina.getCodigo());
+		System.out.println(disciplinaSalva.toString());
+		return disciplinaSalva;
 	}
 
 	/**
@@ -60,6 +64,18 @@ public class DisciplinaServiceImpl implements DisciplinaService {
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public Disciplina consultar(Integer id) throws MyGridPucException {
 		Disciplina disciplina = getDisciplinaDao().consultar(id);
+		return disciplina;
+	}
+	
+	/**
+	 * Consulta uma Disciplina
+	 * @param Dados da Disciplina
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
+	public Disciplina consultar(String codDisc) throws MyGridPucException {
+		Disciplina disciplina = getDisciplinaDao().consultarPorCodigo(codDisc);
 		return disciplina;
 	}
 

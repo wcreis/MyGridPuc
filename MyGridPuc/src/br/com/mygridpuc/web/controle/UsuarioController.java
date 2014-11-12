@@ -44,7 +44,7 @@ public class UsuarioController {
 			Usuario usuario = new Usuario();
 			
 			usuario.setEmailUsuario(this.usuarioBean.getEmailUsuario().toLowerCase());
-			usuario.setTipoUsuario(0);
+			usuario.setTipoUsuario("ROLE_ADMINISTRADOR");
 			usuario.setSenhaUsuario(this.usuarioBean.getSenhaUsuario());
 			
 			getUsuarioService().incluir(usuario);
@@ -86,7 +86,7 @@ public class UsuarioController {
 				usuarioBean.setIdUsuario(usuario.getIdUsuario());
 				usuarioBean.setEmailUsuario(usuario.getEmailUsuario().toLowerCase());
 				usuarioBean.setSenhaUsuario(usuario.getSenhaUsuario());
-				usuarioBean.setTipoUsuario(0);
+				usuarioBean.setTipoUsuario("177.235.16.243");
 				
 				listaUsuarioBean.add(usuarioBean);
 			}
@@ -120,7 +120,7 @@ public class UsuarioController {
 			usuarioBean.setIdUsuario(usuario.getIdUsuario());
 			usuarioBean.setEmailUsuario(usuario.getEmailUsuario().toLowerCase());
 			usuarioBean.setSenhaUsuario(usuario.getSenhaUsuario());
-			usuarioBean.setTipoUsuario(0);
+			usuarioBean.setTipoUsuario("ROLE_ADMINISTRADOR");
 			
 			return "editar usuario";
 		}catch(Exception e){
@@ -191,7 +191,7 @@ public class UsuarioController {
 			}
 			
 			usuario.setEmailUsuario(this.usuarioBean.getEmailUsuario().toLowerCase());
-			usuario.setTipoUsuario(0);
+			usuario.setTipoUsuario("ROLE_ADMINISTRADOR");
 			usuario.setSenhaUsuario(this.usuarioBean.getSenhaUsuario());
 			
 			getUsuarioService().alterar(usuario);

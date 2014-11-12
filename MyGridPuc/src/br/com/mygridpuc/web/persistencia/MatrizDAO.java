@@ -1,6 +1,5 @@
 package br.com.mygridpuc.web.persistencia;
 
-import java.io.Serializable;
 import java.util.List;
 
 import br.com.mygridpuc.web.util.MyGridPucException;
@@ -20,19 +19,19 @@ public interface MatrizDAO <Matriz>{
 	
 	/**
 	 * Inclui um objeto Matriz na base de dados
-	 * @param object
+	 * @param matriz
 	 * @return
 	 * @throws MyGridPucException
 	 */
-	public Matriz incluir(Matriz object) throws MyGridPucException;
+	public Matriz incluir(Matriz matriz) throws MyGridPucException;
 	
 	/**
 	 * Altera um objeto Matriz na base de dados
-	 * @param object
+	 * @param matriz
 	 * @return
 	 * @throws MyGridPucException
 	 */
-	public Matriz alterar(Matriz object) throws MyGridPucException;
+	public Matriz alterar(Matriz matriz) throws MyGridPucException;
 	
 	/**
 	 * Consulta um objeto Matriz da base de dados

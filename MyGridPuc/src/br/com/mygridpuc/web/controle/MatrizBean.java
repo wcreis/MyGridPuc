@@ -25,7 +25,7 @@ public class MatrizBean extends AbstractBean{
 	private static final long serialVersionUID = -7141962009716766510L;
 	
 	private String anoSemestreMatriz;
-	private List<PeriodoBean> listPeriodos;
+	private List<MatrizDisciplinaBean> listMatrizDisciplina;
 
 	public String getAnoSemestreMatriz() {
 		return anoSemestreMatriz;
@@ -33,11 +33,11 @@ public class MatrizBean extends AbstractBean{
 	public void setAnoSemestreMatriz(String anoSemestreMatriz) {
 		this.anoSemestreMatriz = anoSemestreMatriz;
 	}
-	public List<PeriodoBean> getListPeriodos() {
-		return listPeriodos;
+	public List<MatrizDisciplinaBean> getListMatrizDisciplina() {
+		return listMatrizDisciplina;
 	}
-	public void setListPeriodos(List<PeriodoBean> listPeriodos) {
-		this.listPeriodos = listPeriodos;
+	public void setListMatrizDisciplina(List<MatrizDisciplinaBean> listMatrizDisciplina) {
+		this.listMatrizDisciplina = listMatrizDisciplina;
 	}
 		
 }

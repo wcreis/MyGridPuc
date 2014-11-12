@@ -9,6 +9,9 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.hibernate.event.spi.SaveOrUpdateEvent;
+import org.hibernate.exception.ConstraintViolationException;
+
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
@@ -47,9 +50,12 @@ public class GenericoDAOImpl<T, ID extends Serializable> implements GenericoDAO<
 	 * @return
 	 * @throws MyGridPucException
 	 */
-	public T incluir(T object) throws MyGridPucException {
+	public T incluir(T object) throws MyGridPucException, ConstraintViolationException {
 		try{
-			getEntityManager().merge(object);
+			
+			if(!getEntityManager().contains(object)){
+				getEntityManager().merge(object);
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();

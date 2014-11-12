@@ -39,6 +39,14 @@ public interface DisciplinaService {
 	public Disciplina consultar(Integer id) throws MyGridPucException;
 	
 	/**
+	 * Consulta uma disciplina pelo Codigo da Mesma
+	 * @param codDisc
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public Disciplina consultar(String codDisc) throws MyGridPucException;
+	
+	/**
 	 * Lista todas as disciplina cadastradas
 	 * @return
 	 * @throws MyGridPucException

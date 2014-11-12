@@ -32,18 +32,18 @@ public class Matriz implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idmatriz")
+	@Column(name="idMatriz")
 	private Integer idMatriz;
 	
-	@Column(name="anoSemestreMatriz", unique=true, nullable=false)
+	@Column(name="anoSemestreMatriz", nullable=false)
 	private String anoSemestreMatriz;
 
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idcurso", referencedColumnName="idcurso", nullable=false)
+	@JoinColumn(name="idcurso", referencedColumnName="idcurso", nullable=false,  insertable = false, updatable = false)
 	private Curso curso;
 		
 	@OneToMany(mappedBy="matriz", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Periodo> listaPeriodos;
+	private List<MatrizDisciplina> listMatrizDisciplinas;
 	
 	public Integer getIdMatriz() {
 		return idMatriz;
@@ -61,12 +61,12 @@ public class Matriz implements Serializable{
 		this.curso = curso;
 	}
 
-	public List<Periodo> getListaPeriodos() {
-		return listaPeriodos;
+	public List<MatrizDisciplina> getListaMatrizDisciplinas() {
+		return listMatrizDisciplinas;
 	}
 
-	public void setListaPeriodos(List<Periodo> listaPeriodos) {
-		this.listaPeriodos = listaPeriodos;
+	public void setListaMatrizDisciplinas(List<MatrizDisciplina> listaMatrizDisciplinas) {
+		this.listMatrizDisciplinas = listaMatrizDisciplinas;
 	}	
 	
 	public String getAnoSemestreMatriz() {
@@ -89,42 +89,15 @@ public class Matriz implements Serializable{
 		result = prime * result
 				+ ((idMatriz == null) ? 0 : idMatriz.hashCode());
 		result = prime * result
-				+ ((listaPeriodos == null) ? 0 : listaPeriodos.hashCode());
+				+ ((listMatrizDisciplinas == null) ? 0 : listMatrizDisciplinas.hashCode());
 		return result;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Matriz other = (Matriz) obj;
-		if (anoSemestreMatriz == null) {
-			if (other.anoSemestreMatriz != null)
-				return false;
-		} else if (!anoSemestreMatriz.equals(other.anoSemestreMatriz))
-			return false;
-		if (curso == null) {
-			if (other.curso != null)
-				return false;
-		} else if (!curso.equals(other.curso))
-			return false;
-		if (idMatriz == null) {
-			if (other.idMatriz != null)
-				return false;
-		} else if (!idMatriz.equals(other.idMatriz))
-			return false;
-		if (listaPeriodos == null) {
-			if (other.listaPeriodos != null)
-				return false;
-		} else if (!listaPeriodos.equals(other.listaPeriodos))
-			return false;
-		return true;
+	public String toString() {
+		return "Matriz [idMatriz=" + idMatriz + ", anoSemestreMatriz="
+				+ anoSemestreMatriz + ", curso=" + curso
+				+ ", listMatrizDisciplinas=" + listMatrizDisciplinas + "]";
 	}
-	
-	
 	
 }
