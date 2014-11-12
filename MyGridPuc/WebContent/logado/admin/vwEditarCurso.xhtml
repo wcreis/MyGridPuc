@@ -29,20 +29,9 @@
 	<ui:define name="menu">
 	<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 	<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
-		<!-- Menu será da Seguinte Forma:
-		Cadastros
-			-Curso
-			-Discilina
-			-Matriz
-			-Turma
-			-Usuário
-		Importação
-			-Matriz Curricular
-			-Programação Academica
-		 -->
 		 	
-		 	<h:commandButton action="listar curso" immediate="true" value="Listar Cursos" /><br/>
-			<h:commandButton action="principal" immediate="true" value="Voltar ao Menu Principal" /><br/>
+	 	<h:commandButton action="listar curso" immediate="true" value="Listar Cursos" /><br/>
+		<h:commandButton action="principal" immediate="true" value="Voltar ao Menu Principal" /><br/>
 
 		</sec:ifAnyGranted>
 	</ui:define>
@@ -80,7 +69,17 @@
 					            </div>
 					        </div>
 					        
-					        <div class="form-group">
+				        	<!-- Tabela de ano semestre -->
+					       	<div class="mws-form-row">
+								<h:outputLabel value="Ano/Semestre" class="col-sm-2 control-label"/> 
+								<div class="col-sm-10">
+									<h:inputText id="anodig" value="#{cursoController.matrizBean.anoSemestreMatriz}" size="6" maxlength="6" />
+									
+									<h:commandButton value="Adicionar" action="#{cursoController.addAnoSemestre}" class="btn btn-danger" />
+					            </div>									
+					        </div>
+					        
+					        <!-- <div class="form-group">
 								<h:outputLabel value="Ano" class="col-sm-2 control-label"/> 
 								<div class="col-sm-10">
 									<h:inputText id="anodig" value="#{cursoController.anoSemestreBean.ano}" size="4" maxlength="15"/>
@@ -115,7 +114,7 @@
 									</h:dataTable>
 					            </div>
 								
-					        </div>
+					        </div> -->
 					        
 							<h:commandButton styleClass="button" value="Salvar" action="#{cursoController.alterar}" onclick=""/>
 							<h:commandButton styleClass="button" value="Excluir" action="#{cursoController.excluir}"/>

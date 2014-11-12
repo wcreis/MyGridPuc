@@ -14,9 +14,13 @@
 		    <li>
 		        <a href="#"><i class="icon-graph"></i>Curso</a>
 		        <ul class="closed">
-		            <li><a href="#{request.contextPath}/logado/admin/vwCriarCurso.xhtml">Cadastar Curso</a></li>
-		            <li><a href="#{request.contextPath}/logado/admin/vwListarCurso.xhtml">Listar Cursos</a></li>
+		            <li><h:commandLink value="Cadastar Curso" action="criar curso"/></li>
+		            <li><h:commandLink value="Listar Curso" action="#{cursoController.listar}"/></li>
 		        </ul>
+<!-- 		        <ul class="closed"> -->
+<!-- 		            <li><a href="#{request.contextPath}/logado/admin/curso/vwCriarCurso.xhtml">Cadastar Curso</a></li> -->
+<!-- 		            <li><a href="#{request.contextPath}/logado/admin/curso/vwListarCurso.xhtml">Listar Cursos</a></li> -->
+<!-- 		        </ul> -->
 		    </li>
 		    <li>
 		    	

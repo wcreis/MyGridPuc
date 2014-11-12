@@ -33,8 +33,8 @@ public class Curso implements Serializable{
 	@Column(name="idcurso")
 	private Integer idCurso;
 	
-	@Column(name="codigocurso", unique=true)
-	private Integer codigoCurso;
+	@Column(name="codigocurso", columnDefinition="INT(4) ZEROFILL", nullable=false, unique=true, length=4)
+	private int codigoCurso;
 	
 	@Column(name="nomecurso")
 	private String nomeCurso;
@@ -55,7 +55,7 @@ public class Curso implements Serializable{
 	public void setIdCurso(Integer idCurso) {
 		this.idCurso = idCurso;
 	}
-	public Integer getCodigoCurso() {
+	public int getCodigoCurso() {
 		return codigoCurso;
 	}
 	public void setCodigoCurso(Integer codigoCurso) {
@@ -67,13 +67,14 @@ public class Curso implements Serializable{
 	public void setNomeCurso(String nomeCurso) {
 		this.nomeCurso = nomeCurso;
 	}
-	
+	public void setCodigoCurso(int codigoCurso) {
+		this.codigoCurso = codigoCurso;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((codigoCurso == null) ? 0 : codigoCurso.hashCode());
+		result = prime * result + codigoCurso;
 		result = prime * result + ((idCurso == null) ? 0 : idCurso.hashCode());
 		result = prime * result
 				+ ((listMatriz == null) ? 0 : listMatriz.hashCode());
@@ -90,10 +91,7 @@ public class Curso implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Curso other = (Curso) obj;
-		if (codigoCurso == null) {
-			if (other.codigoCurso != null)
-				return false;
-		} else if (!codigoCurso.equals(other.codigoCurso))
+		if (codigoCurso != other.codigoCurso)
 			return false;
 		if (idCurso == null) {
 			if (other.idCurso != null)
@@ -112,6 +110,8 @@ public class Curso implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
 
 	
 }

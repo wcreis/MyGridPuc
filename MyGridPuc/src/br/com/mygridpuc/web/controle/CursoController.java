@@ -38,8 +38,6 @@ public class CursoController {
 	private CursoService cursoService;	
 	@Autowired
 	private MatrizBean matrizBean;	
-
-
 	
 	@SuppressWarnings("unchecked")
 	public CursoController(){
@@ -51,7 +49,6 @@ public class CursoController {
 		}
 		
 		matrizBean = new MatrizBean();
-		removeBean("formulario");
 	}
 	
 	/**
@@ -81,16 +78,17 @@ public class CursoController {
 			}
 			
 			getCursoService().incluir(curso);
+			String msg = "Cadastro Realizado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
 			
-			return "sucesso";
+			return cleanAllForm();
 		}catch(Exception e){
 			String msg = "Inclusão não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
-		}finally{
-			removeBean("formulario");
+			return cleanAllForm();
 		}
 	}
 	
@@ -123,7 +121,7 @@ public class CursoController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
+			return cleanAllForm();
 		}
 	}
 	
@@ -148,7 +146,7 @@ public class CursoController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
+			return cleanAllForm();
 		}
 	}
 	
@@ -161,7 +159,7 @@ public class CursoController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
+			return cleanAllForm();
 		}
 	}
 	
@@ -177,15 +175,18 @@ public class CursoController {
 			}
 			
 			getCursoService().excluir(curso.getIdCurso());
+			
+			String msg = "Cadastro Excluido com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			
 			return "sucesso";
 		}catch(Exception e){
 			String msg = "Exclusão não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
-		}finally{
-			removeBean("formulario");
+			return cleanAllForm();
 		}
 	}
 	
@@ -203,18 +204,20 @@ public class CursoController {
 			curso.setCodigoCurso(cursoBean.getCodigoCurso());
 			
 			getCursoService().alterar(curso);
+			
+			String msg = "Cadastro Alterado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
+			
 			return "sucesso";
 		}catch(Exception e){
 			String msg = "Alteração não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
+			return cleanAllForm();
 		}
 	}
-	
-	
-	
 	
 	public String addAnoSemestre(){
 		
@@ -241,7 +244,7 @@ public class CursoController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
+			return cleanAllForm();
 		}
 	}
 	
@@ -256,13 +259,9 @@ public class CursoController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			e.printStackTrace();
-			return "falha";
+			return cleanAllForm();
 		}
 	}
-	
-	public void removeBean(String bean){
-		getFacesContext().getExternalContext().getSessionMap().remove(bean);
-    }
 
 	public CursoBean getCursoBean() {
 		return cursoBean;
@@ -306,5 +305,11 @@ public class CursoController {
 	
 	private void setSession(String variavel, Object objeto){
 		this.getFacesContext().getExternalContext().getSessionMap().put(variavel, objeto);
+	}
+	
+	public String cleanAllForm(){
+		this.cursoBean = new CursoBean();
+		this.matrizBean = new MatrizBean();
+		return null;
 	}
 }
