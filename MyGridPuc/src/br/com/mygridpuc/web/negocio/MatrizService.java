@@ -49,4 +49,11 @@ public interface MatrizService {
 	 * @throws MyGridPucException
 	 */
 	public List<Matriz> listar() throws MyGridPucException;
+	
+	/**
+	 * Lista todas as matriz cadastradas que pertencem a um curso
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public List<Matriz> listar(Integer idCurso) throws MyGridPucException;
 }

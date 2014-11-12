@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.mygridpuc.web.entidade.Curso;
 import br.com.mygridpuc.web.entidade.Matriz;
-import br.com.mygridpuc.web.entidade.Periodo;
 import br.com.mygridpuc.web.persistencia.MatrizDAO;
-import br.com.mygridpuc.web.persistencia.PeriodoDAO;
+import br.com.mygridpuc.web.persistencia.MatrizDisciplinaDAO;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
@@ -26,12 +26,8 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 @Service
 @Transactional
 public class MatrizServiceImpl implements MatrizService{
-	
+
 	private MatrizDAO matrizDAO;
-	
-	private PeriodoDAO periodoDAO;
-
-
 
 	public MatrizDAO getMatrizDAO() {
 		return matrizDAO;
@@ -40,15 +36,6 @@ public class MatrizServiceImpl implements MatrizService{
 	@Autowired
 	public void setMatrizDAO(MatrizDAO matrizDAO) {
 		this.matrizDAO = matrizDAO;
-	}
-	
-	public PeriodoDAO getPeriodoDAO() {
-		return periodoDAO;
-	}
-
-	@Autowired
-	public void setPeriodoDAO(PeriodoDAO periodoDAO) {
-		this.periodoDAO = periodoDAO;
 	}
 
 	/**
@@ -59,7 +46,7 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Matriz incluir(Matriz matriz) throws MyGridPucException {
-		return matrizDAO.incluir(matriz);
+		return null;
 	}
 
 	/**
@@ -70,16 +57,10 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Matriz alterar(Matriz matriz) throws MyGridPucException {
-		
+
 		Matriz matrizExistente = this.consultar(matriz.getIdMatriz());
-		
-		for(Periodo p : matrizExistente.getListaPeriodos()){
-			if(!matrizExistente.getListaPeriodos().contains(p)){
-				getPeriodoDAO().excluir(p.getIdPeriodo());
-			}
-		}
-		
-		return getMatrizDAO().alterar(matriz);
+
+		return null;
 	}
 
 	/**
@@ -90,15 +71,9 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public void excluir(Integer id) throws MyGridPucException {
-		
+
 		Matriz matrizExistente = this.consultar(id);
-		
-		for(Periodo p : matrizExistente.getListaPeriodos()){
-				getPeriodoDAO().excluir(p.getIdPeriodo());
-		}
-		
-		getMatrizDAO().excluir(id);
-		
+
 	}
 
 	/**
@@ -109,22 +84,27 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public Matriz consultar(Integer id) throws MyGridPucException {
-		Matriz matriz = getMatrizDAO().consultar(id);
-		
-		Hibernate.initialize(matriz.getListaPeriodos());
-		
+		Matriz matriz = null;
+
+		//Hibernate.initialize(matriz.getListaPeriodos());
+
 		return matriz;
 	}
 
 	/**
-	 * Lista um matriz
+	 * Lista uma matriz
 	 * @param matriz
 	 * @return
 	 * @throws MyGridPucException
 	 */
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public List<Matriz> listar() throws MyGridPucException {
-		return getMatrizDAO().listar();
+		return null;
 	}
-	
+
+	@Override
+	public List<Matriz> listar(Integer idCurso) throws MyGridPucException {
+		return getMatrizDAO().listar(idCurso);
+	}
+
 }

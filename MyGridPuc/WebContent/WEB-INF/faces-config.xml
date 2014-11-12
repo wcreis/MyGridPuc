@@ -8,11 +8,6 @@
     
 	<navigation-rule>
 	
-		<!-- Teste de Navegação -->
-		 <navigation-case>
-			  <from-outcome>teste</from-outcome>
-			  <to-view-id>/logado/admin/vwCriarMatrizPrime.xhtml</to-view-id>
-		 </navigation-case>			
 		<!-- Navegação comum a Todos os Cadastros -->
 		 <navigation-case>
 			  <from-outcome>principal</from-outcome>

@@ -8,7 +8,8 @@
     http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
 	<!-- HTTP security configurations -->
-	<http>
+	<http >
+	    
 		<!-- Configure these elements to secure URIs in your application -->
 		<intercept-url pattern="/logado/**" access="ROLE_ADMINISTRADOR" />
 
@@ -25,7 +26,11 @@
 			propriedade "token-validity-seconds='xyz' ", onde xyz é o tempo em segundos 
 			para o Remember. para Isso chamar a URL: /_spring_security_remember_me -->
 		<remember-me />
-
+		<!-- Previne que a Session seja usada ao mesmo tempo em outro brouser -->
+		<session-management>
+        	<concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
+    	</session-management>
+    	
 	</http>
 
 	<authentication-manager>

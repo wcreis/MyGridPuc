@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @SessionScoped
 public class UsuarioBean {
 	private Integer idUsuario;
-	private Integer tipoUsuario;
+	private String tipoUsuario;
 	private String emailUsuario;
 	private String senhaUsuario;
 	
@@ -42,7 +42,7 @@ public class UsuarioBean {
 	 * 
 	 * @return tipoUsuario
 	 */
-	public Integer getTipoUsuario() {
+	public String getTipoUsuario() {
 		return tipoUsuario;
 	}
 	
@@ -50,7 +50,7 @@ public class UsuarioBean {
 	 * 
 	 * @param tipoUsuario
 	 */
-	public void setTipoUsuario(Integer tipoUsuario) {
+	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 	
