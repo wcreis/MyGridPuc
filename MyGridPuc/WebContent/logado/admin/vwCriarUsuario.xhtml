@@ -49,7 +49,7 @@
 								<!-- E-mail -->
 								<label for="email" class="mws-form-label">E-mail:</label>
 								<div class="mws-form-item">
-									<h:inputText id="email" value="#{usuarioController.usuario.emailUsuario}"	required="true" requiredMessage="Obrigatório preencher o email do Usuario." validatorMessage="Campo E-mail, não tem um E-mail Válido!">
+									<h:inputText id="email" value="#{usuarioController.usuario.emailUsuario}"	class="required email medium"> required="true" requiredMessage="Obrigatório preencher o email do Usuario." validatorMessage="Campo E-mail, não tem um E-mail Válido!">
 										<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 									</h:inputText>
 								</div>
@@ -57,7 +57,7 @@
 							<div class="mws-form-row">
 								<label for="senha" class="mws-form-label">Senha:</label>
 								<div class="mws-form-item">
-									<h:inputSecret id="senha"	value="#{usuarioController.usuario.senhaUsuario}" required="true" requiredMessage="Obrigatório o Campo de Senha.">
+									<h:inputSecret id="senha"	value="#{usuarioController.usuario.senhaUsuario}" class="mws-login-password required medium" required="true" requiredMessage="Obrigatório o Campo de Senha.">
 										<f:validateLength minimum="6" />
 									</h:inputSecret>
 								</div>

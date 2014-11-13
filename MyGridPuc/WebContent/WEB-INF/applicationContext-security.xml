@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
 	<!-- HTTP security configurations -->
-	<http >
+	<http auto-config='true'>
 	    
 		<!-- Configure these elements to secure URIs in your application -->
 		<intercept-url pattern="/logado/**" access="ROLE_ADMINISTRADOR" />
@@ -18,9 +18,8 @@
 			default-target-url="/logado/vwPrincipal.xhtml"
 			authentication-failure-url="/publico/login.xhtml?login_error=1" 
 			/>
-		<!-- Habilitar um Botão para Deslogar do Sistema para Isso chamar a URL: 
-			/j_spring_security_logout -->
-		<logout />
+		<!-- Habilitar um Botão para Deslogar do Sistema para Isso chamar a URL: /j_spring_security_logout -->
+		<logout invalidate-session="true" />
 		<!-- Habilitar um cHECKbOX Lembrar do Usuario no Sistema Será armazenado 
 			por Duas semanas ou 1209600 segundos, que podem ser alterados chamando a 
 			propriedade "token-validity-seconds='xyz' ", onde xyz é o tempo em segundos 
@@ -28,17 +27,25 @@
 		<remember-me />
 		<!-- Previne que a Session seja usada ao mesmo tempo em outro brouser -->
 		<session-management>
-        	<concurrency-control max-sessions="1" error-if-maximum-exceeded="false" />
+        	<concurrency-control max-sessions="1"/>
     	</session-management>
     	
 	</http>
+	<!-- LOGIN CUSTOMIZADO -->
+    <beans:bean id="provedorAutenticacao" class="br.com.mygridpuc.web.seguranca.ProvedorAutenticacao"></beans:bean>
 
+    
 	<authentication-manager>
+		<!-- Autenticação Basica -->
 		<authentication-provider>
 			<user-service>
 				<user name="MYGRIDPUC" password="20142" authorities="ROLE_ADMINISTRADOR" />
 			</user-service>
 		</authentication-provider>
+		
+		<!-- LOGIN CUSTOMIZADO -->
+		<authentication-provider ref="provedorAutenticacao" />
+
 		
 	</authentication-manager>
     
