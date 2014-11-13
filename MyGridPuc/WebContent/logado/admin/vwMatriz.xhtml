@@ -52,14 +52,14 @@
 		<f:view>			
 			<div class="mws-panel grid_10">
 				<div class="mws-panel-header">
-					<span><i class="icon-archive"></i>Cadastro de Matriz</span>
+					<span><i class="icon-archive"></i>Matrizes Curriculares</span>
 				</div>
 				<div class="mws-panel-header">
 					<div class="mws-panel-body no-padding">
 						<h:form prependId="false" id="formulario" class="mws-table">
 							<h:panelGrid columns="3" cellpadding="3" >
 					            <p:outputLabel for="curso" value="Curso: " />
-					            <p:selectOneMenu id="curso" value="#{matrizDropDownView.cursoBeanDropDown}" style="width:250px" converter="entityConverter">
+					            <p:selectOneMenu id="curso" value="#{matrizDropDownView.cursoBeanDropDown}" style="width:300px" converter="entityConverter">
 					                <p:ajax listener="#{matrizDropDownView.onCursoChange}" update="anomatriz" />
 					                <f:selectItem itemLabel="Selecione um Curso" itemValue="" noSelectionOption="true" />
 					                <f:selectItems value="#{matrizDropDownView.mapCursos}"/>
@@ -69,7 +69,7 @@
 					            </p:commandButton>
 					            
 					            <p:outputLabel for="anomatriz" value="Matriz: " />
-					            <p:selectOneMenu id="anomatriz" value="#{matrizDropDownView.matrizBean}" style="width:250px" converter="entityConverter">
+					            <p:selectOneMenu id="anomatriz" value="#{matrizDropDownView.matrizBean}" style="width:300px" converter="entityConverter">
 					                <p:ajax listener="#{matrizDropDownView.onMatrizChange}" update="tblPeriodos"/>
 					                
 					                <f:selectItem itemLabel="Selecione uma Matriz" itemValue="" noSelectionOption="true" />
@@ -83,19 +83,19 @@
 									Lista de Periodos e Disciplinas do Curso: #{matrizDropDownView.cursoBeanDropDown.nomeCurso} Matriz: #{matrizDropDownView.matrizBean.anoSemestreMatriz}
 								</f:facet>
 									<!-- Coluna Periodo -->
-									<p:column width="10%" headerText="Periodo">
+									<p:column width="20%" headerText="Periodo">
 											<h:outputText  value="#{matrizDisciplina.periodo}" />
 									</p:column>
 									<!-- Coluna Codigo Disciplina -->
-									<p:column width="10%" headerText="Código">
+									<p:column width="20%" headerText="Código">
 											<h:outputText  value="#{matrizDisciplina.disciplinaBean.codigo}" />
 									</p:column>
 									<!-- Coluna Nome da Disciplina -->
-									<p:column width="65%" headerText="Disciplina">
+									<p:column width="40%" headerText="Disciplina">
 											<h:outputText  value="#{matrizDisciplina.disciplinaBean.nome}" />
 									</p:column>	
 									<!-- Coluna Créditos da Disciplina -->
-									<p:column width="15%" headerText="Qtde Créditos" >
+									<p:column width="20%" headerText="Qtde Créditos" >
 											<h:outputText  value="#{matrizDisciplina.disciplinaBean.credito}" />
 									</p:column>																				  
 							</p:dataTable>

@@ -40,7 +40,7 @@ public class ImportMatrizControle {
 	private MatrizService matrizService;
 	@Autowired
 	private MatrizDisciplinaService matrizDisciplinaService;
-	
+
 	private Workbook workbook;
 
 	private UploadedFile file;
@@ -60,10 +60,10 @@ public class ImportMatrizControle {
 	public void setFile(UploadedFile file) {
 		this.file = file;
 	}
-	
+
 	public void upload() throws MyGridPucException {
-	if(file != null) {
-			FacesMessage message = new FacesMessage("Planilha: ", file.getFileName() + " Recebida com Sucesso.");
+		if(file != null) {
+			FacesMessage message = new FacesMessage();
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
 		InputStream input = null;
@@ -76,7 +76,7 @@ public class ImportMatrizControle {
 			FacesMessage message = new FacesMessage("Dados Importados da Planilha: ", file.getFileName() + ", com Sucesso!!!");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
-		
+
 	}
 
 	public DisciplinaService getDisciplinaService() {
@@ -121,7 +121,7 @@ public class ImportMatrizControle {
 		for(int j=0;j<3;j++){
 			Sheet sheetCurso = this.workbook.getSheet(j);
 			Curso curso = getCursoService().consultar((j+1));
-			
+
 			System.out.println(curso.getNomeCurso());
 			Matriz matriz = getMatrizService().listar(j+1).get(0);
 			System.out.println(matriz.getAnoSemestreMatriz());
@@ -141,8 +141,8 @@ public class ImportMatrizControle {
 				disciplina.setCodigo(celula2.getContents().toUpperCase());
 				disciplina.setNome(celula3.getContents().toUpperCase());
 				disciplina.setCredito(Integer.parseInt(celula4.getContents()));
-				
-				
+
+
 				try {
 					Disciplina disciplinaSalva=null;
 					if(getDisciplinaService().consultar(disciplina.getCodigo())==null){
@@ -150,16 +150,16 @@ public class ImportMatrizControle {
 					}else{
 						disciplinaSalva = getDisciplinaService().consultar(disciplina.getCodigo());
 					}
-					
+
 					MatrizDisciplinaId mdId = new MatrizDisciplinaId();
 					mdId.setIdDisciplina(disciplinaSalva.getIdDisciplina());
 					mdId.setIdMatriz(matriz.getIdMatriz());
-					
+
 					MatrizDisciplina md = new MatrizDisciplina();
 					md.setIdMatrizDisciplina(mdId);
 					md.setPeriodo(Integer.parseInt(celula1.getContents()));
 					getMatrizDisciplinaService().incluir(md);
-					
+
 				} catch (MyGridPucException e) {
 					FacesMessage message = new FacesMessage("Erro ao Gravar a Disciplina!!!");
 					FacesContext.getCurrentInstance().addMessage(null, message);

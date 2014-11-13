@@ -10,7 +10,8 @@
 
 <sec:isAnonymous>
 	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
-	<meta http-equiv="refresh" content="0;url=#{request.contextPath}/publico/login.xhtml" />
+	<meta http-equiv="refresh"
+		content="0;url=#{request.contextPath}/publico/login.xhtml" />
 </sec:isAnonymous>
 
 <ui:composition template="/template/index.xhtml">
@@ -43,13 +44,29 @@
 
 	<!-- CONTEÚDO -->
 	<ui:define name="conteudo">
-		
-	<h:form enctype="multipart/form-data" prependId="false" id="formulario" class="mws-table">
-    	<p:growl id="messages" showDetail="true" />
-		<p:fileUpload value="#{importMatrizControle.file}" mode="simple" skinSimple="true" allowTypes="/(\.|\/)(xls)$/"/>
- 		<p:commandButton value="Submit" ajax="false" actionListener="#{importMatrizControle.upload}" disabled="false" /> 
-	</h:form>
-	
+		<f:view>
+			<div class="mws-panel grid_4">
+				<div class="mws-panel-header">
+					<span><i class="icon-archive"></i>Importar Matriz Curricular</span>
+				</div>
+				<div class="mws-panel-header">
+					<div class="mws-panel-body no-padding">
+						<h:form enctype="multipart/form-data" prependId="false"
+							id="formulario" class="mws-table">
+							<p:growl id="messages" showDetail="true" />
+							<p:fileUpload value="#{importMatrizControle.file}" mode="simple"
+								skinSimple="true" allowTypes="/(\.|\/)(xls)$/" />
+								
+							<div class="mws-button-row">
+								<p:commandButton styleClass="btn btn-primary" value="Submit" ajax="false"
+									actionListener="#{importMatrizControle.upload}"
+									disabled="false" />
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</f:view>
 	</ui:define>
 
 </ui:composition>
