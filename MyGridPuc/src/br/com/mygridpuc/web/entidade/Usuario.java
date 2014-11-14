@@ -31,7 +31,7 @@ public class Usuario implements Serializable{
 	@Column(name="idUsuario")
 	private Integer idUsuario;
 	
-	@NaturalId
+	
 	@Column(name="emailUsuario", unique=true)
 	private String emailUsuario;
 	
