@@ -2,8 +2,6 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
 import br.com.mygridpuc.web.entidade.Usuario;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
@@ -44,14 +42,6 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 	 * @throws MyGridPucException
 	 */
 	public Usuario consultar(Integer id) throws MyGridPucException;
-	
-	/**
-	 * Consulta um usuario pelo login.
-	 * @param login
-	 * @return UserDetails
-	 * @throws MyGridPucException
-	 */
-	public UserDetails  consultarPorLogin(String login) throws MyGridPucException;
 	
 	/**
 	 * Lista todas os usuarios cadastradoas
