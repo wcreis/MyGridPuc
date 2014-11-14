@@ -44,14 +44,6 @@ public class LocalController {
 		try{
 			Local local = new Local();
 
-			//Preenche os dados da tela no objeto persistente
-			local.setArea(localBean.getArea());
-			local.setBloco(localBean.getBloco());
-			local.setCampus(localBean.getCampus());
-			local.setIdLocal(localBean.getIdLocal());
-			local.setIe(localBean.getIe());
-			local.setSala(localBean.getSala());
-			
 			getLocalService().incluir(local);
 			
 			return "sucesso";
@@ -83,12 +75,7 @@ public class LocalController {
 			
 			for(Local local: listLocal){
 				LocalBean localBean = new LocalBean();
-				localBean.setArea(local.getArea());
-				localBean.setBloco(local.getBloco());
-				localBean.setCampus(local.getCampus());
-				localBean.setIdLocal(local.getIdLocal());
-				localBean.setIe(local.getIe());
-				localBean.setSala(local.getSala());
+	
 				
 				listLocalBeans.add(localBean);
 			}
@@ -114,12 +101,7 @@ public class LocalController {
 				return "listar local";
 			}
 			
-			localBean.setArea(local.getArea());
-			localBean.setBloco(local.getBloco());
-			localBean.setCampus(local.getCampus());
-			localBean.setIdLocal(local.getIdLocal());
-			localBean.setIe(local.getIe());
-			localBean.setSala(local.getSala());
+
 			
 			return "editar local";
 		}catch(Exception e){
@@ -177,11 +159,7 @@ public class LocalController {
 				return "listar local";
 			}
 			
-			local.setArea(localBean.getArea());
-			local.setBloco(localBean.getBloco());
-			local.setCampus(localBean.getCampus());
-			local.setIe(localBean.getIe());
-			local.setSala(localBean.getSala());
+
 			
 			getLocalService().alterar(local);
 			return "sucesso";

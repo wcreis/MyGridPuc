@@ -38,6 +38,9 @@ public class Disciplina implements Serializable{
 	}
 	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<MatrizDisciplina> listMAtrizDisciplina;
+	
+	@OneToMany(mappedBy="turma", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Turma> listTurma;
 
 	public void setIdDisciplina(Integer idDisciplina) {
 		this.idDisciplina = idDisciplina;
