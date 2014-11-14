@@ -22,9 +22,6 @@ function limpaForm(){
         if(campo.type=='text'){    
         	campo.value = "";
     	}
-        if(campo.type=='hidden'){    
-        	campo.value = "";
-    	}
 
     }
 }

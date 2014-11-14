@@ -68,6 +68,7 @@ public class UsuarioController {
 	 * @return
 	 */
 	public String listar(){
+		this.usuarioBean = new UsuarioBean();
 		try{
 			List<Usuario> listUsuario = new ArrayList<>();
 			listUsuario = getUsuarioService().listar();
@@ -93,7 +94,7 @@ public class UsuarioController {
 			}
 			return "listar usuario";
 		}catch(Exception e){
-			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "N„o Foi possivel listar os Usuarios. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
@@ -106,6 +107,7 @@ public class UsuarioController {
 	 * @return
 	 */
 	public String consultar(){
+		
 		try{
 			
 			String idUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formularioUsuario:idUsuario");
@@ -125,7 +127,7 @@ public class UsuarioController {
 			
 			return "editar usuario";
 		}catch(Exception e){
-			String msg = "Consulta n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Consulta n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
@@ -203,7 +205,7 @@ public class UsuarioController {
 			
 			return null;
 		}catch(Exception e){
-			String msg = "Altera√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "AlteraÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formularioUsuario", message);
 			return null;

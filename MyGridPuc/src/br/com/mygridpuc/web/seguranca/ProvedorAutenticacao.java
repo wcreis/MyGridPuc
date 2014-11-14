@@ -10,7 +10,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 
-import br.com.mygridpuc.web.negocio.UsuarioService;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 @Controller
@@ -18,7 +17,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 public class ProvedorAutenticacao implements AuthenticationProvider{
 	
 	@Autowired
-	private UsuarioService usuarioService;
+	private AutenticadorService usuarioService;
 	
 	@Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException{
@@ -35,7 +34,6 @@ public class ProvedorAutenticacao implements AuthenticationProvider{
 		try {
 			usuario = getUsuarioService().consultarPorLogin(login);
 		} catch (MyGridPucException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -55,22 +53,18 @@ public class ProvedorAutenticacao implements AuthenticationProvider{
         }
     }
 
-
     @Override
     public boolean supports(Class<? extends Object> authentication){
         return UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication)
                 && authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 
-
-	public UsuarioService getUsuarioService() {
+	public AutenticadorService getUsuarioService() {
 		return usuarioService;
 	}
 
-
-	public void setUsuarioService(UsuarioService usuarioService) {
+	public void setUsuarioService(AutenticadorService usuarioService) {
 		this.usuarioService = usuarioService;
 	}
-    
     
 }
