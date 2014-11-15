@@ -15,31 +15,29 @@ import org.springframework.stereotype.Component;
  * @author DavidRodrigues / Wesley Reis
  *
  */
-@Component
 @ManagedBean
+@Component
 @SessionScoped
-public class MatrizBean {
-	private Integer idMatriz;
-	private String anoSemestreMatriz;
-	private List<PeriodoBean> listPeriodos;
+public class MatrizBean extends AbstractBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7141962009716766510L;
 	
-	public Integer getIdMatriz() {
-		return idMatriz;
-	}
-	public void setIdMatriz(Integer idMatriz) {
-		this.idMatriz = idMatriz;
-	}
+	private String anoSemestreMatriz;
+	private List<MatrizDisciplinaBean> listMatrizDisciplina;
+
 	public String getAnoSemestreMatriz() {
 		return anoSemestreMatriz;
 	}
 	public void setAnoSemestreMatriz(String anoSemestreMatriz) {
 		this.anoSemestreMatriz = anoSemestreMatriz;
 	}
-	public List<PeriodoBean> getListPeriodos() {
-		return listPeriodos;
+	public List<MatrizDisciplinaBean> getListMatrizDisciplina() {
+		return listMatrizDisciplina;
 	}
-	public void setListPeriodos(List<PeriodoBean> listPeriodos) {
-		this.listPeriodos = listPeriodos;
+	public void setListMatrizDisciplina(List<MatrizDisciplinaBean> listMatrizDisciplina) {
+		this.listMatrizDisciplina = listMatrizDisciplina;
 	}
 		
 }

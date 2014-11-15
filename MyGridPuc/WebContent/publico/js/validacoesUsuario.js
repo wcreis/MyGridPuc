@@ -1,9 +1,9 @@
 //desmarca todos os radios deixando apenas o selecionado marcado
 function desmarcar(radio){
-	var formulario = document.getElementById('formulario');
+	var formularioUsuario = document.getElementById('formularioUsuario');
 	var campo;
-	for(var item=0; item<formulario.length; item++){
-    	campo = formulario[item];
+	for(var item=0; item<formularioUsuario.length; item++){
+    	campo = formularioUsuario[item];
         if(campo.type=='radio' && campo.name!=radio.name){    
         	campo.checked = false;
     	}
@@ -12,10 +12,10 @@ function desmarcar(radio){
 
 //Limpa todos os Campos do Formulario
 function limpaForm(){
-	var formulario = document.getElementById('formulario');
+	var formularioUsuario = document.getElementById('formularioUsuario');
 	var campo;
-	for(var item=0; item<formulario.length; item++){
-    	campo = formulario[item];
+	for(var item=0; item<formularioUsuario.length; item++){
+    	campo = formularioUsuario[item];
         if(campo.type=='radio'){    
         	campo.checked = false;
     	}
@@ -34,26 +34,26 @@ function selecionarItem(campoHidden,radioSelecionado){
 
 //verifica se algum item esta selecionado
 function validarSelecionado(){
-	var formulario = document.getElementById('formulario');
+	var formularioUsuario = document.getElementById('formularioUsuario');
 	var campo;
 	
-	for(var item=0; item<formulario.length; item++){
-    	campo = formulario[item];
+	for(var item=0; item<formularioUsuario.length; item++){
+    	campo = formularioUsuario[item];
         if(campo.type=='radio' && campo.checked){
         	return true;
     	}
     }
-    alert('É necessário selecionar um item da lista.');
+    alert('Ã‰ Necessario selecinar um item da Tela!!!');
     return false;
 }
 
-//valida o formulario
+//valida o formularioUsuario
 function validarFormulario(){
 	
-	var formulario = document.getElementById('formulario');
-	if(formulario.email.value.lenght()<0){
+	var formularioUsuario = document.getElementById('formularioUsuario');
+	if(formularioUsuario.email.value.lenght()<0){
 		alert('O campo E-mail deve ser preenchido').
-		formulario.nome.focus();
+		formularioUsuario.nome.focus();
 		return false;
 	}
 	
@@ -62,5 +62,5 @@ function validarFormulario(){
 
 
 function retornaIdUsuario(){
-	return document.getElementById('formulario:idUsuario').value;
+	return document.getElementById('formularioUsuario:idUsuario').value;
 }

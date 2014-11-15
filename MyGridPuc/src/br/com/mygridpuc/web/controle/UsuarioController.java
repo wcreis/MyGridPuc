@@ -41,23 +41,24 @@ public class UsuarioController {
 	 */
 	public String incluir(){
 		try{
+			
 			Usuario usuario = new Usuario();
 			
 			usuario.setEmailUsuario(this.usuarioBean.getEmailUsuario().toLowerCase());
-			usuario.setTipoUsuario(0);
+			usuario.setTipoUsuario("ROLE_ADMINISTRADOR");
 			usuario.setSenhaUsuario(this.usuarioBean.getSenhaUsuario());
 			
 			getUsuarioService().incluir(usuario);
 			
-			String msg = "Usu√°rio Inclu√≠do com Sucesso!!!";
+			String msg = "Usuario Incluso com Sucesso!!!";
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			
-			return "sucesso";
+			return null;
 		}catch(Exception ex){
-			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
+			String msg = "Inclusao nao realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
 		}
 	}
@@ -67,13 +68,14 @@ public class UsuarioController {
 	 * @return
 	 */
 	public String listar(){
+		this.usuarioBean = new UsuarioBean();
 		try{
 			List<Usuario> listUsuario = new ArrayList<>();
 			listUsuario = getUsuarioService().listar();
 			if(listUsuario == null || listUsuario.size() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
 				System.out.println(getFacesContext());
-				getFacesContext().addMessage("formulario", facesMessage);
+				getFacesContext().addMessage("formularioUsuario", facesMessage);
 				return "listar usuarios";
 			}
 			
@@ -86,15 +88,15 @@ public class UsuarioController {
 				usuarioBean.setIdUsuario(usuario.getIdUsuario());
 				usuarioBean.setEmailUsuario(usuario.getEmailUsuario().toLowerCase());
 				usuarioBean.setSenhaUsuario(usuario.getSenhaUsuario());
-				usuarioBean.setTipoUsuario(0);
+				usuarioBean.setTipoUsuario("177.235.16.243");
 				
 				listaUsuarioBean.add(usuarioBean);
 			}
 			return "listar usuario";
 		}catch(Exception e){
-			String msg = "Inclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "N„o Foi possivel listar os Usuarios. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
 		}
 	}
@@ -105,28 +107,29 @@ public class UsuarioController {
 	 * @return
 	 */
 	public String consultar(){
+		
 		try{
 			
-			String idUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idUsuario");
-			
+			String idUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formularioUsuario:idUsuario");
+			System.out.println(idUsuario);
 			Usuario usuario = getUsuarioService().consultar(Integer.parseInt(idUsuario));
 			
 			if(usuario == null || usuario.getIdUsuario() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formulario", facesMessage);
-				return "listar usuarios";
+				getFacesContext().addMessage("formularioUsuario", facesMessage);
+				return null;
 			}
 			
 			usuarioBean.setIdUsuario(usuario.getIdUsuario());
 			usuarioBean.setEmailUsuario(usuario.getEmailUsuario().toLowerCase());
 			usuarioBean.setSenhaUsuario(usuario.getSenhaUsuario());
-			usuarioBean.setTipoUsuario(0);
+			usuarioBean.setTipoUsuario("ROLE_ADMINISTRADOR");
 			
 			return "editar usuario";
 		}catch(Exception e){
-			String msg = "Consulta n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Consulta n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
 		}
 	}
@@ -142,9 +145,9 @@ public class UsuarioController {
 			usuarioBean = new UsuarioBean();
 			return "criar usuario";
 		}catch(Exception e){
-			String msg = "Cria√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "CriaÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
 		}
 	}
@@ -152,29 +155,29 @@ public class UsuarioController {
 	public String excluir(){
 		try{
 			
-			String idUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idUsuario");
-			//HtmlInputHidden idUsuario = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formulario:idUsuario");
+			String idUsuario = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formularioUsuario:idUsuario");
+			//HtmlInputHidden idUsuario = (HtmlInputHidden) getFacesContext().getViewRoot().findComponent("formularioUsuario:idUsuario");
 			
-			String id = (String) (idUsuario == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formulario:idUsuario") : idUsuario);
+			String id = (String) (idUsuario == null ? FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("formularioUsuario:idUsuario") : idUsuario);
 			Usuario usuario = getUsuarioService().consultar(Integer.parseInt(id));
 			
 			if(usuario == null || usuario.getIdUsuario() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formulario", facesMessage);
+				getFacesContext().addMessage("formularioUsuario", facesMessage);
 				return "listar usuario";
 			}
 			
 			getUsuarioService().excluir(usuario.getIdUsuario());
 			
-			String msg = "Usu√°rio Excluido com Sucesso!!!";
+			String msg = "Usu·rio Excluido com Sucesso!!!";
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
-			return "sucesso";
+			getFacesContext().addMessage("formularioUsuario", message);
+			return null;
 			
 		}catch(Exception e){
-			String msg = "Exclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			String msg = "Exclus„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
 		}
 	}
@@ -186,25 +189,26 @@ public class UsuarioController {
 			
 			if(usuario == null || usuario.getIdUsuario() == 0){
 				FacesMessage facesMessage = new FacesMessage("Nenhum registro encontrado");
-				getFacesContext().addMessage("formulario", facesMessage);
+				getFacesContext().addMessage("formularioUsuario", facesMessage);
 				return "listar usuario";
 			}
 			
 			usuario.setEmailUsuario(this.usuarioBean.getEmailUsuario().toLowerCase());
-			usuario.setTipoUsuario(0);
+			usuario.setTipoUsuario("ROLE_ADMINISTRADOR");
 			usuario.setSenhaUsuario(this.usuarioBean.getSenhaUsuario());
 			
 			getUsuarioService().alterar(usuario);
 			
 			String msg = "Usuario Alterado com Sucesso!!!";
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			
-			return "sucesso";
+			return null;
 		}catch(Exception e){
-			String msg = "Altera√ß√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
+			e.printStackTrace();
+			String msg = "AlteraÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
-			getFacesContext().addMessage("formulario", message);
+			getFacesContext().addMessage("formularioUsuario", message);
 			return null;
 		}
 	}
@@ -245,6 +249,11 @@ public class UsuarioController {
 
 	public void setListaUsuarioBean(List<UsuarioBean> listaUsuarioBean) {
 		this.listaUsuarioBean = listaUsuarioBean;
+	}
+	
+	public String limparFormulario(){
+		this.usuarioBean = new UsuarioBean();
+		return null;
 	}
 	
 }

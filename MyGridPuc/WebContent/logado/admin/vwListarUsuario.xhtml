@@ -48,7 +48,7 @@
                 </div>
 				<div class="mws-panel-header">
 					<div class="mws-panel-body no-padding">
-						<h:form id="formulario" class="mws-table">
+						<h:form id="formularioUsuario" class="mws-table">
 							<h:inputHidden name="idUsuario" id="idUsuario" value="#{usuarioController.usuarioBean.idUsuario}" />
 							
 							<h:dataTable class="dataTables_wrapper" id="usuario" value="#{usuarioController.listaUsuarioBean}" var="usuario">
@@ -72,7 +72,7 @@
 									<f:facet name="header">
 										<h:outputLabel value="Selecione" />
 									</f:facet>
-									<h:selectOneRadio id="selecionado" value="#{usuarioController.usuarioBean.idUsuario}" onclick="selecionarItem('formulario:idUsuario',this);">
+									<h:selectOneRadio id="selecionado" value="#{usuarioController.usuarioBean.idUsuario}" onclick="selecionarItem('formularioUsuario:idUsuario',this);">
 										<f:param name="id" value="#{usuario}" />
 										<f:selectItem itemValue="#{usuario.idUsuario}" />
 									</h:selectOneRadio>

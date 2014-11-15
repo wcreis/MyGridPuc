@@ -31,7 +31,7 @@ public class Usuario implements Serializable{
 	@Column(name="idUsuario")
 	private Integer idUsuario;
 	
-	@NaturalId
+	
 	@Column(name="emailUsuario", unique=true)
 	private String emailUsuario;
 	
@@ -39,7 +39,7 @@ public class Usuario implements Serializable{
 	private String senhaUsuario;
 	
 	@Column(name="tipoUsuario")
-	private Integer  tipoUsuario;
+	private String  tipoUsuario;
 
 	/**
 	 * @return the idUsuario
@@ -86,14 +86,14 @@ public class Usuario implements Serializable{
 	/**
 	 * @return the tipoUsuario
 	 */
-	public Integer getTipoUsuario() {
+	public String getTipoUsuario() {
 		return tipoUsuario;
 	}
 
 	/**
 	 * @param tipoUsuario the tipoUsuario to set
 	 */
-	public void setTipoUsuario(Integer tipoUsuario) {
+	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 

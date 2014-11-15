@@ -1,6 +1,7 @@
 package br.com.mygridpuc.web.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -12,7 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name="disciplina")
 public class Disciplina implements Serializable{
-
 
 	/**
 	 * 
@@ -32,10 +32,12 @@ public class Disciplina implements Serializable{
 	
 	@Column(name="nomeDiciplina")
 	private String nome;
-	
+
 	public Integer getIdDisciplina() {
 		return idDisciplina;
 	}
+	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<MatrizDisciplina> listMAtrizDisciplina;
 
 	public void setIdDisciplina(Integer idDisciplina) {
 		this.idDisciplina = idDisciplina;
@@ -65,6 +67,14 @@ public class Disciplina implements Serializable{
 		this.nome = nome;
 	}
 
+	public List<MatrizDisciplina> getListMAtrizDisciplina() {
+		return listMAtrizDisciplina;
+	}
+
+	public void setListMAtrizDisciplina(List<MatrizDisciplina> listMAtrizDisciplina) {
+		this.listMAtrizDisciplina = listMAtrizDisciplina;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -83,7 +93,7 @@ public class Disciplina implements Serializable{
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof Disciplina))
 			return false;
 		Disciplina other = (Disciplina) obj;
 		if (codigo == null) {
@@ -109,7 +119,10 @@ public class Disciplina implements Serializable{
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Disciplina [idDisciplina=" + idDisciplina + ", codigo="
+				+ codigo + ", credito=" + credito + ", nome=" + nome + "]";
+	}
 
-	
-	
 }

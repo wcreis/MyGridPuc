@@ -1,9 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
+
 <sec:isAnonymous>
 	<!-- Redireciona caso o Usuário Não Esteja Autenticado. -->
 	<meta http-equiv="refresh"
@@ -14,6 +17,8 @@
 	<ui:define name="head">
 		<ui:include src="../../template/css.xhtml"></ui:include>
 		<link rel="shortcut icon" href="#{request.contextPath}/publico/images/student.ico" ></link>
+		<script language="javascript" src="#{request.contextPath}/publico/js/validacoesUsuario.js"
+			charset="ISO-8859-1" />
 	</ui:define>
 
 	<ui:define name="title">        
@@ -41,7 +46,7 @@
 	<ui:define name="conteudo">
 		<f:view>
 			<!-- Formulario de cadastro de Usuario -->
-			<div class="mws-panel grid_8">
+			<div class="mws-panel grid_6">
 				<div class="mws-panel-header">
 					<div class="mws-panel-body no-padding">
 						<h:form id="formularioUsuario" class="mws-form">
@@ -49,7 +54,7 @@
 								<!-- E-mail -->
 								<label for="email" class="mws-form-label">E-mail:</label>
 								<div class="mws-form-item">
-									<h:inputText id="email" value="#{usuarioController.usuario.emailUsuario}"	required="true" requiredMessage="Obrigatório preencher o email do Usuario." validatorMessage="Campo E-mail, não tem um E-mail Válido!">
+									<h:inputText id="email" value="#{usuarioController.usuario.emailUsuario}"	class="required email medium"> required="true" requiredMessage="Obrigatório preencher o email do Usuario." validatorMessage="Campo E-mail, não tem um E-mail Válido!">
 										<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 									</h:inputText>
 								</div>
@@ -57,7 +62,7 @@
 							<div class="mws-form-row">
 								<label for="senha" class="mws-form-label">Senha:</label>
 								<div class="mws-form-item">
-									<h:inputSecret id="senha"	value="#{usuarioController.usuario.senhaUsuario}" required="true" requiredMessage="Obrigatório o Campo de Senha.">
+									<h:inputSecret id="senha"	value="#{usuarioController.usuario.senhaUsuario}" class="mws-login-password required medium" required="true" requiredMessage="Obrigatório o Campo de Senha.">
 										<f:validateLength minimum="6" />
 									</h:inputSecret>
 								</div>
@@ -65,8 +70,11 @@
 
 							<!-- Submit -->
 							<div class="mws-button-row">
-								<h:commandButton value="Salvar"	action="#{usuarioController.incluir}" class="btn btn-danger" />
-								<h:commandButton value="Limpar Formulario"	action="criar usuario" onclick="limpaForm()" class="btn" />
+								<h:commandButton value="Salvar"	action="#{usuarioController.incluir}" class="btn btn-danger">
+								</h:commandButton>
+								<h:commandButton value="Novo" onclick="limpaForm()"  class="btn" >
+									<p:ajax listener="#{usuarioController.limparFormulario}" update="formularioUsuario" />
+								</h:commandButton>
 							</div>
 							<div class="mws-button-row">
 								<h:commandButton value="Voltar Tela Principal"

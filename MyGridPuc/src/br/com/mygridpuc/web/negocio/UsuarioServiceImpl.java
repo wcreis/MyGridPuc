@@ -66,5 +66,4 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> listar() throws MyGridPucException {
 		return getUsuarioDAO().listar();
 	}
-
 }

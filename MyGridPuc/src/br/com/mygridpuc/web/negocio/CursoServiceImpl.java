@@ -28,7 +28,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 public class CursoServiceImpl implements CursoService{
 	
 	private CursoDAO cursoDAO;
-	private MatrizDAO matrizDAO;
+	private MatrizDAO<Matriz> matrizDAO;
 
 	public CursoDAO getCursoDAO() {
 		return cursoDAO;
@@ -39,12 +39,12 @@ public class CursoServiceImpl implements CursoService{
 		this.cursoDAO = cursoDAO;
 	}
 	
-	public MatrizDAO getMatrizDAO() {
+	public MatrizDAO<Matriz> getMatrizDAO() {
 		return matrizDAO;
 	}
 	
 	@Autowired
-	public void setMatrizDAO(MatrizDAO matrizDAO) {
+	public void setMatrizDAO(MatrizDAO<Matriz> matrizDAO) {
 		this.matrizDAO = matrizDAO;
 	}
 
