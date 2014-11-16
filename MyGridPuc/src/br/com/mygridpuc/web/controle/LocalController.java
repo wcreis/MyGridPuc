@@ -60,6 +60,7 @@ public class LocalController {
 	 * Lista cursos cadastrados
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	public String listar(){
 		try{
 			List<Local> listLocal = getLocalService().listar();

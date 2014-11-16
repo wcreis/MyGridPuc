@@ -16,7 +16,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
  * Classe que define as operacoes da camada de negocio de local
- * @author David Rodrigues
+ * @author David Rodrigues / Wesley Reis
  *
  */
 
@@ -80,6 +80,19 @@ public class LocalServiceImpl implements LocalService{
 		return local;
 	}
 
+	
+	/**
+	 * Consulta os locais pelo Id da Turma
+	 * @param Lista de Locais
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
+	public List<Local> listar(Integer idTurma) throws MyGridPucException {
+		return getLocalDAO().consultarPorIdTurma(idTurma);
+	}
+
+	
 	/**
 	 * Lista um local
 	 * @param local

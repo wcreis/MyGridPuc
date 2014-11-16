@@ -56,4 +56,21 @@ public interface MatrizService {
 	 * @throws MyGridPucException
 	 */
 	public List<Matriz> listar(Integer idCurso) throws MyGridPucException;
+
+	
+	/**
+	 * Consulta uma matriz pelo identificador de Curso
+	 * @param idCurso
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public Matriz consultarPorIdCurso(Integer idCurso) throws MyGridPucException;
+
+	/**
+	 * Consulta uma matriz pelo identificador de Curso e Pelo AnoSemestre
+	 * @param Integer idCurso, String anoSemestre
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public Matriz consultarPorIdCursoAnoMatriz(Integer idCurso, String anoSemestre)throws MyGridPucException;
 }

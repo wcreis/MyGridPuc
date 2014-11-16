@@ -47,20 +47,19 @@
 		<f:view>
 			<div class="mws-panel grid_4">
 				<div class="mws-panel-header">
-					<span><i class="icon-archive"></i>Importar Matriz Curricular</span>
+					<span><i class="icon-archive"></i>Importar Programação Acadêmica</span>
 				</div>
 				<div class="mws-panel-header">
 					<div class="mws-panel-body no-padding">
 						<h:form enctype="multipart/form-data" prependId="false"
 							id="formulario" class="mws-table">
 							<p:growl id="messages" showDetail="true" />
-							<p:fileUpload value="#{importMatrizControle.file}" mode="simple"
-								skinSimple="true" allowTypes="Matrizes.xls" />
+							<p:fileUpload value="#{importProgAcad.file}" mode="simple"
+								skinSimple="true" allowTypes="ProgAcad.xls" />
 								
 							<div class="mws-button-row">
 								<p:commandButton styleClass="btn btn-primary" value="Enviar" ajax="false"
-									actionListener="#{importMatrizControle.upload}"
-									disabled="false" />
+									actionListener="#{importProgAcad.upload}"	disabled="false" />
 							</div>
 						</h:form>
 					</div>

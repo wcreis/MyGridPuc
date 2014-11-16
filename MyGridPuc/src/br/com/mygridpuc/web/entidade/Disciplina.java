@@ -32,16 +32,17 @@ public class Disciplina implements Serializable{
 	
 	@Column(name="nomeDiciplina")
 	private String nome;
+	
+	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<MatrizDisciplina> listMAtrizDisciplina;
+	
+	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Turma> listTurma;
 
 	public Integer getIdDisciplina() {
 		return idDisciplina;
 	}
-	@OneToMany(mappedBy="disciplina", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<MatrizDisciplina> listMAtrizDisciplina;
 	
-	@OneToMany(mappedBy="turma", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Turma> listTurma;
-
 	public void setIdDisciplina(Integer idDisciplina) {
 		this.idDisciplina = idDisciplina;
 	}

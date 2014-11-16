@@ -5,16 +5,13 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.mygridpuc.web.entidade.Curso;
 import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.persistencia.MatrizDAO;
-import br.com.mygridpuc.web.persistencia.MatrizDisciplinaDAO;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
@@ -46,7 +43,7 @@ public class MatrizServiceImpl implements MatrizService{
 	 */
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public Matriz incluir(Matriz matriz) throws MyGridPucException {
-		return null;
+		return getMatrizDAO().incluir(matriz);
 	}
 
 	/**
@@ -60,7 +57,7 @@ public class MatrizServiceImpl implements MatrizService{
 
 		Matriz matrizExistente = this.consultar(matriz.getIdMatriz());
 
-		return null;
+		return matrizExistente;
 	}
 
 	/**
@@ -69,6 +66,7 @@ public class MatrizServiceImpl implements MatrizService{
 	 * @return
 	 * @throws MyGridPucException
 	 */
+	@SuppressWarnings("unused")
 	@Transactional(readOnly=false, propagation = Propagation.REQUIRED, rollbackFor=Exception.class)
 	public void excluir(Integer id) throws MyGridPucException {
 
@@ -105,6 +103,18 @@ public class MatrizServiceImpl implements MatrizService{
 	@Override
 	public List<Matriz> listar(Integer idCurso) throws MyGridPucException {
 		return getMatrizDAO().listar(idCurso);
+	}
+
+	@Override
+	public Matriz consultarPorIdCurso(Integer idCurso) throws MyGridPucException {
+		if(getMatrizDAO().listar(idCurso).size()>0){
+			return getMatrizDAO().listar(idCurso).get(0);
+		}return null;
+	}
+
+	@Override
+	public Matriz consultarPorIdCursoAnoMatriz(Integer idCurso, String anoSemestre) throws MyGridPucException {
+		return getMatrizDAO().listar(idCurso,anoSemestre);
 	}
 
 }

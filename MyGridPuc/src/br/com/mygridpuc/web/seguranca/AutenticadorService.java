@@ -1,10 +1,7 @@
 package br.com.mygridpuc.web.seguranca;
 
-import java.util.List;
-
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.mygridpuc.web.entidade.Usuario;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 	/**

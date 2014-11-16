@@ -27,13 +27,13 @@ public class Curso implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idcurso")
+	@Column(name="idCurso")
 	private Integer idCurso;
 	
-	@Column(name="codigocurso", length=4)
+	@Column(name="codigocurso", unique=true, length=4)
 	private String codigoCurso;
 	
-	@Column(name="nomecurso")
+	@Column(name="nomeCurso")
 	private String nomeCurso;
 	
 	@OneToMany(mappedBy = "curso", targetEntity = Matriz.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -52,6 +52,7 @@ public class Curso implements Serializable{
 	public void setIdCurso(Integer idCurso) {
 		this.idCurso = idCurso;
 	}
+	}
 	public String getNomeCurso() {
 		return nomeCurso;
 	}
@@ -64,4 +65,12 @@ public class Curso implements Serializable{
 	public void setCodigoCurso(String codigoCurso) {
 		this.codigoCurso = codigoCurso;
 	}
+	@Override
+	public String toString() {
+		return "Curso [idCurso=" + idCurso + ", codigoCurso=" + codigoCurso
+				+ ", nomeCurso=" + nomeCurso + "]";
+	}
+
+	
+	
 }

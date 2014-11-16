@@ -2,6 +2,9 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import br.com.mygridpuc.web.entidade.Local;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
@@ -43,6 +46,16 @@ public interface LocalService {
 	 */
 	public Local consultar(Integer id) throws MyGridPucException;
 	
+	
+	/**
+	 * Consulta os locais pelo Id da Turma
+	 * @param Lista de Locais
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
+	public List<Local> listar(Integer idTurma) throws MyGridPucException;
+
 	/**
 	 * Lista todas os local cadastradas
 	 * @return

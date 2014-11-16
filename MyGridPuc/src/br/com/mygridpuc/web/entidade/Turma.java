@@ -39,8 +39,8 @@ public class Turma implements Serializable{
 	@Column(name="codTurma")
 	private String codTurma;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="idDisciplina", referencedColumnName="idDisciplina", nullable=false,  insertable = false, updatable = false)
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="idDisciplina", nullable=false, insertable=true, updatable=true)
 	private Disciplina disciplina;
 	
 	@OneToMany(mappedBy="turma", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
@@ -122,6 +122,13 @@ public class Turma implements Serializable{
 		} else if (!listLocais.equals(other.listLocais))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Turma [idTurma=" + idTurma + ", codTurma=" + codTurma
+				+ ", disciplina=" + disciplina + ", listLocais=" + listLocais
+				+ "]";
 	}
 
 }

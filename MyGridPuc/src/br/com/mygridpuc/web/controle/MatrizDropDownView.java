@@ -4,7 +4,6 @@ package br.com.mygridpuc.web.controle;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -18,9 +17,6 @@ import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-
-
 
 import br.com.mygridpuc.web.entidade.Curso;
 import br.com.mygridpuc.web.entidade.Matriz;

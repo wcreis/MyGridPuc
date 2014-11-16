@@ -32,11 +32,11 @@ public class MatrizDisciplina implements Serializable{
 	private int periodo;
 	
     @ManyToOne
-    @JoinColumn(name="idMatriz", nullable=false,  insertable = false, updatable = false)
+    @JoinColumn(name="idMatriz", nullable=false, insertable=false, updatable=false)
 	private Matriz matriz;
 	
     @ManyToOne
-    @JoinColumn(name="idDisciplina", nullable=false,  insertable = false, updatable = false)
+    @JoinColumn(name="idDisciplina", nullable=false, insertable=false, updatable=false)
 	private Disciplina disciplina;
 
 	

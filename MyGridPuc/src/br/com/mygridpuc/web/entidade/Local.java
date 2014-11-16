@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,13 +42,14 @@ public class Local implements Serializable{
 	@Column(name="sala")
 	private Integer sala;
 	@Column(name="dia_semana")
-	private String dia_semana;
+	private Integer dia_semana;
 	@Column(name="hora_ini")
 	private String hora_ini;
 	@Column(name="hora_fim")
 	private String hora_fim;
-	@ManyToOne
-	@JoinColumn(name="idTurma", nullable=false,  insertable = false, updatable = false)
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="idTurma", nullable=false, insertable=true, updatable=true)
 	private Turma turma;
 	
 	
@@ -75,10 +77,10 @@ public class Local implements Serializable{
 	public void setSala(Integer sala) {
 		this.sala = sala;
 	}
-	public String getDia_semana() {
+	public Integer getDia_semana() {
 		return dia_semana;
 	}
-	public void setDia_semana(String dia_semana) {
+	public void setDia_semana(Integer dia_semana) {
 		this.dia_semana = dia_semana;
 	}
 	public String getHora_ini() {
@@ -92,6 +94,12 @@ public class Local implements Serializable{
 	}
 	public void setHora_fim(String hora_fim) {
 		this.hora_fim = hora_fim;
+	}
+	public Turma getTurma() {
+		return turma;
+	}
+	public void setTurma(Turma turma) {
+		this.turma = turma;
 	}
 	@Override
 	public int hashCode() {
@@ -161,5 +169,5 @@ public class Local implements Serializable{
 			return false;
 		return true;
 	}
-	
+		
 }

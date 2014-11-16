@@ -2,6 +2,7 @@ package br.com.mygridpuc.web.persistencia;
 
 import java.util.List;
 
+import br.com.mygridpuc.web.entidade.Matriz;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
@@ -9,57 +10,20 @@ import br.com.mygridpuc.web.util.MyGridPucException;
  * @author David Rodrigues
  *
  */
-public interface MatrizDAO <Matriz>{
+public interface MatrizDAO extends GenericoDAO<Matriz, Integer>{
 
-	/**
-	 * Retorna a classe a ser persistida
-	 * @return
-	 */
-	public Class<Matriz> getObjectClass();
-	
-	/**
-	 * Inclui um objeto Matriz na base de dados
-	 * @param matriz
-	 * @return
-	 * @throws MyGridPucException
-	 */
-	public Matriz incluir(Matriz matriz) throws MyGridPucException;
-	
-	/**
-	 * Altera um objeto Matriz na base de dados
-	 * @param matriz
-	 * @return
-	 * @throws MyGridPucException
-	 */
-	public Matriz alterar(Matriz matriz) throws MyGridPucException;
-	
-	/**
-	 * Consulta um objeto Matriz da base de dados
-	 * @param id
-	 * @return
-	 * @throws MyGridPucException
-	 */
-	public Matriz consultar(Integer id) throws MyGridPucException;
-	
-	/**
-	 * Exclui um objeto Matriz  da base de dados
-	 * @param id
-	 * @throws MyGridPucException
-	 */
-	public void excluir(Integer id) throws MyGridPucException;
-	
-	/**
-	 * Lista os objetos Matriz da base de dados
-	 * @return
-	 * @throws MyGridPucException
-	 */
-	public List<Matriz> listar() throws MyGridPucException;
-	
 	/**
 	 * Lista os objetos Matriz da base de dados
 	 * @return
 	 * @throws MyGridPucException
 	 */
 	public List<Matriz> listar(Integer idCurso) throws MyGridPucException;
+	
+	/**
+	 * Lista os objetos Matriz da base de dados
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public Matriz listar(Integer idCurso, String anoSemestre) throws MyGridPucException;
 
 }
