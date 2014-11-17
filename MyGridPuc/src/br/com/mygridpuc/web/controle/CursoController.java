@@ -232,8 +232,11 @@ public class CursoController {
 			}
 			
 			getCursoService().alterar(curso);
-			return "sucesso";
+			String msg = "Cadastro Realizado com Sucesso!!!";
+			FacesMessage message = new FacesMessage(msg);
+			getFacesContext().addMessage("formulario", message);
 			
+			return cleanAllForm();
 		}catch(Exception e){
 			String msg = "Alteração não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);

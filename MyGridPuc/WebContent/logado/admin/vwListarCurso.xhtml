@@ -15,7 +15,7 @@
 	<ui:composition template="/template/index.xhtml">
 		<!-- HEAD DA PAGINA -->
 		<ui:define name="head">
-			<ui:include src="../../../template/css.xhtml"></ui:include>
+			<ui:include src="../../template/css.xhtml"></ui:include>
 			<link rel="shortcut icon" href="#{request.contextPath}/publico/images/student.ico"></link>
 			<script language="javascript" src="#{request.contextPath}/publico/js/validacoesCurso.js" charset="ISO-8859-1" />
 		</ui:define>
@@ -23,13 +23,13 @@
 			<ui:define name="title">MyGridPuc - Curso</ui:define>
 		<!-- CABEÇALHO -->
 		<ui:define name="cabecalho">
-			<ui:include src="../../../template/cabecalho.xhtml" />
+			<ui:include src="../../template/cabecalho.xhtml" />
 		</ui:define>
 		<!-- MENU -->
 		<ui:define name="menu">
 			<!-- Se o Usuario Estiver Logado ele Terá Acesso aos Menus -->
 			<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
-				<ui:include src="../../../template/menu.xhtml" />
+				<ui:include src="../../template/menu.xhtml" />
 			</sec:ifAnyGranted>
 		</ui:define>
 		<!-- CONTEÚDO -->
