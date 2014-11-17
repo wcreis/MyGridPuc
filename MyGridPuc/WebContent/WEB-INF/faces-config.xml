@@ -1,124 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<faces-config
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-    version="2.1">
-    
-	<navigation-rule>
-	
-		<!-- Navegação comum a Todos os Cadastros -->
-		 <navigation-case>
-			  <from-outcome>principal</from-outcome>
-			  <to-view-id>/logado/vwPrincipal.xhtml</to-view-id>
-		 </navigation-case>	
-		 <navigation-case>
-			  <from-outcome>sucesso</from-outcome>
-			  <to-view-id>/logado/admin/sucesso.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>falha</from-outcome>
-			  <to-view-id>/logado/admin/falha.xhtml</to-view-id>
-		 </navigation-case>
-		 
-		<!-- Navegação de telas para o cadastro de Cursos  -->
-		 <navigation-case>
-			  <from-outcome>vwCurso</from-outcome>
-			  <to-view-id>/logado/admin/vwCurso.xhtml</to-view-id>
-		 </navigation-case>		
-		 <navigation-case>
-			  <from-outcome>vwCurso</from-outcome>
-			  <to-view-id>/logado/admin/vwCurso.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>listar curso</from-outcome>
-			  <to-view-id>/logado/admin/vwListarCurso.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>editar curso</from-outcome>
-			  <to-view-id>/logado/admin/vwEditarCurso.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>criar curso</from-outcome>
-			  <to-view-id>/logado/admin/vwCriarCurso.xhtml</to-view-id>
-		 </navigation-case>
-		 
-		<!-- Navegação de telas para o cadastro de disciplinas  -->
-		 <navigation-case>
-			  <from-outcome>vwDisciplina</from-outcome>
-			  <to-view-id>/logado/admin/vwDisciplina.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>listar disciplina</from-outcome>
-			  <to-view-id>/logado/admin/vwListarDisciplina.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>editar disciplina</from-outcome>
-			  <to-view-id>/logado/admin/vwEditarDisciplina.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-		 	<from-outcome>criar disciplina</from-outcome>
-		 	<to-view-id>/logado/admin/vwCriarDisciplina.xhtml</to-view-id>
-		 </navigation-case>
-		 
-		<!-- Navegação de telas para o cadastro de matrizes  -->
-		 <navigation-case>
-			  <from-outcome>vwMatriz</from-outcome>
-			  <to-view-id>/logado/admin/vwMatriz.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>listar matriz</from-outcome>
-			  <to-view-id>/logado/admin/vwListarMatriz.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>editar matriz</from-outcome>
-			  <to-view-id>/logado/admin/vwEditarMatriz.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-		 	<from-outcome>criar matriz</from-outcome>
-		 	<to-view-id>/logado/admin/vwCriarMatriz.xhtml</to-view-id>
-		 </navigation-case>
-		 
-		<!-- Navegação de telas para o cadastro de local  -->
-		 <navigation-case>
-			  <from-outcome>vwLocal</from-outcome>
-			  <to-view-id>/logado/admin/vwLocal.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>listar local</from-outcome>
-			  <to-view-id>/logado/admin/vwListarLocal.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>editar local</from-outcome>
-			  <to-view-id>/logado/admin/vwEditarLocal.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-		 	<from-outcome>criar local</from-outcome>
-		 	<to-view-id>/logado/admin/vwCriarLocal.xhtml</to-view-id>
-		 </navigation-case>
-		<!-- Navegação de telas para o cadastro de Usuarios  -->
-		 <navigation-case>
-			  <from-outcome>vwUsuario</from-outcome>
-			  <to-view-id>/logado/admin/vwUsuario.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>listar usuario</from-outcome>
-			  <to-view-id>/logado/admin/vwListarUsuario.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-			  <from-outcome>editar usuario</from-outcome>
-			  <to-view-id>/logado/admin/vwEditarUsuario.xhtml</to-view-id>
-		 </navigation-case>
-		 <navigation-case>
-		 	<from-outcome>criar usuario</from-outcome>
-		 	<to-view-id>/logado/admin/vwCriarUsuario.xhtml</to-view-id>
-		 </navigation-case>
- 	</navigation-rule> 
-    
-    <!-- JSF and Spring are integrated -->
-    <application>
-        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-    </application>
-
+<faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+ <navigation-rule>
+  <!-- Navegação comum a Todos os Cadastros -->
+  <navigation-case>
+   <from-outcome>principal</from-outcome>
+   <to-view-id>/logado/vwPrincipal.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>sucesso</from-outcome>
+   <to-view-id>/logado/admin/sucesso.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>falha</from-outcome>
+   <to-view-id>/logado/admin/falha.xhtml</to-view-id>
+  </navigation-case>
+  <!-- Navegação de telas para o cadastro de Cursos  -->
+  <navigation-case>
+   <from-outcome>vwCurso</from-outcome>
+   <to-view-id>/logado/admin/vwCurso.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listar curso</from-outcome>
+   <to-view-id>/logado/admin/vwListarCurso.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>editar curso</from-outcome>
+   <to-view-id>/logado/admin/vwEditarCurso.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>criar curso</from-outcome>
+   <to-view-id>/logado/admin/vwCriarCurso.xhtml</to-view-id>
+  </navigation-case>
+  <!-- Navegação de telas para o cadastro de disciplinas  -->
+  <navigation-case>
+   <from-outcome>vwDisciplina</from-outcome>
+   <to-view-id>/logado/admin/vwDisciplina.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listar disciplina</from-outcome>
+   <to-view-id>/logado/admin/vwListarDisciplina.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>editar disciplina</from-outcome>
+   <to-view-id>/logado/admin/vwEditarDisciplina.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>criar disciplina</from-outcome>
+   <to-view-id>/logado/admin/vwCriarDisciplina.xhtml</to-view-id>
+  </navigation-case>
+  <!-- Navegação de telas para o cadastro de matrizes  -->
+  <navigation-case>
+   <from-outcome>vwMatriz</from-outcome>
+   <to-view-id>/logado/admin/vwMatriz.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listar matriz</from-outcome>
+   <to-view-id>/logado/admin/vwListarMatriz.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>editar matriz</from-outcome>
+   <to-view-id>/logado/admin/vwEditarMatriz.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>criar matriz</from-outcome>
+   <to-view-id>/logado/admin/vwCriarMatriz.xhtml</to-view-id>
+  </navigation-case>
+  <!-- Navegação de telas para o cadastro de local  -->
+  <navigation-case>
+   <from-outcome>vwLocal</from-outcome>
+   <to-view-id>/logado/admin/vwLocal.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listar local</from-outcome>
+   <to-view-id>/logado/admin/vwListarLocal.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>editar local</from-outcome>
+   <to-view-id>/logado/admin/vwEditarLocal.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>criar local</from-outcome>
+   <to-view-id>/logado/admin/vwCriarLocal.xhtml</to-view-id>
+  </navigation-case>
+  <!-- Navegação de telas para o cadastro de Usuarios  -->
+  <navigation-case>
+   <from-outcome>vwUsuario</from-outcome>
+   <to-view-id>/logado/admin/vwUsuario.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listar usuario</from-outcome>
+   <to-view-id>/logado/admin/vwListarUsuario.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>editar usuario</from-outcome>
+   <to-view-id>/logado/admin/vwEditarUsuario.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>criar usuario</from-outcome>
+   <to-view-id>/logado/admin/vwCriarUsuario.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ <!-- JSF and Spring are integrated -->
+ <application>
+  <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+ </application>
 </faces-config>
