@@ -169,7 +169,7 @@ public class DisciplinaController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			
-			return "sucesso";
+			return null;
 			
 		}catch(Exception e){
 			String msg = "Exclus√£o n√£o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
@@ -200,7 +200,7 @@ public class DisciplinaController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			
-			return "sucesso";
+			return null;
 		}catch(Exception e){
 			String msg = "AlteraÁ„o n„o realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);

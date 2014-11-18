@@ -18,23 +18,36 @@ import org.springframework.stereotype.Component;
 public class CursoBean extends AbstractBean {
 
 	private static final long serialVersionUID = -268588916360933825L;
-	//	private Integer idCurso;
-
-	//	private Integer idCurso;
+	
+	private Integer idCurso;
 	private String codigoCurso;
 	private String nomeCurso;
 	private List<MatrizBean> listMatriz;
-	
+	public Integer getIdCurso() {
+		return idCurso;
+	}
+	public void setIdCurso(Integer idCurso) {
+		this.idCurso = idCurso;
+	}
+	public String getCodigoCurso() {
+		return codigoCurso;
+	}
+	public void setCodigoCurso(String codigoCurso) {
+		this.codigoCurso = codigoCurso;
+	}
+	public String getNomeCurso() {
+		return nomeCurso;
+	}
+	public void setNomeCurso(String nomeCurso) {
+		this.nomeCurso = nomeCurso;
+	}
 	public List<MatrizBean> getListMatriz() {
 		return listMatriz;
 	}
 	public void setListMatriz(List<MatrizBean> listMatriz) {
 		this.listMatriz = listMatriz;
 	}
-	}
-		return nomeCurso;
-	}
-	public void setNomeCurso(String nomeCurso) {
-		this.nomeCurso = nomeCurso;
-	}
+	
+
+
 }

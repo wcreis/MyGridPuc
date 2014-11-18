@@ -36,9 +36,9 @@ public class Matriz implements Serializable{
 	private String anoSemestreMatriz;
 
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="idCurso", nullable=false, insertable=true, updatable=true)
 	private Curso curso;
-	
-	
+		
 	@OneToMany(mappedBy="matriz", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<MatrizDisciplina> listMatrizDisciplinas;
 	
