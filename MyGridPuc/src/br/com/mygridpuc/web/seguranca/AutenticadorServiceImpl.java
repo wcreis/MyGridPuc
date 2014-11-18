@@ -17,6 +17,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
  * Classe que define as operacoes da camada de negocio de Usuario
+ * 
  * @author Wesley Reis
  *
  */
@@ -42,6 +43,12 @@ public class AutenticadorServiceImpl implements AutenticadorService {
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see br.com.mygridpuc.web.seguranca.AutenticadorService#consultarPorLogin(java.lang.String)
+	 * 
+	 * Método responsável pela consulta de login
+	 * 
+	 */
 	@Override
 	public UserDetails  consultarPorLogin(String login) throws MyGridPucException {
 		Usuario usuario = new Usuario();

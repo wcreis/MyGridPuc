@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
+ * Classe que representa os dados persistentes
+ * 
  * @author Wesley
  *
  */

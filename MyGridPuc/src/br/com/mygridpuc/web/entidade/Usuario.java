@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 /**
  * Classe que representa os dados persistentes do Usuario
+ * 
  * @author Wesley Reis
  *
  */
@@ -143,7 +144,5 @@ public class Usuario implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
 
 }

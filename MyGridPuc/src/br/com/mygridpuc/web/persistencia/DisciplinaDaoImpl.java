@@ -9,6 +9,12 @@ import org.springframework.stereotype.Repository;
 import br.com.mygridpuc.web.entidade.Disciplina;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
+/**
+ * Classe que define as operacoes da camada de persistencia
+ * 
+ * @author David Rodrigues
+ *
+ */
 @Repository
 public class DisciplinaDaoImpl extends GenericoDAOImpl<Disciplina, Integer> implements DisciplinaDao {
 

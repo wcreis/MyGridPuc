@@ -27,6 +27,12 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
+/**
+ * Classe que controla as requisicoes
+ * 
+ * @author David Rodrigues
+ *
+ */
 @ManagedBean
 @ViewScoped
 @Controller

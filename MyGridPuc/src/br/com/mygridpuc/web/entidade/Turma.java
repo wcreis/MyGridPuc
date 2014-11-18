@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
+ * Classe que representa os dados persistentes
+ * 
  * @author Wesley
  *
  */

@@ -4,6 +4,8 @@
 package br.com.mygridpuc.web.util;
 
 /**
+ * Classe responsavel pelas exceções.
+ * 
  * @author DavidRodrigues
  *
  */
@@ -12,11 +14,22 @@ public class MyGridPucException extends Exception {
 	private Exception ex;
 	private String msg;
 
+	/**
+	 * Método com exceção padrão
+	 * 
+	 * @param e
+	 */
 	public MyGridPucException(Exception e){
 		ex = e;
 		msg = e.getMessage();
 	}
 
+	/**
+	 * Método com exceção e mensagem editavel
+	 * 
+	 * @param e
+	 * @param mensagem
+	 */
 	public MyGridPucException(Exception e, String mensagem){
 		e.printStackTrace();
 		ex = e;

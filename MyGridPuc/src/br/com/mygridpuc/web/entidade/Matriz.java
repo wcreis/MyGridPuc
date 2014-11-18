@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 /**
  * Classe que representa os dados persistentes da matriz
+ * 
  * @author David Rodrigues
  *
  */

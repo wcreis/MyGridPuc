@@ -14,8 +14,9 @@ import br.com.mygridpuc.web.persistencia.MatrizDisciplinaDAO;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
+ * Classe que define as operacoes da camada de negocio
+ * 
  * @author Wesley
- *
  */
 @Service
 @Transactional

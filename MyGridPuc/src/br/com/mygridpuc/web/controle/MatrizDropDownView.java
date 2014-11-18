@@ -1,7 +1,5 @@
 package br.com.mygridpuc.web.controle;
 
-
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,15 +25,16 @@ import br.com.mygridpuc.web.negocio.MatrizDisciplinaService;
 import br.com.mygridpuc.web.negocio.MatrizService;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
+/**
+ * Classe responsavel pela matriz view
+ * 
+ * @author David Rodrigues
+ *
+ */
 @ManagedBean(name="controlerMatriz")
 @RequestScoped
 @Controller
 public class MatrizDropDownView implements Serializable {
-
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6690525261613611937L;
 	
 	private Map<String,CursoBeanDropDown> mapCursos;

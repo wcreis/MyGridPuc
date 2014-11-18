@@ -5,6 +5,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**
  * Interface que define as operacoes da camada de persistencia de Curso
+ * 
  * @author David Rodrigues
  *
  */
