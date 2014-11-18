@@ -22,21 +22,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name="curso")
 public class Curso implements Serializable{
-	
-	private static final long serialVersionUID = 2757727363377720051L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6043261167029558061L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idcurso")
+	@Column(name="idCurso")
 	private Integer idCurso;
 	
-	@Column(name="codigocurso", length=4)
+	@Column(name="codigocurso", unique=true, length=4)
 	private String codigoCurso;
 	
-	@Column(name="nomecurso")
+	@Column(name="nomeCurso")
 	private String nomeCurso;
 	
-	@OneToMany(mappedBy = "curso", targetEntity = Matriz.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Matriz> listMatriz;
 	
 	public List<Matriz> getListMatriz() {
@@ -52,6 +54,7 @@ public class Curso implements Serializable{
 	public void setIdCurso(Integer idCurso) {
 		this.idCurso = idCurso;
 	}
+	
 	public String getNomeCurso() {
 		return nomeCurso;
 	}
@@ -63,5 +66,10 @@ public class Curso implements Serializable{
 	}
 	public void setCodigoCurso(String codigoCurso) {
 		this.codigoCurso = codigoCurso;
+	}
+	@Override
+	public String toString() {
+		return "Curso [idCurso=" + idCurso + ", codigoCurso=" + codigoCurso
+				+ ", nomeCurso=" + nomeCurso + "]";
 	}
 }

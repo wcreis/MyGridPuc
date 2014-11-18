@@ -9,7 +9,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.hibernate.event.spi.SaveOrUpdateEvent;
 import org.hibernate.exception.ConstraintViolationException;
 
 import br.com.mygridpuc.web.util.MyGridPucException;

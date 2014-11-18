@@ -56,10 +56,10 @@
 				</div>
 				<div class="mws-panel-header">
 					<div class="mws-panel-body no-padding">
-						<h:form prependId="false" id="formulario" class="mws-table">
-							<h:panelGrid columns="3" cellpadding="3" >
+						<h:form prependId="false" id="formulario" class="mws-table" width="100%">
+							<p:panelGrid columns="3" cellpadding="3">
 					            <p:outputLabel for="curso" value="Curso: " />
-					            <p:selectOneMenu id="curso" value="#{matrizDropDownView.cursoBeanDropDown}" style="width:300px" converter="entityConverter">
+					            <p:selectOneMenu id="curso" value="#{matrizDropDownView.cursoBeanDropDown}" style="width:350px" converter="entityConverter">
 					                <p:ajax listener="#{matrizDropDownView.onCursoChange}" update="anomatriz" />
 					                <f:selectItem itemLabel="Selecione um Curso" itemValue="" noSelectionOption="true" />
 					                <f:selectItems value="#{matrizDropDownView.mapCursos}"/>
@@ -69,34 +69,34 @@
 					            </p:commandButton>
 					            
 					            <p:outputLabel for="anomatriz" value="Matriz: " />
-					            <p:selectOneMenu id="anomatriz" value="#{matrizDropDownView.matrizBean}" style="width:300px" converter="entityConverter">
+					            <p:selectOneMenu id="anomatriz" value="#{matrizDropDownView.matrizBean}" style="width:350px" converter="entityConverter">
 					                <p:ajax listener="#{matrizDropDownView.onMatrizChange}" update="tblPeriodos"/>
 					                
 					                <f:selectItem itemLabel="Selecione uma Matriz" itemValue="" noSelectionOption="true" />
 					                <f:selectItems value="#{matrizDropDownView.mapMatrizes}"/>
 					            </p:selectOneMenu>
-					        </h:panelGrid>
+					        </p:panelGrid>
 							<p:separator></p:separator>
 
-					        <p:dataTable styleClass="dataTables_wrapper"  id="tblPeriodos"  value="#{matrizDropDownView.listMatrizDisciplinaBean}"  var="matrizDisciplina" scrollable="true" scrollHeight="350">
+					        <p:dataTable styleClass="dataTables_wrapper width=100%"  id="tblPeriodos"  value="#{matrizDropDownView.listMatrizDisciplinaBean}"  var="matrizDisciplina" scrollable="true" scrollHeight="350">
 								<f:facet name="header">
 									Lista de Periodos e Disciplinas do Curso: #{matrizDropDownView.cursoBeanDropDown.nomeCurso} Matriz: #{matrizDropDownView.matrizBean.anoSemestreMatriz}
 								</f:facet>
 									<!-- Coluna Periodo -->
 									<p:column width="20%" headerText="Periodo">
-											<h:outputText  value="#{matrizDisciplina.periodo}" />
+											<h:outputText width="20%" value="#{matrizDisciplina.periodo}" />
 									</p:column>
 									<!-- Coluna Codigo Disciplina -->
 									<p:column width="20%" headerText="Código">
-											<h:outputText  value="#{matrizDisciplina.disciplinaBean.codigo}" />
+											<h:outputText  width="20%"  value="#{matrizDisciplina.disciplinaBean.codigo}" />
 									</p:column>
 									<!-- Coluna Nome da Disciplina -->
 									<p:column width="40%" headerText="Disciplina">
-											<h:outputText  value="#{matrizDisciplina.disciplinaBean.nome}" />
+											<h:outputText width="40%" value="#{matrizDisciplina.disciplinaBean.nome}" />
 									</p:column>	
 									<!-- Coluna Créditos da Disciplina -->
 									<p:column width="20%" headerText="Qtde Créditos" >
-											<h:outputText  value="#{matrizDisciplina.disciplinaBean.credito}" />
+											<h:outputText width="20%" value="#{matrizDisciplina.disciplinaBean.credito}" />
 									</p:column>																				  
 							</p:dataTable>
 				        </h:form>

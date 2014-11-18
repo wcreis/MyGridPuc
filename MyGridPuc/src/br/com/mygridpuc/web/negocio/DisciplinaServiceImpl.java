@@ -28,7 +28,6 @@ public class DisciplinaServiceImpl implements DisciplinaService {
 		getDisciplinaDao().incluir(disciplina);
 		
 		Disciplina disciplinaSalva = disciplinaDao.consultarPorCodigo(disciplina.getCodigo());
-		System.out.println(disciplinaSalva.toString());
 		return disciplinaSalva;
 	}
 

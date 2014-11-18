@@ -44,6 +44,14 @@ public interface CursoService {
 	public Curso consultar(Integer id) throws MyGridPucException;
 	
 	/**
+	 * Consulta um curso pelo Codigo do Curso
+	 * @param codCurso
+	 * @return
+	 * @throws MyGridPucException
+	 */
+	public Curso consultar(String codCurso) throws MyGridPucException;
+	
+	/**
 	 * Lista todas os cursos cadastradas
 	 * @return
 	 * @throws MyGridPucException

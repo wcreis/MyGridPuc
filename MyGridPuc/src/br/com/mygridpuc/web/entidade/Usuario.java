@@ -12,8 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NaturalId;
-
 /**
  * Classe que representa os dados persistentes do Usuario
  * @author Wesley Reis

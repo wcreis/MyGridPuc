@@ -28,7 +28,7 @@ import br.com.mygridpuc.web.util.MyGridPucException;
 public class CursoServiceImpl implements CursoService{
 	
 	private CursoDAO cursoDAO;
-	private MatrizDAO<Matriz> matrizDAO;
+	private MatrizDAO matrizDAO;
 
 	public CursoDAO getCursoDAO() {
 		return cursoDAO;
@@ -39,12 +39,12 @@ public class CursoServiceImpl implements CursoService{
 		this.cursoDAO = cursoDAO;
 	}
 	
-	public MatrizDAO<Matriz> getMatrizDAO() {
+	public MatrizDAO getMatrizDAO() {
 		return matrizDAO;
 	}
 	
 	@Autowired
-	public void setMatrizDAO(MatrizDAO<Matriz> matrizDAO) {
+	public void setMatrizDAO(MatrizDAO matrizDAO) {
 		this.matrizDAO = matrizDAO;
 	}
 
@@ -122,6 +122,17 @@ public class CursoServiceImpl implements CursoService{
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public List<Curso> listar() throws MyGridPucException {
 		return getCursoDAO().listar();
+	}
+
+	/**
+	 * Consulta um curso pelo Codigo do Curso
+	 * @param codCurso
+	 * @return Curso
+	 * @throws MyGridPucException
+	 */
+	@Override
+	public Curso consultar(String codCurso) throws MyGridPucException {
+		return getCursoDAO().consultarPorCodCurso(codCurso);
 	}
 	
 }
