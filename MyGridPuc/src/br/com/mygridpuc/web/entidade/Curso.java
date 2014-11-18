@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package br.com.mygridpuc.web.entidade;
 	@Column(name="idCurso")
 	private Integer idCurso;

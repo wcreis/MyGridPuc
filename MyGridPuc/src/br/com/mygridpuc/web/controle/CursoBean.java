@@ -37,10 +37,4 @@ public class CursoBean extends AbstractBean {
 	public void setNomeCurso(String nomeCurso) {
 		this.nomeCurso = nomeCurso;
 	}
-	public String getCodigoCurso() {
-		return codigoCurso;
-	}
-	public void setCodigoCurso(String codigoCurso) {
-		this.codigoCurso = codigoCurso;
-	}
 }
