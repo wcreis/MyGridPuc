@@ -19,6 +19,8 @@ public class CursoBean extends AbstractBean {
 
 	private static final long serialVersionUID = -268588916360933825L;
 	//	private Integer idCurso;
+
+	//	private Integer idCurso;
 	private String codigoCurso;
 	private String nomeCurso;
 	private List<MatrizBean> listMatriz;
@@ -29,13 +31,7 @@ public class CursoBean extends AbstractBean {
 	public void setListMatriz(List<MatrizBean> listMatriz) {
 		this.listMatriz = listMatriz;
 	}
-//	public Integer getIdCurso() {
-//		return idCurso;
-//	}
-//	public void setIdCurso(Integer idCurso) {
-//		this.idCurso = idCurso;
-//	}
-	public String getNomeCurso() {
+	}
 		return nomeCurso;
 	}
 	public void setNomeCurso(String nomeCurso) {

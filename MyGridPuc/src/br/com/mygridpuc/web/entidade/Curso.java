@@ -1,32 +1,4 @@
 package br.com.mygridpuc.web.entidade;
-
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-/**
- * Classe que representa os dados persistentes do curso
- * @author David Rodrigues
- *
- */
-
-@Entity
-@Table(name="curso")
-public class Curso implements Serializable{
-	
-	private static final long serialVersionUID = 2757727363377720051L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idCurso")
 	private Integer idCurso;
 	
@@ -70,7 +42,4 @@ public class Curso implements Serializable{
 		return "Curso [idCurso=" + idCurso + ", codigoCurso=" + codigoCurso
 				+ ", nomeCurso=" + nomeCurso + "]";
 	}
-
-	
-	
 }
