@@ -2,6 +2,12 @@ package br.com.mygridpuc.web.controle;
 
 import java.io.Serializable;
 
+/**
+ * Classe responsavel pela abstração do id de todos beans
+ * 
+ * @author David Rodrigues
+ *
+ */
 public abstract class AbstractBean implements Serializable {
 
 	/**

@@ -12,6 +12,12 @@ import org.springframework.stereotype.Controller;
 
 import br.com.mygridpuc.web.util.MyGridPucException;
 
+/**
+ * Classe responsável pelo provedor de autenticação
+ * 
+ * @author David Rodrigues
+ *
+ */
 @Controller
 @Scope("request")
 public class ProvedorAutenticacao implements AuthenticationProvider{

@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 /**
  * Classe que representa os dados persistentes do Relacinamento entre matriz e Disciplina
+ * 
  * @author Wesley Reis
  *
  */

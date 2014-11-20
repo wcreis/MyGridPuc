@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 /**
  * Representa o Objeto de negocio 'Disciplina'.
+ * 
  * @author davi
  *
  */

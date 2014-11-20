@@ -1,5 +1,11 @@
 package br.com.mygridpuc.web.util;
 
+/**
+ * Classe com formatos dos dias da semana
+ * 
+ * @author David Rodrigues
+ *
+ */
 public abstract class Format {
 
 	public static Integer strDiaSemanaToInt(String diaSemana){

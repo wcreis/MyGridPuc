@@ -9,6 +9,12 @@ import org.springframework.stereotype.Repository;
 import br.com.mygridpuc.web.entidade.Usuario;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
+/**
+ * Classe que define as operacoes da camada de persistencia
+ * 
+ * @author David Rodrigues
+ *
+ */
 @Repository
 public class UsuarioDAOImpl extends GenericoDAOImpl<Usuario, Integer> implements UsuarioDAO {
 	

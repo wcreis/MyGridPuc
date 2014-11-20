@@ -11,6 +11,12 @@ import br.com.mygridpuc.web.entidade.Disciplina;
 import br.com.mygridpuc.web.persistencia.DisciplinaDao;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
+/**
+ * Classe que define as operacoes da camada de negocio
+ * 
+ * @author David Rodrigues
+ *
+ */
 @Service
 @Transactional
 public class DisciplinaServiceImpl implements DisciplinaService {

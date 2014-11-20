@@ -7,6 +7,12 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+/**
+ * Classe responsavel pela conversão da entidade
+ * 
+ * @author David Rodrigues
+ *
+ */
 @FacesConverter(value = "entityConverter", forClass = AbstractBean.class)
 public class EntityConverter implements Converter {
  

@@ -5,6 +5,12 @@ import java.util.List;
 import br.com.mygridpuc.web.entidade.Disciplina;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
+/**
+ * Interface que define as operacoes da camada de negocio
+ * 
+ * @author David Rodrigues
+ *
+ */
 public interface DisciplinaService {
 
 	/**

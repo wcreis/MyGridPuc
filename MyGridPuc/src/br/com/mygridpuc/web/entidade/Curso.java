@@ -15,6 +15,7 @@ import javax.persistence.Table;
 
 /**
  * Classe que representa os dados persistentes do curso
+ * 
  * @author David Rodrigues
  *
  */
