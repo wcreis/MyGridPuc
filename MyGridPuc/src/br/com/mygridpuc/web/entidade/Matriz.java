@@ -31,14 +31,14 @@ public class Matriz implements Serializable{
 
 	private static final long serialVersionUID = 4314447931031362446L;
 	@Expose
-	@SerializedName("im")//Serializar o idMatriz como im
+	//@SerializedName("im")//Serializar o idMatriz como im
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idMatriz")
 	private Integer idMatriz;
 	
 	@Expose
-	@SerializedName("as")//Serializar o anoSemestreMatriz como as
+	//@SerializedName("as")//Serializar o anoSemestreMatriz como as
 	@Column(name="anoSemestreMatriz", nullable=false)
 	private String anoSemestreMatriz;
 

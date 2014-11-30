@@ -29,7 +29,8 @@
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-	
+	<!-- Indica as classes responsáveis pela gestão das transações WEBSERVICE  -->
 	<bean id="transactionCurso" class="br.com.mygridpuc.web.ws.transaction.TransactionCursoImpl" />
+	<bean id="transactionDisciplina" class="br.com.mygridpuc.web.ws.transaction.TransactionDisciplinaImpl" />
 	
 </beans>

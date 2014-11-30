@@ -123,11 +123,8 @@ public class CursoServiceImpl implements CursoService{
 	@Transactional(readOnly=true, propagation = Propagation.SUPPORTS)
 	public List<Curso> listar() throws MyGridPucException {
 		List<Curso> listaCursos = getCursoDAO().listar();
-		System.out.println(listaCursos.size());
-		
 				for(Curso c: listaCursos){
 					Hibernate.initialize(c.getListMatriz());
-					System.out.println(c.getNomeCurso());
 				}
 				
 		return listaCursos;
@@ -141,7 +138,11 @@ public class CursoServiceImpl implements CursoService{
 	 */
 	@Override
 	public Curso consultar(String codCurso) throws MyGridPucException {
-		return getCursoDAO().consultarPorCodCurso(codCurso);
+		Curso curso = getCursoDAO().consultarPorCodCurso(codCurso);
+		if(curso!=null){
+			Hibernate.initialize(curso.getListMatriz());
+		}
+		return curso;
 	}
 	
 }

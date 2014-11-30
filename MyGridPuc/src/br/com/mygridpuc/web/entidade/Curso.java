@@ -33,24 +33,24 @@ public class Curso implements Serializable{
 	private static final long serialVersionUID = -6043261167029558061L;
 
 	@Expose
-	@SerializedName("i")//Serializar o idCurso como i
+	//@SerializedName("ic")//Serializar o idCurso como ic
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idCurso")
 	private Integer idCurso;
 	
 	@Expose
-	@SerializedName("cc")//Serializar o codigoCurso como cc
+	//@SerializedName("cc")//Serializar o codigoCurso como cc
 	@Column(name="codigocurso", unique=true, length=4)
 	private String codigoCurso;
 	
 	@Expose
-	@SerializedName("nc")//Serializar o nomeCurso como nc
+	//@SerializedName("nc")//Serializar o nomeCurso como nc
 	@Column(name="nomeCurso")
 	private String nomeCurso;
 	
 	@Expose
-	@SerializedName("lm")//Serializar o listMatriz como lm
+	//@SerializedName("lm")//Serializar o listMatriz como lm
 	@OneToMany(mappedBy="curso", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Matriz> listMatriz;
 	
