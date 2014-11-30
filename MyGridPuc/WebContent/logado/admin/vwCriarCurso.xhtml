@@ -68,37 +68,34 @@
 									<h:outputLabel value="Ano/Semestre" class="col-sm-2 control-label"/> 
 									<div class="col-sm-10">
 										<h:inputText id="anodig" value="#{cursoController.matrizBean.anoSemestreMatriz}" size="6" maxlength="6" />
-										
 										<h:commandButton value="Adicionar" action="#{cursoController.addAnoSemestre}" class="btn btn-danger" onclick="return fieldEmpty();"/>
 						            </div>
 						            
-						            <h:dataTable border="1" id="matriz" style="margin: 0px auto;" value="#{cursoController.cursoBean.listMatriz}" var="matrizes">
-										<h:column>
-											<f:facet name="header">
+						            <h:dataTable border="1" id="matriz" class="mws-table" style="margin: 0px auto;" value="#{cursoController.cursoBean.listMatriz}" var="matrizes">
+						             
+									<h:column>
+										<f:facet name="header">
 											<h:outputLabel value="Ano / Semestre" />
-											</f:facet>
-											<h:inputHidden value="#{matrizes.id}" id="idAnoSemestre" />
-											<h:outputLabel value="#{matrizes.anoSemestreMatriz}"/>
-										</h:column>
-								
-										<h:column>
+										</f:facet>
+										<h:inputHidden value="#{matrizes.id}" id="idAnoSemestre" />
+										<h:outputLabel value="#{matrizes.anoSemestreMatriz}" />
+									</h:column>
+									 
+									 <h:column>
 											<f:facet name="header">
 												<h:outputLabel value="Operação" />
 											</f:facet>
 											<h:commandButton styleClass="button" value="Remover" action="#{cursoController.rmvAnoSemestre}"/>
 										</h:column>
-									</h:dataTable>									
+									</h:dataTable>  									
 						        </div>									
 
 								<!-- Submit -->
 								<div class="mws-button-row">
 									<h:commandButton value="Salvar" action="#{cursoController.incluir}" class="btn btn-danger" onclick="return camposObrigatorios();"/>
-									<h:commandButton value="Novo" class="btn" >
+									<h:commandButton value="Cancelar" class="btn btn-primary" >
 										<p:ajax listener="#{cursoController.cleanAllForm}" update="formulario" />
 									</h:commandButton>
-								</div>
-								<div class="mws-button-row">
-									<h:commandButton value="Voltar Tela Principal" action="principal" immediate="true" class="btn" /> 
 								</div>
 								<div class="mws-form-message" align="left">
 									<h:messages></h:messages>
