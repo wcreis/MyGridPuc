@@ -54,7 +54,7 @@ public class UsuarioController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formularioUsuario", message);
 			
-			return null;
+			return limparFormulario();
 		}catch(Exception ex){
 			String msg = "Inclusao nao realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
@@ -148,7 +148,7 @@ public class UsuarioController {
 			String msg = "Criação não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formularioUsuario", message);
-			return null;
+			return limparFormulario();
 		}
 	}
 	
@@ -203,7 +203,7 @@ public class UsuarioController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formularioUsuario", message);
 			
-			return null;
+			return limparFormulario();
 		}catch(Exception e){
 			e.printStackTrace();
 			String msg = "Alteração não realizada. Motivo: " + ((e instanceof MyGridPucException ? ((MyGridPucException)e).getEx().getMessage():""));

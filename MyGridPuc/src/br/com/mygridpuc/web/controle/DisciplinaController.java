@@ -53,7 +53,7 @@ public class DisciplinaController {
 			FacesMessage message = new FacesMessage(msg);
 			getFacesContext().addMessage("formulario", message);
 			
-			return null;
+			return limparFormulario();
 		}catch(Exception ex){
 			String msg = "Inclusão não realizada. Motivo: " + ((ex instanceof MyGridPucException ? ((MyGridPucException)ex).getEx().getMessage():""));
 			FacesMessage message = new FacesMessage(msg);
