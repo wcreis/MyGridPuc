@@ -16,7 +16,7 @@
 <ui:composition template="/template/index.xhtml">
 	<ui:define name="head">
 		<ui:include src="../../template/css.xhtml"></ui:include>
-		<link rel="shortcut icon" href="#{request.contextPath}/publico/images/student.ico" ></link>
+		<link rel="shortcut icon" href="#{request.contextPath}/publico/images/mws-logo.png" ></link>
 		<script language="javascript" src="#{request.contextPath}/publico/js/validacoesUsuario.js"
 			charset="ISO-8859-1" />
 	</ui:define>
@@ -72,13 +72,9 @@
 							<div class="mws-button-row">
 								<h:commandButton value="Salvar"	action="#{usuarioController.incluir}" class="btn btn-danger">
 								</h:commandButton>
-								<h:commandButton value="Novo" onclick="limpaForm()"  class="btn" >
+								<h:commandButton value="Cancelar" onclick="limpaForm()"  class="btn btn-primary" >
 									<p:ajax listener="#{usuarioController.limparFormulario}" update="formularioUsuario" />
 								</h:commandButton>
-							</div>
-							<div class="mws-button-row">
-								<h:commandButton value="Voltar Tela Principal"
-									action="principal" immediate="true" class="btn" />
 							</div>
 							<div class="mws-form-message" align="left">
 								<h:messages></h:messages>
