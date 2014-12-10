@@ -13,9 +13,6 @@
 			<property name="hibernate.connection.username" value="root" />
 			<property name="hibernate.connection.password" value="" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mygridpuc?autoReconnectForPools=true" />
-			<property name="hibernate.connection.maxActive=" value="20" />
-			<property name="hibernate.connection.maxWait=" value="-1" />
-			<property name="hibernate.default_schema" value="" />
 			<!-- CONFIGURACAO -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.show_sql" value="true" />
