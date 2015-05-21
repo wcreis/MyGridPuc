@@ -2,7 +2,6 @@ package br.com.mygridpuc.web.persistencia;
 
 import java.util.List;
 
-import br.com.mygridpuc.web.entidade.MatrizDisciplina;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
 /**

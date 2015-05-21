@@ -475,7 +475,6 @@ public class ImportProgAcad {
 			try {
 				disciplina = getDisciplinaService().consultar(celCodDisciplina.getContents());
 			} catch (MyGridPucException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
 

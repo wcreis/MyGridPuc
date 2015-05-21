@@ -2,9 +2,6 @@ package br.com.mygridpuc.web.negocio;
 
 import java.util.List;
 
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
 import br.com.mygridpuc.web.entidade.Turma;
 import br.com.mygridpuc.web.util.MyGridPucException;
 

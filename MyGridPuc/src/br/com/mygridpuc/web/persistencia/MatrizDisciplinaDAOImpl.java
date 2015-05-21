@@ -10,8 +10,6 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-
 import br.com.mygridpuc.web.entidade.MatrizDisciplina;
 import br.com.mygridpuc.web.util.MyGridPucException;
 
@@ -39,7 +37,6 @@ public class MatrizDisciplinaDAOImpl implements MatrizDisciplinaDAO<MatrizDiscip
 
 	@Override
 	public MatrizDisciplina alterar(MatrizDisciplina matrizDisciplina) throws MyGridPucException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -60,7 +57,6 @@ public class MatrizDisciplinaDAOImpl implements MatrizDisciplinaDAO<MatrizDiscip
 
 	@Override
 	public void excluir(Integer id) throws MyGridPucException {
-		// TODO Auto-generated method stub
 
 	}
 
